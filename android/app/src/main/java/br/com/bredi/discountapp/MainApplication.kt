@@ -1,4 +1,4 @@
-package com.company.yourapp
+package br.bredi.discountapp
 
 import android.app.Application
 import android.content.res.Configuration

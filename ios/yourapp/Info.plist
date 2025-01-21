@@ -27,7 +27,7 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.company.yourapp</string>
+          <string>br.bredi.discountapp</string>
         </array>
       </dict>
     </array>
