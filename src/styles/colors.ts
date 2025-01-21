@@ -1,0 +1,57 @@
+export const colors = {
+
+  primary90: '#E5DEFF',
+  primary80: '#C9BFFF',
+  primary40: '#5D35F1',
+  primary30: '#4500D9',
+  primary20: '#2F009C',
+  primary10: '#1A0063',
+
+  secondary90: '#FAD7FF',
+  secondary80: '#EFB0FF',
+  secondary70: '#77009A',
+  secondary60: '#6750A4',
+  secondary50: '#775AFF',
+  secondary40: '#9B00CA',
+  secondary30: '#BE23F1',
+  secondary20: '#54006E',
+  secondary10: '#330044',
+
+  tertiary90: '#DAE2FF',
+  tertiary80: '#B2C5FF',
+  tertiary40: '#0056D2',
+  tertiary30: '#0040A1',
+  tertiary20: '#002B72',
+  tertiary10: '#001847',
+
+  error90: '#FFDAD6',
+  error80: '#FFB4AB',
+  error40: '#BA1A1A',
+  error30: '#93000A',
+  error20: '#690005',
+  error10: '#410002',
+
+  neutral99: '#FFFBFF',
+  neutral90: '#E5E1E6',
+  neutral10: '#1C1B1F',
+  
+  neutralvariant90: '#E5E0EC',
+  neutralvariant80: '#C9C5D0',
+  neutralvariant60: '#938F99',
+  neutralvariant50: '#79757F',
+  neutralvariant30: '#48454E',
+
+  blackbase: '#1C1B1F',
+  blackdark: '#313033',
+
+  dark: '#000',
+  ice: '#F9F9F9',
+  gray: '#898A8D',
+  white: '#FFFFFF',
+  danger: '#FF0058',
+  warning: '#FFC700',
+  primary: '#0a91c7',
+  tertiary: '#35C6BF',
+  secondary: '#353535',
+  primaryBlack: '#009ece',
+};

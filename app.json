@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "br-bredi-discountapp",
+    "slug": "br-bredi-discountapp",
+    "version": "0.0.1",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "versionCode": 1,
+      "package": "br.bredi.discountapp",
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "br.bredi.discountapp",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access camera.",
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to access your microphone"
+      }
+    },
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "27b767cc-a1b5-428f-b4e8-a5e7d35be0c3"
+      }
+    }
+  }
+}
