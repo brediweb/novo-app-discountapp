@@ -3,7 +3,7 @@ import Toast from 'react-native-toast-message';
 import { colors } from '../../../../styles/colors';
 import MapView, { Marker } from 'react-native-maps';
 import ImagePicker from 'react-native-image-crop-picker';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from '../../../../hooks/useNavigate';
 import { api_cnpj, api_ibge } from '../../../../service/api';
@@ -109,7 +109,7 @@ export default function FormPessoaJuridicaScreen({
   const [errorLocalizacao, setErrorLocalizacao] = useState('');
   const [modalLocalizacao, setModalLocalizacao] = useState(false);
 
-  async function postPessoaFisica() {
+  async function postPessoaJuridica() {
     if (novaLocalizacao.latitude == 0 || novaLocalizacao.longitude == 0) {
       return setErrorLocalizacao(
         'Selecione a localização do seu estabelecimento'
@@ -327,7 +327,7 @@ export default function FormPessoaJuridicaScreen({
       },
       {
         text: 'Avançar',
-        onPress: () => postPessoaFisica()
+        onPress: () => postPessoaJuridica()
       }
     ])
   }
@@ -454,7 +454,7 @@ export default function FormPessoaJuridicaScreen({
       const { granted } = await requestForegroundPermissionsAsync();
       setPermissionGrantedIos(granted);
     } catch (error: any) {
-      console.log('ERRO', error);
+      console.log('ERRO Permissão IOS:', error);
     }
   }
 
@@ -474,7 +474,7 @@ export default function FormPessoaJuridicaScreen({
       setEmail(response.data.estabelecimento.email);
       getCEP(response.data.estabelecimento.cep);
     } catch (error: any) {
-      console.log('ERRO', error);
+      console.log('ERRO GET CNPJ:', error);
     }
     setLoading(false);
   }
@@ -484,7 +484,7 @@ export default function FormPessoaJuridicaScreen({
       const response = await api_ibge.get(`/localidades/estados`);
       setListaEstados(response.data);
     } catch (error: any) {
-      console.log('ERRO', error);
+      console.log('ERRO GET Estados', error);
     }
   }
 
@@ -496,7 +496,7 @@ export default function FormPessoaJuridicaScreen({
       setListaCidades(response.data);
       console.log('CIDADES', response.data);
     } catch (error: any) {
-      console.log('ERRO', error);
+      console.log('ERRO Get Cidades:', error);
     }
   }
 
@@ -631,7 +631,7 @@ export default function FormPessoaJuridicaScreen({
         className="flex-1 relative mx-4"
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <ScrollView style={{flexGrow: 1}}>
+        <ScrollView style={{ flexGrow: 1 }}>
           {!imagemSelecionada && (
             <TouchableOpacity
               onPress={() => pickSingle(false)}
