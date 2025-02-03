@@ -391,12 +391,12 @@ export default function FormPessoaJuridicaScreen({
         latitude: parseFloat(response.data.location.coordinates.latitude),
         longitude: parseFloat(response.data.location.coordinates.longitude),
       });
-      console.log({
-        latitude: parseFloat(response.data.location.coordinates.latitude),
-        longitude: parseFloat(response.data.location.coordinates.longitude),
-      });
+      // console.log({
+      //   latitude: parseFloat(response.data.location.coordinates.latitude),
+      //   longitude: parseFloat(response.data.location.coordinates.longitude),
+      // });
     } catch (error: any) {
-      console.log('Error GET CEP', error);
+      console.error('Error GET CEP', error);
     }
   }
 
@@ -435,7 +435,7 @@ export default function FormPessoaJuridicaScreen({
         setImagemEnvio(image);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         Alert.alert(error.message ? error.message : error);
       });
   }
@@ -454,7 +454,7 @@ export default function FormPessoaJuridicaScreen({
       const { granted } = await requestForegroundPermissionsAsync();
       setPermissionGrantedIos(granted);
     } catch (error: any) {
-      console.log('ERRO Permissão IOS:', error);
+      console.error('ERRO Permissão IOS:', error);
     }
   }
 
@@ -463,7 +463,7 @@ export default function FormPessoaJuridicaScreen({
     setLoading(true);
     try {
       const response = await api_cnpj.get(`/${novoCnpj}`);
-      console.log(response.data);
+      // console.log(response.data);
       setNomeFantasia(response.data.estabelecimento.nome_fantasia ?? '');
       setNomeEmpressarial(response.data.razao_social);
       setCep(response.data.estabelecimento.cep);
@@ -474,7 +474,7 @@ export default function FormPessoaJuridicaScreen({
       setEmail(response.data.estabelecimento.email);
       getCEP(response.data.estabelecimento.cep);
     } catch (error: any) {
-      console.log('ERRO GET CNPJ:', error);
+      console.error('ERRO GET CNPJ:', error);
     }
     setLoading(false);
   }
@@ -484,7 +484,7 @@ export default function FormPessoaJuridicaScreen({
       const response = await api_ibge.get(`/localidades/estados`);
       setListaEstados(response.data);
     } catch (error: any) {
-      console.log('ERRO GET Estados', error);
+      console.error('ERRO GET Estados', error);
     }
   }
 
@@ -494,9 +494,9 @@ export default function FormPessoaJuridicaScreen({
         `/localidades/estados/${uf}/municipios`
       );
       setListaCidades(response.data);
-      console.log('CIDADES', response.data);
+      // console.log('CIDADES', response.data);
     } catch (error: any) {
-      console.log('ERRO Get Cidades:', error);
+      console.error('ERRO Get Cidades:', error);
     }
   }
 
@@ -886,10 +886,10 @@ export default function FormPessoaJuridicaScreen({
                 onMapReady={() => {
                   Platform.OS === 'android'
                     ? PermissionsAndroid.request(
-                        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                      ).then((granted) => {
-                        console.log('Permissão', granted);
-                      })
+                      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                    ).then((granted) => {
+                      // console.log('Permissão', granted);
+                    })
                     : '';
                 }}
                 region={{
@@ -921,10 +921,10 @@ export default function FormPessoaJuridicaScreen({
                     longitude: regiao.longitude,
                   }}
                   onDragEnd={(event) => {
-                    console.log(
-                      'Evento DragEnd:',
-                      event.nativeEvent.coordinate
-                    );
+                    // console.log(
+                    //   'Evento DragEnd:',
+                    //   event.nativeEvent.coordinate
+                    // );
                     setNovaLocalizacao(event.nativeEvent.coordinate);
                   }}
                   draggable
@@ -950,10 +950,10 @@ export default function FormPessoaJuridicaScreen({
                 onMapReady={() => {
                   Platform.OS === 'android'
                     ? PermissionsAndroid.request(
-                        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                      ).then((granted) => {
-                        console.log('Permissão', granted);
-                      })
+                      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                    ).then((granted) => {
+                      // console.log('Permissão', granted);
+                    })
                     : '';
                 }}
                 region={{
