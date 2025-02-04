@@ -400,12 +400,14 @@
 					"FB_SONARKIT_ENABLED=1",
 				);
 				INFOPLIST_FILE = yourapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Discontapp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.83;
+				MARKETING_VERSION = 1.0.85;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -431,12 +433,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GKD6ZNVSVJ;
 				INFOPLIST_FILE = yourapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Discontapp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.83;
+				MARKETING_VERSION = 1.0.85;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
