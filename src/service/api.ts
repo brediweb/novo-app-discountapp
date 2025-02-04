@@ -5,8 +5,8 @@ export const api_contrato = axios.create({
 });
 
 export const api = axios.create({
-  // baseURL: 'https://www.backend.discontapp.com.br/api',
-  baseURL: 'https://discont.sitebeta.com.br/api',
+  baseURL: 'https://www.backend.discontapp.com.br/api',
+  // baseURL: 'https://discont.sitebeta.com.br/api',
 });
 
 export const api_cnpj = axios.create({

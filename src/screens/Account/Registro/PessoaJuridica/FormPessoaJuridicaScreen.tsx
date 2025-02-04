@@ -12,7 +12,6 @@ import Caption from '../../../../components/typography/Caption';
 import ValidarCPF from '../../../../components/forms/ValidarCPF';
 import ValidarCNPJ from '../../../../components/forms/ValidarCNPJ';
 import ValidarEmail from '../../../../components/forms/ValidarEmail';
-import InputOutlined from '../../../../components/forms/InputOutlined';
 import FilledButton from '../../../../components/buttons/FilledButton';
 import ModalTemplate from '../../../../components/Modals/ModalTemplate';
 import HeaderPrimary from '../../../../components/header/HeaderPrimary';
@@ -36,6 +35,8 @@ import {
   Modal,
 } from 'react-native';
 import ButtonPrimary from '../../../../components/buttons/ButtonPrimary';
+import InputOutlinedCadastro from '@components/forms/InputOutlinedCadastro';
+import InputOutlined from '@components/forms/InputOutlined';
 
 interface ILocalizacao {
   latitude: number;
@@ -108,9 +109,11 @@ export default function FormPessoaJuridicaScreen({
   const [permissionGrantedIos, setPermissionGrantedIos] = useState(false);
   const [errorLocalizacao, setErrorLocalizacao] = useState('');
   const [modalLocalizacao, setModalLocalizacao] = useState(false);
+  const [modalAviso, setModalAviso] = useState(false);
 
-  async function postPessoaJuridica() {
-    if (novaLocalizacao.latitude == 0 || novaLocalizacao.longitude == 0) {
+  async function validaCampos() {
+    setModalAviso(false);
+    if (novaLocalizacao?.latitude === 0 || novaLocalizacao?.longitude === 0) {
       return setErrorLocalizacao(
         'Selecione a localização do seu estabelecimento'
       );
@@ -119,9 +122,6 @@ export default function FormPessoaJuridicaScreen({
     const cnpjValido = ValidarCNPJ({ cnpj: cnpj });
     const emailValido = ValidarEmail({ email: email });
     const cpfValido = ValidarCPF({ cpf: cpfRepresetante });
-    // const cnpjValido = true
-    // const emailValido = true
-    // const cpfValido = true
 
     setErrorCep(false);
     setErrorCnpj(false);
@@ -137,7 +137,7 @@ export default function FormPessoaJuridicaScreen({
     setErrorNomeRepresetante(false);
     setErrorNomeEmpressarial(false);
 
-    if (nomeFantasia.length <= 0) {
+    if (nomeFantasia?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe um Nome fantasia válido !',
@@ -145,7 +145,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorNomeFantasia(true);
       setModalLocalizacao(false);
       return;
-    } else if (nomeEmpressarial.length <= 0) {
+    } else if (nomeEmpressarial?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe um Nome empresarial válido !',
@@ -153,7 +153,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorNomeEmpressarial(true);
       setModalLocalizacao(false);
       return;
-    } else if (cnpj.length <= 0) {
+    } else if (cnpj?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'O campo CNPJ é obrigatório !',
@@ -169,7 +169,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorCnpj(true);
       setModalLocalizacao(false);
       return;
-    } else if (endereco.length <= 0) {
+    } else if (endereco?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe um Endereço válido !',
@@ -177,7 +177,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorEndereco(true);
       setModalLocalizacao(false);
       return;
-    } else if (email.length <= 0) {
+    } else if (email?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'O campo e-mail é obrigatório !',
@@ -185,15 +185,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorEmail(true);
       setModalLocalizacao(false);
       return;
-    } else if (!emailValido) {
-      Toast.show({
-        type: 'error',
-        text1: 'Informe um Email válido !',
-      });
-      setErrorEmail(true);
-      setModalLocalizacao(false);
-      return;
-    } else if (telefone.length <= 0) {
+    } else if (telefone?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe um Telefone válido !',
@@ -201,7 +193,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorTelefone(true);
       setModalLocalizacao(false);
       return;
-    } else if (cep.length <= 0 || cep.length < 8) {
+    } else if (cep?.length <= 0 || cep?.length < 8) {
       Toast.show({
         type: 'error',
         text1: 'Informe um CEP válido !',
@@ -225,7 +217,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorTelefone(true);
       setModalLocalizacao(false);
       return;
-    } else if (nomeRepresetante.length <= 0) {
+    } else if (nomeRepresetante?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe um Nome represetante da empresa válido !',
@@ -233,7 +225,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorNomeRepresetante(true);
       setModalLocalizacao(false);
       return;
-    } else if (cpfRepresetante.length <= 0) {
+    } else if (cpfRepresetante?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'O campo CPF do represetante é obrigatório !',
@@ -249,7 +241,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorCpfRepresetante(true);
       setModalLocalizacao(false);
       return;
-    } else if (senha.length <= 0) {
+    } else if (senha?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe uma Senha válida !',
@@ -257,7 +249,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorSenha(true);
       setModalLocalizacao(false);
       return;
-    } else if (senha.length < 8) {
+    } else if (senha?.length < 8) {
       Toast.show({
         type: 'error',
         text1: 'A senha deve ter 8 caracteres !',
@@ -265,7 +257,7 @@ export default function FormPessoaJuridicaScreen({
       setErrorSenha(true);
       setModalLocalizacao(false);
       return;
-    } else if (confirmarSenha.length <= 0) {
+    } else if (confirmarSenha?.length <= 0) {
       Toast.show({
         type: 'error',
         text1: 'Informe o confirmar senha válido !',
@@ -290,6 +282,11 @@ export default function FormPessoaJuridicaScreen({
       setModalLocalizacao(false);
       return;
     }
+    setModalLocalizacao(true)
+  }
+
+  async function postPessoaJuridica() {
+    validaCampos()
 
     const novoCnpj = RemoveCaracteres({ text: cnpj });
     const novoTelefone = RemoveCaracteres({ text: telefone });
@@ -318,18 +315,6 @@ export default function FormPessoaJuridicaScreen({
     };
 
     navigate('FormPerfilScreen', dataForm);
-  }
-
-  const handleNextStep = () => {
-    Alert.alert('Atenção', 'Após avançar não será mais permitido a edição da localização.', [
-      {
-        text: 'Corrigir',
-      },
-      {
-        text: 'Avançar',
-        onPress: () => postPessoaJuridica()
-      }
-    ])
   }
 
   const handleCNPJMask = (value: any) => {
@@ -377,6 +362,7 @@ export default function FormPessoaJuridicaScreen({
   };
 
   async function getCEP(novoCep: any) {
+    setLoading(true)
     try {
       const response = await axios.get(
         `https://brasilapi.com.br/api/cep/v2/${novoCep}`
@@ -398,6 +384,10 @@ export default function FormPessoaJuridicaScreen({
     } catch (error: any) {
       console.error('Error GET CEP', error);
     }
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
   }
 
   const handleCheckboxPress = () => {
@@ -514,31 +504,6 @@ export default function FormPessoaJuridicaScreen({
   }
 
   useEffect(() => {
-    if (novaLocalizacao.latitude && novaLocalizacao.longitude) {
-      setRegiao({
-        latitude: novaLocalizacao.latitude,
-        longitude: novaLocalizacao.longitude,
-      });
-    }
-  }, [novaLocalizacao]);
-
-  useEffect(() => {
-    getLocalizacao();
-    if (Platform.OS === 'ios') {
-      getPermissionIOS();
-    }
-    getEstados();
-  }, []);
-
-  useEffect(() => {
-    if (checked) {
-      setErroChecked(false);
-    } else {
-      setErroChecked(true);
-    }
-  }, [checked]);
-
-  useEffect(() => {
     watchPositionAsync(
       {
         accuracy: LocationAccuracy.Highest,
@@ -553,10 +518,59 @@ export default function FormPessoaJuridicaScreen({
         });
       }
     );
+    getLocalizacao();
+    if (Platform.OS === 'ios') {
+      getPermissionIOS();
+    }
+    getEstados();
   }, []);
+
+  useEffect(() => {
+    if (novaLocalizacao.latitude && novaLocalizacao.longitude) {
+      setRegiao({
+        latitude: novaLocalizacao.latitude,
+        longitude: novaLocalizacao.longitude,
+      });
+    }
+  }, [novaLocalizacao]);
+
+  useEffect(() => {
+    if (checked) {
+      setErroChecked(false);
+    } else {
+      setErroChecked(true);
+    }
+  }, [checked]);
+
+  function abrirAviso() {
+    setModalLocalizacao(false);
+    setModalAviso(true);
+  }
+
+  function validaCamposAbreModal() {
+    validaCampos()
+  }
 
   return (
     <MainLayoutSecondary loading={loading}>
+      <ModalTemplate
+        onClose={() => setModalAviso(false)}
+        visible={modalAviso}
+      >
+        <View className="">
+          <Text className="text-xl text-red-600 font-bold">
+            Atenção
+          </Text>
+          <Text className="text-lg leading-6">
+            Após avançar não será mais permitido a edição da localização.
+          </Text>
+        </View>
+        <View className='mt-3'>
+          <FilledButton title="Confirmar" onPress={postPessoaJuridica} />
+          <View className='h-2' />
+          <FilledButton backgroundColor={'transparent'} border color={colors.secondary20} title="Voltar" onPress={() => setModalAviso(false)} />
+        </View>
+      </ModalTemplate>
       <ModalTemplate onClose={() => setModalUf(false)} visible={modalUf}>
         <View className="">
           <Text className="text-xl font-bold mt-4">
@@ -677,7 +691,7 @@ export default function FormPessoaJuridicaScreen({
             onSubmitEditing={() => focusNextInput(input1Ref)}
             onChangeText={(text: any) => handleCNPJMask(text)}
           />
-          <InputOutlined
+          <InputOutlinedCadastro
             mt={8}
             required
             label="Nome Fantasia"
@@ -687,7 +701,7 @@ export default function FormPessoaJuridicaScreen({
             onSubmitEditing={() => focusNextInput(input2Ref)}
             onChange={(text: string) => setNomeFantasia(text)}
           />
-          <InputOutlined
+          <InputOutlinedCadastro
             mt={8}
             required
             refInput={input1Ref}
@@ -699,7 +713,7 @@ export default function FormPessoaJuridicaScreen({
             onChange={(text: string) => setNomeEmpressarial(text)}
           />
 
-          <InputOutlined
+          <InputOutlinedCadastro
             mt={8}
             required
             label="Email"
@@ -764,7 +778,7 @@ export default function FormPessoaJuridicaScreen({
               </View>
             </TouchableOpacity>
           </View>
-          <InputOutlined
+          <InputOutlinedCadastro
             mt={8}
             required
             label="Endereço"
@@ -775,7 +789,7 @@ export default function FormPessoaJuridicaScreen({
             onChange={(text: string) => setEndereco(text)}
             onSubmitEditing={() => focusNextInput(input9Ref)}
           />
-          <InputOutlined
+          <InputOutlinedCadastro
             mt={8}
             required
             refInput={input9Ref}
@@ -855,12 +869,12 @@ export default function FormPessoaJuridicaScreen({
           <View className="mt-4">
             <FilledButton
               title="Próximo"
-              onPress={() => setModalLocalizacao(true)}
+              onPress={validaCamposAbreModal}
             />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-      <Modal animationType="slide" transparent visible={modalLocalizacao}>
+      <Modal animationType="slide" transparent visible={modalLocalizacao} className='z-40'>
         <View className="flex-1 flex flex-col gap-3 justify-center p-6 bg-white">
           {regiao && Platform.OS === 'android' && (
             <View className="mt-4">
@@ -984,6 +998,10 @@ export default function FormPessoaJuridicaScreen({
                     latitude: regiao.latitude,
                     longitude: regiao.longitude,
                   }}
+                  onDragEnd={(event) => {
+                    console.log(event.nativeEvent.coordinate);
+                    setNovaLocalizacao(event.nativeEvent.coordinate);
+                  }}
                   draggable
                   pinColor={'#5D35F1'}
                   anchor={{ x: 0.69, y: 1 }}
@@ -1015,7 +1033,7 @@ export default function FormPessoaJuridicaScreen({
           )}
 
           <View className="mt-6">
-            <FilledButton title="Próximo" onPress={handleNextStep} />
+            <FilledButton title="Próximo" onPress={() => abrirAviso()} />
             <View className="mt-2" />
             <FilledButton
               color={'#5D35F1'}

@@ -11,11 +11,12 @@ interface ModalProps {
   maxWidth?: any
   backgroundColor?: any
   closeSecondary?: boolean
+  zIndex?: any
   backgroundColorSecondary?: any
 }
 
 
-const ModalTemplate: React.FC<ModalProps> = ({ visible, onClose, children, width, padding, maxWidth, backgroundColor, closeSecondary, backgroundColorSecondary }) => {
+const ModalTemplate: React.FC<ModalProps> = ({ visible, zIndex, onClose, children, width, padding, maxWidth, backgroundColor, closeSecondary, backgroundColorSecondary }) => {
   if (!visible) return null;
 
   const styles = StyleSheet.create({
@@ -39,7 +40,7 @@ const ModalTemplate: React.FC<ModalProps> = ({ visible, onClose, children, width
   })
 
   return (
-    <Modal animationType="slide" transparent visible={visible}>
+    <Modal animationType="slide" transparent visible={visible} style={{ zIndex: zIndex ?? 40 }}>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           {closeSecondary ?
