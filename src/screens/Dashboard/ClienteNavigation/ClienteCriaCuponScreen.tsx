@@ -138,7 +138,7 @@ export default function ClienteCriaCuponScreen() {
   const openSettings = () => {
     Linking.openSettings();
   };
-  
+
   const showPermissionDeniedAlert = () => {
     Alert.alert(
       'Permissões necessárias',
@@ -156,7 +156,7 @@ export default function ClienteCriaCuponScreen() {
       { cancelable: false }
     );
   };
-  
+
   async function requestPermissions() {
     try {
       const readStoragePermission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
@@ -165,21 +165,21 @@ export default function ClienteCriaCuponScreen() {
         showPermissionDeniedAlert(); // Exibe o alerta se a permissão for negada
         return false;
       }
-  
+
       const writeStoragePermission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
       if (writeStoragePermission !== PermissionsAndroid.RESULTS.GRANTED) {
         console.log('Permissão de gravação no armazenamento negada');
         showPermissionDeniedAlert(); // Exibe o alerta se a permissão for negada
         return false;
       }
-  
+
       const cameraPermission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
       if (cameraPermission !== PermissionsAndroid.RESULTS.GRANTED) {
         console.log('Permissão de câmera negada');
         showPermissionDeniedAlert(); // Exibe o alerta se a permissão for negada
         return false;
       }
-  
+
       console.log('Todas as permissões concedidas');
       return true;
     } catch (err) {
@@ -187,7 +187,7 @@ export default function ClienteCriaCuponScreen() {
       return false;
     }
   }
-  
+
   // Função para verificar permissões e abrir o ImagePicker
   /* async function pickSingle({ cropit, circular = false, mediaType }: any) {
     const hasPermissions = await requestPermissions(); // Verifica permissões antes de abrir o picker
@@ -232,7 +232,7 @@ export default function ClienteCriaCuponScreen() {
       console.log('Erro ao abrir o ImagePicker:', imageError); // Se houver erro ao abrir o picker
     }
   }
-  
+
 
 
   async function onSubmit() {
@@ -478,7 +478,7 @@ export default function ClienteCriaCuponScreen() {
       >
         <HeaderPrimary titulo="Criar anúncio" />
         <View className="mt-8 mx-7 pb-20">
-          <View className="bg-white w-[90%] rounded-xl">
+          <View className="bg-white w-full rounded-xl">
             <View className="mt-8 px-4 mb-8 items-center">
               <H3 align={'center'}>Você não possui um plano ativo!</H3>
               <View className="mb-3" />

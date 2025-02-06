@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity, Touchable } from 'react-native';
 import React, { useState } from 'react';
 import { useGlobal } from '../../context/GlobalContextProvider';
 import { useNavigate } from '../../hooks/useNavigate';
+import { colors } from 'src/styles/colors';
 
 export default function OnBoardingScreen() {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -186,7 +187,8 @@ export default function OnBoardingScreen() {
                 setCurrentIdx(currentIdx + 1);
               }
             }}
-            className="w-[44vw] bg-brand-secondary60  py-4 rounded-full"
+            className="w-[44vw] bg-black  py-4 rounded-full"
+            style={{ backgroundColor: colors.secondary70 }}
           >
             <Text className="text-center text-white font-bold">Próximo</Text>
           </TouchableOpacity>
