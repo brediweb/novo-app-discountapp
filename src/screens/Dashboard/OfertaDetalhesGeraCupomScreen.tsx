@@ -14,7 +14,7 @@ export default function OfertaDetalhesGeraCupomScreen(props: any) {
   const [loading, setLoading] = useState(true)
   const [listaprodutos, setListaProdutos] = useState([])
   const id_oferta = props.route.params.id
-  
+
   async function getDetalhe() {
     setLoading(true)
     const jsonValue = await AsyncStorage.getItem('infos-user')

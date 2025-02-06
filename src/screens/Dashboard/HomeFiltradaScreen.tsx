@@ -127,7 +127,7 @@ export default function HomeFiltradaScreen(route: any) {
           />}
         {!isRefreshing && listaprodutos.length <= 0 &&
           <View className=''>
-            <CardNotFound titulo='Não possuimos Cupons para esta categoria, tente ver outra categoria' />
+            <CardNotFound titulo='Não há cupons disponíveis para esta categoria no momento.' />
           </View>
         }
       </SafeAreaView>

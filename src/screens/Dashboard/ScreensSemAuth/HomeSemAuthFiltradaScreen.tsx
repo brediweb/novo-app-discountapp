@@ -120,7 +120,7 @@ export default function HomeSemAuthFiltradaScreen(route: any) {
           />}
         {!isRefreshing && listaprodutos.length <= 0 &&
           <View className=''>
-            <CardNotFound titulo='Não possuimos Cupons para esta categoria, tente ver outra categoria' />
+            <CardNotFound titulo='Não há cupons disponíveis para esta categoria no momento.' />
             <View className='mt-3 mx-8'>
               <ButtonOutline title='Sugerir estabelecimentos' onPress={() => setModalVisible(true)} />
             </View>

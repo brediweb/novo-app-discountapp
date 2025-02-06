@@ -81,7 +81,6 @@ export default function ClienteCriaCuponScreen() {
       const response = await api.get(`perfil/pessoa-juridica/${dadosUser.id}`);
       setPlanActive(response.data.results.plano_ativo);
       setCategorias(response.data.results.perfil_id);
-      console.log(response.data.results);
     } catch (error) {
       console.log('ERROR GET Categorias: ', error);
     }
