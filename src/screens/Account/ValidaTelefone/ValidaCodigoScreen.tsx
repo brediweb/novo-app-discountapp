@@ -39,6 +39,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
   }
 
   async function reenviaCodigo() {
+    setInput1('')
     setLoading(true)
     const jsonPerfil = await AsyncStorage.getItem('dados-perfil')
 
@@ -74,8 +75,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
     }
 
     setLoading(true)
-    const jsonPerfil = await AsyncStorage.getItem('id-user')
-
+    const jsonPerfil = await AsyncStorage.getItem('dados-perfil')
     if (jsonPerfil) {
       try {
         const response = await api.post(`/valida-codigo/valida`, {
@@ -93,7 +93,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
           navigation.navigate('CadastroSucessoScreen')
         }
       } catch (error: any) {
-        console.log('ERROR reenvio de código POST: ', error)
+        console.error('Validar Código POST: ', error)
         Toast.show({
           type: 'error',
           text1: error.response.data.message ?? 'Ocorreu um erro, tente novamente!',
@@ -102,6 +102,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
       setLoading(false)
       return;
     } else {
+
       Toast.show({
         type: 'error',
         text1: 'Ocorreu algum erro, tente novamente mais tarde!',
@@ -165,12 +166,11 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
               className='text-2xl border-b-2 border-[#54006E] w-[50%] text-center'
               keyboardType="numeric"
               maxLength={6}
+              value={input1}
               onChangeText={(text) => {
                 setInput1(text)
               }}
             />
-
-
           </View>
 
 

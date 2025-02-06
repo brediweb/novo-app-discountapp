@@ -63,7 +63,6 @@ export default function CardProduto(
     vantagem_porcentagem,
   }: PropsProduto) {
 
-    console.log('CardProduto', { qr_code, foto_user, categoria, id_oferta, nome_filial, imagem_capa, nome_empresa, get_produtos, nome_produto, id_anunciante, data_validade, vantagem_reais, total_avaliacao, status_favorito, media_avaliacao, descricao_simples, descricao_completa, vantagem_porcentagem })
 
   const isFocused = useIsFocused()
   const { navigate } = useNavigate()
@@ -88,7 +87,7 @@ export default function CardProduto(
   const handleCloseModalSucesso = () => {
     setModalVisible(false)
     setModalSucesso(false)
-    navigate('AvaliacaoScreen', {id_anunciante: id_anunciante})
+    navigate('AvaliacaoScreen', { id_anunciante: id_anunciante })
   }
 
   const handleLogin = () => {
@@ -299,7 +298,7 @@ export default function CardProduto(
           </View>
         </View>
       </Modal>
-      <Modal visible={modalVisibleDetalhes} animationType='slide' >
+      <Modal visible={modalVisibleDetalhes} animationType='slide' transparent>
         <View className='flex-1 w-full ' style={{ backgroundColor: 'rgba(52, 52, 52, 0.5)' }}>
           <View className='flex-1  bg-white pt-4 my-20 mx-4 rounded-lg'>
             <TouchableOpacity onPress={() => setModalVisibleDetalhes(false)} className='flex-row w-full px-2'>
