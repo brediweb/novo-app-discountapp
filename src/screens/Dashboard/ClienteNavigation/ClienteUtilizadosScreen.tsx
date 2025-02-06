@@ -36,7 +36,7 @@ export default function ClienteUtilizadosScreen({ route }: { route?: any }) {
         const response = await api.get(`/meus-cupoms/anunciante`, { headers })
         setOferta(response.data.results)
       } catch (error: any) {
-        console.log(error)
+        console.error(error)
       }
     }
 
@@ -57,7 +57,7 @@ export default function ClienteUtilizadosScreen({ route }: { route?: any }) {
         const response = await api.get(`/meus-cupoms/anunciante/inativo`, { headers })
         setOfertaInativa(response.data.results)
       } catch (error: any) {
-        console.log('ERROR GET Ofertas Inativas: ', error)
+        console.error('ERROR GET Ofertas Inativas: ', error)
       }
     }
     setLoading(false)
@@ -83,7 +83,7 @@ export default function ClienteUtilizadosScreen({ route }: { route?: any }) {
         })
         getCuponsGerados()
       } catch (error: any) {
-        console.log('ERROR Status Oferta: ', error.response.data);
+        console.error('ERROR Status Oferta: ', error.response.data);
 
       }
     }

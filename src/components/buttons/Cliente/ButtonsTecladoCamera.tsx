@@ -19,7 +19,7 @@ import { Dimensions, Image, Modal, TouchableOpacity, View, Text, Keyboard, Permi
 
 export default function ButtonsTecladoCamera() {
   const { navigate } = useNavigate()
-  const devices = useCameraDevices()
+  const devices = useCameraDevices() as any
   const [codigo, setCodigo] = useState('')
   const [flashOn, setFlashOn] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -30,8 +30,10 @@ export default function ButtonsTecladoCamera() {
   const [envioSucesso, setEnvioSucesso] = useState(false)
   const [cameraVisible, setCameraVisible] = useState(false)
   const [cameraPostion, setCameraPosition] = useState<CameraPosition>('back')
-  const device = cameraPostion == 'front' ? devices.front : devices.back
-  if (device == null) return <Loading />
+  const device = cameraPostion === 'front' ? devices.front : devices.back
+  console.log(device);
+
+  // if (device == null) return <Loading />
 
 
   const handleCamera = () => {
@@ -128,12 +130,12 @@ export default function ButtonsTecladoCamera() {
   return (
     <>
       <View className='justify-around bg-white w-full  absolute bottom-0 pb-4 pt-4' style={larguraTela >= 160 ? { flexDirection: 'row', zIndex: 9999 } : { flexDirection: 'column' }}>
-        <Modal visible={modalVisible} animationType='slide'>
+        <Modal visible={modalVisible} animationType='slide' className='flex-1 items-center justify-center bg-black/70'>
           {loading &&
             <Loading />
           }
-          <View className='flex-1 items-center justify-center bg-black'>
-            <View className='relative rounded-lg bg-white mx-6 px-4 py-24'>
+          <View className=''>
+            <View className='relative rounded-lg  mx-6 px-4 py-24'>
               <TouchableOpacity onPress={closeModal} className='absolute right-4 top-4'>
                 <Image source={require('../../../../assets/img/icons/close.png')} />
               </TouchableOpacity>
@@ -174,7 +176,7 @@ export default function ButtonsTecladoCamera() {
                       <FilledButton
                         disabled={codigo.length <= 0 ? true : false}
                         title='Válidar Código'
-                        onPress={onSubmit}
+                        onPress={() => onSubmit()}
                       />
                     </View>
                   </View>
