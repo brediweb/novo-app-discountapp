@@ -384,10 +384,6 @@ export default function FormPessoaJuridicaScreen({
     } catch (error: any) {
       console.error('Error GET CEP', error);
     }
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 3000)
   }
 
   const handleCheckboxPress = () => {
