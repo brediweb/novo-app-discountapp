@@ -38,7 +38,7 @@ export default function LoginAnuncianteScreen() {
   const tutorialCheck = async () => {
     try {
       const response = await AsyncStorage.getItem('tutorial')
-      if(response == null) {
+      if (response == null) {
         await AsyncStorage.setItem('tutorial', 'true')
         return navigate('OnBoardingScreen')
       }
@@ -96,14 +96,11 @@ export default function LoginAnuncianteScreen() {
     setLoading(false)
   }
 
-  // function getPlayerId() {
-  //   const subscriptionId = OneSignal.User.pushSubscription.getIdAsync()
-  //   setPlayerId(subscriptionId)
-  // }
-
   useEffect(() => {
     getEmail()
-    // getPlayerId()
+    OneSignal.User.getOnesignalId().then((id) => {
+      setPlayerId(id ?? '')
+    })
   }, [])
 
   return (

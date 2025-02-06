@@ -19,9 +19,11 @@ interface PropsNotificacao {
 export default function NotificacoesScreen() {
   const isFocused = useIsFocused()
   const { navigate } = useNavigate()
+  const [loading, setLoading] = useState(true)
   const [listaNotificacao, setListaNotificacao] = useState([])
 
   async function getNotificacoes() {
+    setLoading(true)
     const jsonValue = await AsyncStorage.getItem('infos-user')
     if (jsonValue) {
       const newJson = JSON.parse(jsonValue)
@@ -35,15 +37,11 @@ export default function NotificacoesScreen() {
         console.log('ERRO GET Notificações: ', error)
       }
     }
+    setLoading(false)
   }
 
   useEffect(() => {
     getNotificacoes()
-  }, [isFocused])
-  useEffect(() => {
-    if (isFocused) {
-      getNotificacoes()
-    }
   }, [isFocused])
 
   return (
@@ -59,10 +57,10 @@ export default function NotificacoesScreen() {
         />
       ))}
 
-      {listaNotificacao.length === 0 &&
-        <H3 align={"center"}>Nenhuma notificação encontrada</H3>
+      {listaNotificacao.length === 0 && !loading &&
+        < H3 align={"center"}>Nenhuma notificação encontrada</H3>
       }
 
-    </MainLayoutAutenticado>
+    </MainLayoutAutenticado >
   );
 }
