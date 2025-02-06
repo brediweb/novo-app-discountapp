@@ -1,15 +1,19 @@
 import { colors } from '../../styles/colors';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from '../../hooks/useNavigate';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { api } from 'src/service/api';
+import IconNotify from 'src/svg/IconNotify';
+import IconNotifyNew from 'src/svg/IconNotifyNew';
 
 export default function CustomHeader(props: any) {
   const { goBack, navigate } = useNavigate();
   const [tipoUser, setTipoUser] = useState<any>(null);
+  const [listaNotificacao, setListaNotificacao] = useState([])
+  const todasNotificacoesVisualizadas = listaNotificacao.every((item: any) => item.visualizado === true);
 
   function handleGoBack() {
-    console.log('props.route.name', tipoUser, props.route.name, props.route.name.includes('ClientePerfilTrocarFotoScreen'));
     if (
       tipoUser === 'Anunciante' &&
       (props.route.name.includes('ClientePerfilTrocarFotoScreen') ||
@@ -33,19 +37,36 @@ export default function CustomHeader(props: any) {
     }
   }
 
+  async function getNotificacoes() {
+    const jsonValue = await AsyncStorage.getItem('infos-user')
+    if (jsonValue) {
+      const newJson = JSON.parse(jsonValue)
+      try {
+        const headers = {
+          Authorization: `Bearer ${newJson.token}`,
+        }
+        const response = await api.get(`/notificacoes`, { headers })
+        setListaNotificacao(response.data.results)
+      } catch (error: any) {
+        console.log('ERRO GET Notificações: ', error)
+      }
+    }
+  }
+
   useEffect(() => {
+    getNotificacoes()
     getUser();
   }, []);
 
   return (
     <>
-      <View className="flex-1 ">
+      <View className="flex-1">
         <View
           className="flex flex-row justify-between items-center h-16 w-full px-4"
           style={{ backgroundColor: colors.secondary50 }}
         >
           {props.route.name === 'Home' ||
-          props.route.name === 'HomeClienteScreen' ? (
+            props.route.name === 'HomeClienteScreen' ? (
             <TouchableOpacity
               className="p-2"
               onPress={() => props.navigation.toggleDrawer()}
@@ -70,12 +91,14 @@ export default function CustomHeader(props: any) {
           </View>
 
           {props.route.name === 'Home' ||
-          props.route.name === 'HomeClienteScreen' ? (
+            props.route.name === 'HomeClienteScreen' ? (
             <View className="flex-row items-center gap-2">
               <TouchableOpacity onPress={() => navigate('NotificacoesScreen')}>
-                <Image
-                  source={require('../../../assets/img/icons/notificacao.png')}
-                />
+                {todasNotificacoesVisualizadas ?
+                  <IconNotify />
+                  :
+                  <IconNotifyNew />
+                }
               </TouchableOpacity>
               {tipoUser === 'cliente' && (
                 <TouchableOpacity
