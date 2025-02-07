@@ -56,7 +56,7 @@ export default function App() {
     }
 
     // Inicialização do OneSignal
-    OneSignal.initialize('a903186d-f2c1-4e58-b11c-b15b8f1ec590');
+    OneSignal.initialize('69f5f21c-670c-48bc-91fe-167fdbca809b');
     OneSignal.Notifications.requestPermission(true);
   }, []);
 
