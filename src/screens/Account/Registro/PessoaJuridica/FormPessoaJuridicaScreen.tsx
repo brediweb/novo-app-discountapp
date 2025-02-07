@@ -6,7 +6,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from '../../../../hooks/useNavigate';
-import { api_cnpj, api_ibge } from '../../../../service/api';
+import { api, api_cnpj, api_ibge } from '../../../../service/api';
 import Geolocation from '@react-native-community/geolocation';
 import Caption from '../../../../components/typography/Caption';
 import ValidarCPF from '../../../../components/forms/ValidarCPF';
@@ -112,6 +112,8 @@ export default function FormPessoaJuridicaScreen({
 
   async function validaCampos() {
     setModalAviso(false);
+    setModalLocalizacao(false);
+
     if (novaLocalizacao?.latitude === 0 || novaLocalizacao?.longitude === 0) {
       return setErrorLocalizacao(
         'Selecione a localização do seu estabelecimento'
@@ -142,7 +144,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um Nome fantasia válido !',
       });
       setErrorNomeFantasia(true);
-      setModalLocalizacao(false);
       return;
     } else if (nomeEmpressarial?.length <= 0) {
       Toast.show({
@@ -150,7 +151,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um Nome empresarial válido !',
       });
       setErrorNomeEmpressarial(true);
-      setModalLocalizacao(false);
       return;
     } else if (cnpj?.length <= 0) {
       Toast.show({
@@ -158,7 +158,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'O campo CNPJ é obrigatório !',
       });
       setErrorCnpj(true);
-      setModalLocalizacao(false);
       return;
     } else if (!cnpjValido) {
       Toast.show({
@@ -166,7 +165,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um CNPJ válido !',
       });
       setErrorCnpj(true);
-      setModalLocalizacao(false);
       return;
     } else if (endereco?.length <= 0) {
       Toast.show({
@@ -174,7 +172,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um Endereço válido !',
       });
       setErrorEndereco(true);
-      setModalLocalizacao(false);
       return;
     } else if (email?.length <= 0) {
       Toast.show({
@@ -182,7 +179,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'O campo e-mail é obrigatório !',
       });
       setErrorEmail(true);
-      setModalLocalizacao(false);
       return;
     } else if (telefone?.length <= 0) {
       Toast.show({
@@ -190,7 +186,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um Telefone válido !',
       });
       setErrorTelefone(true);
-      setModalLocalizacao(false);
       return;
     } else if (cep?.length <= 0 || cep?.length < 8) {
       Toast.show({
@@ -198,7 +193,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um CEP válido !',
       });
       setErrorTelefone(true);
-      setModalLocalizacao(false);
       return;
     } else if (!estado) {
       Toast.show({
@@ -206,7 +200,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um Estado !',
       });
       setErrorTelefone(true);
-      setModalLocalizacao(false);
       return;
     } else if (!cidade) {
       Toast.show({
@@ -214,7 +207,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe uma cidade !',
       });
       setErrorTelefone(true);
-      setModalLocalizacao(false);
       return;
     } else if (nomeRepresetante?.length <= 0) {
       Toast.show({
@@ -222,7 +214,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um Nome represetante da empresa válido !',
       });
       setErrorNomeRepresetante(true);
-      setModalLocalizacao(false);
       return;
     } else if (cpfRepresetante?.length <= 0) {
       Toast.show({
@@ -230,7 +221,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'O campo CPF do represetante é obrigatório !',
       });
       setErrorCpfRepresetante(true);
-      setModalLocalizacao(false);
       return;
     } else if (!cpfValido) {
       Toast.show({
@@ -238,7 +228,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe um CPF do represetante da empresa válido !',
       });
       setErrorCpfRepresetante(true);
-      setModalLocalizacao(false);
       return;
     } else if (senha?.length <= 0) {
       Toast.show({
@@ -246,7 +235,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe uma Senha válida !',
       });
       setErrorSenha(true);
-      setModalLocalizacao(false);
       return;
     } else if (senha?.length < 8) {
       Toast.show({
@@ -254,7 +242,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'A senha deve ter 8 caracteres !',
       });
       setErrorSenha(true);
-      setModalLocalizacao(false);
       return;
     } else if (confirmarSenha?.length <= 0) {
       Toast.show({
@@ -262,7 +249,6 @@ export default function FormPessoaJuridicaScreen({
         text1: 'Informe o confirmar senha válido !',
       });
       setErrorConfirmarSenha(true);
-      setModalLocalizacao(false);
       return;
     } else if (senha !== confirmarSenha) {
       Toast.show({
@@ -271,21 +257,63 @@ export default function FormPessoaJuridicaScreen({
       });
       setErrorSenha(true);
       setErrorConfirmarSenha(true);
-      setModalLocalizacao(false);
       return;
     } else if (checked === false) {
       Toast.show({
         type: 'error',
         text1: 'Aceite os Termos e Condições',
       });
-      setModalLocalizacao(false);
       return;
     }
-    setModalLocalizacao(true)
+
+    const formData = {
+      cnpj: cnpj.replace(/\D/g, ''),
+      email: email,
+      cpf: cpfRepresetante.replace(/\D/g, ''),
+    }
+
+    setLoading(true);
+    try {
+      const response = await api.post(`/cadastro/valida-campos`, formData)
+      if (response.status === 200) {
+        setModalLocalizacao(true);
+        setLoading(false);
+        return;
+      }
+    } catch (error: any) {
+      console.error('ERRO VALIDA CAMPOS:', error.response.data);
+      if (error?.response?.data?.results?.cnpjusado) {
+        Toast.show({
+          type: 'error',
+          text1: 'CNPJ já cadastrado !',
+        });
+        setErrorCnpj(true);
+        setLoading(false);
+
+        return;
+      } else if (error?.response?.data?.results?.emailusado) {
+        Toast.show({
+          type: 'error',
+          text1: 'E-mail já cadastrado !',
+        });
+        setErrorEmail(true);
+        setLoading(false);
+
+        return;
+      } else if (error?.response?.data?.results?.cpfusado) {
+        Toast.show({
+          type: 'error',
+          text1: 'CPF já cadastrado !',
+        });
+        setErrorCpfRepresetante(true);
+        setLoading(false);
+        return;
+      }
+    }
+    setLoading(false);
   }
 
   async function postPessoaJuridica() {
-    validaCampos()
     setModalAviso(false)
     setModalLocalizacao(false)
 
@@ -545,17 +573,10 @@ export default function FormPessoaJuridicaScreen({
     setModalAviso(true);
   }
 
-  function validaCamposAbreModal() {
-    validaCampos()
-  }
-
   return (
     <MainLayoutSecondary loading={loading}>
       <ModalTemplate
-        onClose={() => {
-          setModalAviso(false);
-          setModalLocalizacao(false);
-        }}
+        onClose={() => setModalAviso(false)}
         visible={modalAviso}
       >
         <View className="">
@@ -867,7 +888,7 @@ export default function FormPessoaJuridicaScreen({
         <View className="mt-4">
           <FilledButton
             title="Próximo"
-            onPress={validaCamposAbreModal}
+            onPress={validaCampos}
           />
         </View>
       </ScrollView>
