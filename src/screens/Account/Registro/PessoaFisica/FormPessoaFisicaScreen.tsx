@@ -241,6 +241,7 @@ export default function FormPessoaFisicaScreen({
             'dados-perfil',
             jsonValue
           );
+          await AsyncStorage.setItem('id-user', jsonValue)
 
           setSenhaUser(senha);
           Toast.show({

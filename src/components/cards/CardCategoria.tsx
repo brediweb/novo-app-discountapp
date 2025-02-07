@@ -1,6 +1,6 @@
 import React from 'react'
 import { colors } from '../../styles/colors'
-import { TouchableOpacity, Text, Image } from 'react-native'
+import { TouchableOpacity, Text } from 'react-native'
 
 interface PropsCategoria {
   titulo: string,

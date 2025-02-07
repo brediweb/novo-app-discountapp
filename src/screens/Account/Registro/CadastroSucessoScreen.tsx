@@ -1,21 +1,19 @@
-import { Image, View } from 'react-native'
+import { View } from 'react-native'
+import { api } from '../../../service/api'
 import H2 from '../../../components/typography/H2'
 import React, { useEffect, useState } from 'react'
-import { api } from '../../../service/api'
 import { useNavigate } from '../../../hooks/useNavigate'
+import IcoMulherSucesso from '../../../svg/IcoMulherSucesso'
 import MainLayout from '../../../components/layout/MainLayout'
 import { useGlobal } from '../../../context/GlobalContextProvider'
 import FilledButton from '../../../components/buttons/FilledButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useNavigation } from '@react-navigation/native'
-import IcoMulherSucesso from '../../../svg/IcoMulherSucesso'
 
 export default function CadastroSucessoScreen() {
   const { navigate } = useNavigate()
   const [loading, setLoading] = useState(false)
   const { senhaUser, setTipoUser } = useGlobal()
   const [emailStorage, setEmailStorage] = useState('')
-  const navigation = useNavigation();
 
   async function getEmail() {
     setLoading(true)
@@ -23,7 +21,6 @@ export default function CadastroSucessoScreen() {
       const storageEmail = await AsyncStorage.getItem('user-email')
       if (storageEmail !== null && senhaUser !== null) {
         setEmailStorage(storageEmail)
-        onSubmit()
       }
     } catch (error: any) {
       console.log('Error Storage: ', error)
@@ -51,8 +48,8 @@ export default function CadastroSucessoScreen() {
 
     try {
       const response = await api.post(`/login`, formData)
-      if (!response.data.error) {
-        const storageEmail = await AsyncStorage.setItem('user-email', emailStorage)
+      if (response.status === 200) {
+        const storageEmail = await AsyncStorage.setItem('dados-user', emailStorage)
         setTipoUser('Cliente')
         submitStorageLogin(response.data.results)
         navigate('HomeDrawerNavigation')
