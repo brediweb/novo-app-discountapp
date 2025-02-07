@@ -196,7 +196,8 @@ export default function OnBoardingScreen() {
       ) : (
         <TouchableOpacity
           onPress={handleComplete}
-          className="absolute bottom-4 self-center w-[44vw] bg-brand-secondary60  py-4 rounded-full"
+          className="absolute bottom-4 self-center w-[44vw]  py-4 rounded-full"
+          style={{ backgroundColor: colors.secondary70 }}
         >
           <Text className="text-center text-white font-bold">Concluir</Text>
         </TouchableOpacity>
