@@ -66,7 +66,7 @@ export default function FormPerfilScreen({ route }: { route: any }) {
       if (infoForm?.logomarca?.path != undefined && infoForm?.logomarca?.path != '') {
         formdata.append('logomarca', novaImage as any)
       }
-    }    
+    }
     try {
       const response = await api.post("/cadastro/pessoa-juridica", formdata,
         { headers: { 'Content-Type': 'multipart/form-data' } })

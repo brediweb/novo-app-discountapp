@@ -75,7 +75,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
     }
 
     setLoading(true)
-    const jsonPerfil = await AsyncStorage.getItem('dados-perfil')
+    const jsonPerfil = await AsyncStorage.getItem('id-user')
     if (jsonPerfil) {
       try {
         const response = await api.post(`/valida-codigo/valida`, {

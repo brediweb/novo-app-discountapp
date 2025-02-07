@@ -286,6 +286,8 @@ export default function FormPessoaJuridicaScreen({
 
   async function postPessoaJuridica() {
     validaCampos()
+    setModalAviso(false)
+    setModalLocalizacao(false)
 
     const novoCnpj = RemoveCaracteres({ text: cnpj });
     const novoTelefone = RemoveCaracteres({ text: telefone });
@@ -550,7 +552,10 @@ export default function FormPessoaJuridicaScreen({
   return (
     <MainLayoutSecondary loading={loading}>
       <ModalTemplate
-        onClose={() => setModalAviso(false)}
+        onClose={() => {
+          setModalAviso(false);
+          setModalLocalizacao(false);
+        }}
         visible={modalAviso}
       >
         <View className="">
@@ -868,175 +873,178 @@ export default function FormPessoaJuridicaScreen({
       </ScrollView>
 
       <Modal animationType="slide" transparent visible={modalLocalizacao} className='z-40'>
-        <View className="flex-1 flex flex-col gap-3 justify-center p-6 bg-white">
-          {regiao && Platform.OS === 'android' && (
-            <View className="mt-4">
+        <ScrollView>
+          <View className="flex-1 flex flex-col gap-3 justify-center p-6 mt-4 bg-white">
+            {regiao && Platform.OS === 'android' && (
+              <View className="mt-4">
+                <Caption
+                  color="#49454F"
+                  fontWeight={'bold'}
+                  align={'center'}
+                  fontSize={16}
+                >
+                  Selecione o Endereço do empreendimento:
+                </Caption>
+                <Caption
+                  color="#49454F"
+                  margintop={6}
+                  align={'center'}
+                  fontSize={16}
+                >
+                  Basta segurar o ícone e arrastar para a melhor posição, você
+                  pode dar um zoom também.
+                </Caption>
+                <MapView
+                  showsMyLocationButton
+                  onMapReady={() => {
+                    Platform.OS === 'android'
+                      ? PermissionsAndroid.request(
+                        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                      ).then((granted) => {
+                        // console.log('Permissão', granted);
+                      })
+                      : '';
+                  }}
+                  region={{
+                    latitude: regiao.latitude,
+                    longitude: regiao.longitude,
+                    latitudeDelta: 0.2,
+                    longitudeDelta: 0.2,
+                  }}
+                  initialRegion={{
+                    latitude: regiao.latitude,
+                    longitude: regiao.longitude,
+                    latitudeDelta: 0.2,
+                    longitudeDelta: 0.2,
+                  }}
+                  zoomEnabled
+                  style={{
+                    height: 200,
+                    width: '100%',
+                    marginTop: 8,
+                  }}
+                  zoomTapEnabled={true}
+                  loadingEnabled
+                  showsBuildings={false}
+                  showsTraffic={false}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: regiao.latitude,
+                      longitude: regiao.longitude,
+                    }}
+                    onDragEnd={(event) => {
+                      // console.log(
+                      //   'Evento DragEnd:',
+                      //   event.nativeEvent.coordinate
+                      // );
+                      setNovaLocalizacao(event.nativeEvent.coordinate);
+                    }}
+                    draggable
+                    pinColor={'#5D35F1'}
+                    anchor={{ x: 0.69, y: 1 }}
+                    centerOffset={{ x: -18, y: -60 }}
+                  />
+                </MapView>
+              </View>
+            )}
+
+            {regiao && Platform.OS === 'ios' && permissionGrantedIos && (
+              <View className="mt-4">
+                <Caption color="#49454F" fontWeight={'bold'} fontSize={16}>
+                  Selecione o Endereço do empreendimento:
+                </Caption>
+                <Caption color="#49454F" margintop={6} fontSize={16}>
+                  Basta segurar o ícone e arrastar para a melhor posição, você
+                  pode dar um zoom também.
+                </Caption>
+                <MapView
+                  showsMyLocationButton
+                  onMapReady={() => {
+                    Platform.OS === 'android'
+                      ? PermissionsAndroid.request(
+                        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                      ).then((granted) => {
+                        // console.log('Permissão', granted);
+                      })
+                      : '';
+                  }}
+                  region={{
+                    latitude: regiao.latitude,
+                    longitude: regiao.longitude,
+                    latitudeDelta: 0.2,
+                    longitudeDelta: 0.2,
+                  }}
+                  initialRegion={{
+                    latitude: regiao.latitude,
+                    longitude: regiao.longitude,
+                    latitudeDelta: 0.2,
+                    longitudeDelta: 0.2,
+                  }}
+                  zoomEnabled
+                  style={{
+                    height: 400,
+                    marginTop: 8,
+                    width: '100%',
+                    borderRadius: 10,
+                  }}
+                  zoomTapEnabled={true}
+                  loadingEnabled
+                  showsBuildings={false}
+                  showsTraffic={false}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: regiao.latitude,
+                      longitude: regiao.longitude,
+                    }}
+                    onDragEnd={(event) => {
+                      console.log(event.nativeEvent.coordinate);
+                      setNovaLocalizacao(event.nativeEvent.coordinate);
+                    }}
+                    draggable
+                    pinColor={'#5D35F1'}
+                    anchor={{ x: 0.69, y: 1 }}
+                    centerOffset={{ x: -18, y: -60 }}
+                  />
+                </MapView>
+              </View>
+            )}
+
+            {Platform.OS === 'ios' && !permissionGrantedIos && (
+              <View className="mt-2">
+                <FilledButton
+                  title="Abrir Mapa"
+                  onPress={() => getPermissionIOS()}
+                />
+              </View>
+            )}
+
+            {errorLocalizacao && (
               <Caption
-                color="#49454F"
+                color="#ef4444"
                 fontWeight={'bold'}
                 align={'center'}
+                margintop={8}
                 fontSize={16}
               >
-                Selecione o Endereço do empreendimento:
+                {errorLocalizacao}
               </Caption>
-              <Caption
-                color="#49454F"
-                margintop={6}
-                align={'center'}
-                fontSize={16}
-              >
-                Basta segurar o ícone e arrastar para a melhor posição, você
-                pode dar um zoom também.
-              </Caption>
-              <MapView
-                showsMyLocationButton
-                onMapReady={() => {
-                  Platform.OS === 'android'
-                    ? PermissionsAndroid.request(
-                      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                    ).then((granted) => {
-                      // console.log('Permissão', granted);
-                    })
-                    : '';
-                }}
-                region={{
-                  latitude: regiao.latitude,
-                  longitude: regiao.longitude,
-                  latitudeDelta: 0.2,
-                  longitudeDelta: 0.2,
-                }}
-                initialRegion={{
-                  latitude: regiao.latitude,
-                  longitude: regiao.longitude,
-                  latitudeDelta: 0.2,
-                  longitudeDelta: 0.2,
-                }}
-                zoomEnabled
-                style={{
-                  height: 200,
-                  width: '100%',
-                  marginTop: 8,
-                }}
-                zoomTapEnabled={true}
-                loadingEnabled
-                showsBuildings={false}
-                showsTraffic={false}
-              >
-                <Marker
-                  coordinate={{
-                    latitude: regiao.latitude,
-                    longitude: regiao.longitude,
-                  }}
-                  onDragEnd={(event) => {
-                    // console.log(
-                    //   'Evento DragEnd:',
-                    //   event.nativeEvent.coordinate
-                    // );
-                    setNovaLocalizacao(event.nativeEvent.coordinate);
-                  }}
-                  draggable
-                  pinColor={'#5D35F1'}
-                  anchor={{ x: 0.69, y: 1 }}
-                  centerOffset={{ x: -18, y: -60 }}
-                />
-              </MapView>
-            </View>
-          )}
+            )}
 
-          {regiao && Platform.OS === 'ios' && permissionGrantedIos && (
-            <View className="mt-4">
-              <Caption color="#49454F" fontWeight={'bold'} fontSize={16}>
-                Selecione o Endereço do empreendimento:
-              </Caption>
-              <Caption color="#49454F" margintop={6} fontSize={16}>
-                Basta segurar o ícone e arrastar para a melhor posição, você
-                pode dar um zoom também.
-              </Caption>
-              <MapView
-                showsMyLocationButton
-                onMapReady={() => {
-                  Platform.OS === 'android'
-                    ? PermissionsAndroid.request(
-                      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-                    ).then((granted) => {
-                      // console.log('Permissão', granted);
-                    })
-                    : '';
-                }}
-                region={{
-                  latitude: regiao.latitude,
-                  longitude: regiao.longitude,
-                  latitudeDelta: 0.2,
-                  longitudeDelta: 0.2,
-                }}
-                initialRegion={{
-                  latitude: regiao.latitude,
-                  longitude: regiao.longitude,
-                  latitudeDelta: 0.2,
-                  longitudeDelta: 0.2,
-                }}
-                zoomEnabled
-                style={{
-                  height: 200,
-                  width: '100%',
-                  marginTop: 8,
-                }}
-                zoomTapEnabled={true}
-                loadingEnabled
-                showsBuildings={false}
-                showsTraffic={false}
-              >
-                <Marker
-                  coordinate={{
-                    latitude: regiao.latitude,
-                    longitude: regiao.longitude,
-                  }}
-                  onDragEnd={(event) => {
-                    console.log(event.nativeEvent.coordinate);
-                    setNovaLocalizacao(event.nativeEvent.coordinate);
-                  }}
-                  draggable
-                  pinColor={'#5D35F1'}
-                  anchor={{ x: 0.69, y: 1 }}
-                  centerOffset={{ x: -18, y: -60 }}
-                />
-              </MapView>
-            </View>
-          )}
-
-          {Platform.OS === 'ios' && !permissionGrantedIos && (
-            <View className="mt-2">
+            <View className="mt-6">
+              <FilledButton title="Próximo" onPress={() => abrirAviso()} />
+              <View className="mt-2" />
               <FilledButton
-                title="Abrir Mapa"
-                onPress={() => getPermissionIOS()}
+                color={'#5D35F1'}
+                border
+                backgroundColor={'white'}
+                title="Voltar"
+                onPress={() => setModalLocalizacao(false)}
               />
             </View>
-          )}
-
-          {errorLocalizacao && (
-            <Caption
-              color="#ef4444"
-              fontWeight={'bold'}
-              align={'center'}
-              margintop={8}
-              fontSize={16}
-            >
-              {errorLocalizacao}
-            </Caption>
-          )}
-
-          <View className="mt-6">
-            <FilledButton title="Próximo" onPress={() => abrirAviso()} />
-            <View className="mt-2" />
-            <FilledButton
-              color={'#5D35F1'}
-              border
-              backgroundColor={'white'}
-              title="Voltar"
-              onPress={() => setModalLocalizacao(false)}
-            />
           </View>
-        </View>
+        </ScrollView>
       </Modal>
     </MainLayoutSecondary>
   );
