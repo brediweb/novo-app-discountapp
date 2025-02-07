@@ -15,7 +15,7 @@ import { useGlobal } from '../../context/GlobalContextProvider'
 import InputOutlined from '../../components/forms/InputOutlined'
 import FilledButton from '../../components/buttons/FilledButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { KeyboardAvoidingView, ScrollView, Platform } from 'react-native'
+import { ScrollView } from 'react-native'
 
 export default function LoginAnuncianteScreen() {
   const { navigate } = useNavigate()
@@ -105,10 +105,7 @@ export default function LoginAnuncianteScreen() {
 
   return (
     <MainLayout carregando={loadign} scroll={true}>
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
+      <ScrollView contentContainerStyle={{ paddingBottom: 320 }}>
         <View className='flex-1 px-4'>
           <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between', alignItems: 'center' }}>
             <IcoCelularLogin />
@@ -153,7 +150,7 @@ export default function LoginAnuncianteScreen() {
             </View>
           </ScrollView>
         </View>
-      </KeyboardAvoidingView>
+      </ScrollView>
     </MainLayout >
   );
 }
