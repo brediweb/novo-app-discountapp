@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import IcoClose from '../../svg/IcoClose'
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { Modal, View, TouchableOpacity, StyleSheet } from 'react-native'
 
 interface ModalProps {
   visible: boolean;
@@ -46,7 +46,7 @@ const ModalTemplate: React.FC<ModalProps> = ({ visible, zIndex, onClose, childre
           {closeSecondary ?
             <></>
             :
-            <TouchableOpacity onPress={onClose} className='absolute right-1 z-50 top-1'>
+            <TouchableOpacity onPress={onClose} className='absolute right-4 z-50 top-10'>
               <IcoClose />
             </TouchableOpacity>
           }

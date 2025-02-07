@@ -13,7 +13,6 @@ import RemoveCaracteres from '../../../../components/forms/RemoveCaracteres';
 import InputMascaraPaper from '../../../../components/forms/InputMascaraPaper';
 import MainLayoutSecondary from '../../../../components/layout/MainLayoutSecondary';
 import {
-  Platform,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -565,7 +564,7 @@ export default function FormPessoaFisicaScreen({
         voltarScreen={() => navigation.navigate('LoginScreen')}
       />
 
-      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 220 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 220, marginHorizontal: 20 }}>
         <InputOutlined
           mt={8}
           required
