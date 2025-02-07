@@ -13,7 +13,6 @@ import RemoveCaracteres from '../../../../components/forms/RemoveCaracteres';
 import InputMascaraPaper from '../../../../components/forms/InputMascaraPaper';
 import MainLayoutSecondary from '../../../../components/layout/MainLayoutSecondary';
 import {
-  KeyboardAvoidingView,
   Platform,
   ScrollView,
   Text,
@@ -565,177 +564,173 @@ export default function FormPessoaFisicaScreen({
         titulo="Cadastro de pessoa física"
         voltarScreen={() => navigation.navigate('LoginScreen')}
       />
-      <KeyboardAvoidingView
-        className="flex-1 relative mx-4"
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
-        <ScrollView style={{ flexGrow: 1 }}>
-          <InputOutlined
-            mt={8}
-            required
-            label="Nome completo"
-            keyboardType={'default'}
-            error={errornomeCompleto}
-            onSubmitEditing={() => focusNextInput(input1Ref)}
-            onChange={(text: string) => setNomeCompleto(text)}
-          />
-          <InputOutlined
-            mt={8}
-            required
-            label="Email"
-            error={erroremail}
-            refInput={input1Ref}
-            keyboardType={'email-address'}
-            onChange={(text: string) => setEmail(text)}
-            onSubmitEditing={() => focusNextInput(input2Ref)}
-          />
-          <InputMascaraPaper
-            mt={8}
-            required
-            maxLength={15}
-            refInput={input2Ref}
-            value={celularField}
-            label="Telefone (DDD)"
-            error={errorcelularField}
-            keyboardType={'number-pad'}
-            onSubmitEditing={() => focusNextInput(input3Ref)}
-            onChangeText={(text: any) => handlePhoneMask(text)}
-          />
-          <InputMascaraPaper
-            mt={8}
-            label="CEP"
-            value={cep}
-            error={errorCep}
-            onBlur={handleCep}
-            refInput={input3Ref}
-            keyboardType={'number-pad'}
-            onChangeText={handleCEPChange}
-            onSubmitEditing={() => focusNextInput(input4Ref)}
-          />
-          <View className="flex flex-row w-full">
-            <TouchableOpacity
-              className="flex-1/2"
-              onPress={() => setModalUf(true)}
+
+      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 220 }}>
+        <InputOutlined
+          mt={8}
+          required
+          label="Nome completo"
+          keyboardType={'default'}
+          error={errornomeCompleto}
+          onSubmitEditing={() => focusNextInput(input1Ref)}
+          onChange={(text: string) => setNomeCompleto(text)}
+        />
+        <InputOutlined
+          mt={8}
+          required
+          label="Email"
+          error={erroremail}
+          refInput={input1Ref}
+          keyboardType={'email-address'}
+          onChange={(text: string) => setEmail(text)}
+          onSubmitEditing={() => focusNextInput(input2Ref)}
+        />
+        <InputMascaraPaper
+          mt={8}
+          required
+          maxLength={15}
+          refInput={input2Ref}
+          value={celularField}
+          label="Telefone (DDD)"
+          error={errorcelularField}
+          keyboardType={'number-pad'}
+          onSubmitEditing={() => focusNextInput(input3Ref)}
+          onChangeText={(text: any) => handlePhoneMask(text)}
+        />
+        <InputMascaraPaper
+          mt={8}
+          label="CEP"
+          value={cep}
+          error={errorCep}
+          onBlur={handleCep}
+          refInput={input3Ref}
+          keyboardType={'number-pad'}
+          onChangeText={handleCEPChange}
+          onSubmitEditing={() => focusNextInput(input4Ref)}
+        />
+        <View className="flex flex-row w-full">
+          <TouchableOpacity
+            className="flex-1/2"
+            onPress={() => setModalUf(true)}
+          >
+            <View
+              style={{ borderColor: errorEstado ? '#f01' : '#49454F' }}
+              className="bg-white text-base overflow-scroll justify-center border-solid border-[1px] rounded-md h-[52px] w-16 mt-3 pl-2"
             >
-              <View
-                style={{ borderColor: errorEstado ? '#f01' : '#49454F' }}
-                className="bg-white text-base overflow-scroll justify-center border-solid border-[1px] rounded-md h-[52px] w-16 mt-3 pl-2"
-              >
-                {uf ? (
-                  <Text className="text-[#000]">{uf}</Text>
-                ) : (
-                  <Text style={{ color: errorEstado ? '#f01' : '#49454F' }}>
-                    UF*
-                  </Text>
-                )}
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              className="flex-1 pl-2 z-10"
-              onPress={openModalCidades}
-            >
-              <View className="bg-white text-base overflow-scroll justify-center border-solid border-[1px] border-[#49454F] rounded-md h-[52px] mt-3 pl-2">
-                {cidade ? (
-                  <Text className="text-[#49454F]">{cidade}</Text>
-                ) : (
-                  <Text className="text-[#49454F]">Cidade*</Text>
-                )}
-              </View>
-            </TouchableOpacity>
-          </View>
-          <InputOutlined
-            mt={8}
-            required
-            label="Endereço"
-            value={endereco}
-            error={errorEndereco}
-            refInput={input4Ref}
-            keyboardType={'default'}
-            onChange={(text: string) => setEndereco(text)}
-            onSubmitEditing={() => focusNextInput(input5Ref)}
-          />
-          <InputOutlined
-            mt={8}
-            label="Complemento"
-            refInput={input5Ref}
-            error={errorcomplemento}
-            keyboardType={'default'}
-            onChange={(text: string) => setComplemento(text)}
-            onSubmitEditing={() => focusNextInput(input6Ref)}
-          />
-          <InputMascaraPaper
-            mt={8}
-            required
-            label="CPF"
-            value={cpf}
-            maxLength={14}
-            error={errorcpf}
-            refInput={input7Ref}
-            keyboardType={'number-pad'}
-            onChangeText={(text: any) => handleCPFMask(text)}
-            onSubmitEditing={() => focusNextInput(input7Ref)}
-          />
-          <InputOutlined
-            mt={8}
-            required
-            label="Senha (min 8 caracteres)"
-            error={errorsenha}
-            refInput={input7Ref}
-            secureTextEntry={true}
-            keyboardType={'default'}
-            onChange={(text: string) => setSenha(text)}
-            onSubmitEditing={() => focusNextInput(input8Ref)}
-          />
-          <InputOutlined
-            mt={8}
-            required
-            refInput={input8Ref}
-            secureTextEntry={true}
-            label="Confirmar Senha"
-            keyboardType={'default'}
-            error={errorconfirmarSenha}
-            onChange={(text: string) => setConfirmarSenha(text)}
-          />
-          <View className="flex-row items-center gap-2 mt-4">
-            <TouchableOpacity onPress={handleCheckboxPress}>
-              <View
-                className="w-6 h-6 border-2  rounded-lg justify-center items-center"
-                style={{
-                  backgroundColor: checked ? '#6200E8' : 'transparent',
-                  borderColor: erroChecked ? '#f01' : '#000',
-                }}
-              >
-                {checked && (
-                  <Text style={{ color: '#FFF', fontWeight: 'bold' }}>✓</Text>
-                )}
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigate('TermosCadastrosScreen')}
-              className="pr-6"
-            >
-              <Text
-                className="text-center text-xs"
-                style={{ color: erroChecked ? '#f01' : '#000' }}
-              >
-                Se você está criando uma conta, leia e aceite os{' '}
-                <Text className="text-[#296FF5]">
-                  {' '}
-                  Termos e Condições de uso
+              {uf ? (
+                <Text className="text-[#000]">{uf}</Text>
+              ) : (
+                <Text style={{ color: errorEstado ? '#f01' : '#49454F' }}>
+                  UF*
                 </Text>
-                , e a nossa{' '}
-                <Text className="text-[#296FF5]">Política de privacidade.</Text>
+              )}
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            className="flex-1 pl-2 z-10"
+            onPress={openModalCidades}
+          >
+            <View className="bg-white text-base overflow-scroll justify-center border-solid border-[1px] border-[#49454F] rounded-md h-[52px] mt-3 pl-2">
+              {cidade ? (
+                <Text className="text-[#49454F]">{cidade}</Text>
+              ) : (
+                <Text className="text-[#49454F]">Cidade*</Text>
+              )}
+            </View>
+          </TouchableOpacity>
+        </View>
+        <InputOutlined
+          mt={8}
+          required
+          label="Endereço"
+          value={endereco}
+          error={errorEndereco}
+          refInput={input4Ref}
+          keyboardType={'default'}
+          onChange={(text: string) => setEndereco(text)}
+          onSubmitEditing={() => focusNextInput(input5Ref)}
+        />
+        <InputOutlined
+          mt={8}
+          label="Complemento"
+          refInput={input5Ref}
+          error={errorcomplemento}
+          keyboardType={'default'}
+          onChange={(text: string) => setComplemento(text)}
+          onSubmitEditing={() => focusNextInput(input6Ref)}
+        />
+        <InputMascaraPaper
+          mt={8}
+          required
+          label="CPF"
+          value={cpf}
+          maxLength={14}
+          error={errorcpf}
+          refInput={input7Ref}
+          keyboardType={'number-pad'}
+          onChangeText={(text: any) => handleCPFMask(text)}
+          onSubmitEditing={() => focusNextInput(input7Ref)}
+        />
+        <InputOutlined
+          mt={8}
+          required
+          label="Senha (min 8 caracteres)"
+          error={errorsenha}
+          refInput={input7Ref}
+          secureTextEntry={true}
+          keyboardType={'default'}
+          onChange={(text: string) => setSenha(text)}
+          onSubmitEditing={() => focusNextInput(input8Ref)}
+        />
+        <InputOutlined
+          mt={8}
+          required
+          refInput={input8Ref}
+          secureTextEntry={true}
+          label="Confirmar Senha"
+          keyboardType={'default'}
+          error={errorconfirmarSenha}
+          onChange={(text: string) => setConfirmarSenha(text)}
+        />
+        <View className="flex-row items-center gap-2 mt-4">
+          <TouchableOpacity onPress={handleCheckboxPress}>
+            <View
+              className="w-6 h-6 border-2  rounded-lg justify-center items-center"
+              style={{
+                backgroundColor: checked ? '#6200E8' : 'transparent',
+                borderColor: erroChecked ? '#f01' : '#000',
+              }}
+            >
+              {checked && (
+                <Text style={{ color: '#FFF', fontWeight: 'bold' }}>✓</Text>
+              )}
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigate('TermosCadastrosScreen')}
+            className="pr-6"
+          >
+            <Text
+              className="text-center text-xs"
+              style={{ color: erroChecked ? '#f01' : '#000' }}
+            >
+              Se você está criando uma conta, leia e aceite os{' '}
+              <Text className="text-[#296FF5]">
+                {' '}
+                Termos e Condições de uso
               </Text>
-            </TouchableOpacity>
-          </View>
-          <View className="mt-4">
-            <FilledButton
-              title="Cadastrar"
-              onPress={() => postPessoaFisica()}
-            />
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+              , e a nossa{' '}
+              <Text className="text-[#296FF5]">Política de privacidade.</Text>
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View className="mt-4">
+          <FilledButton
+            title="Cadastrar"
+            onPress={() => postPessoaFisica()}
+          />
+        </View>
+      </ScrollView>
     </MainLayoutSecondary>
   );
 }
