@@ -71,12 +71,12 @@ export default function App() {
           <MainStack />
           <Toast />
         </GlobalContextProvider>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor="transparent"
-          translucent
-        />
       </SafeAreaView>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
     </GestureHandlerRootView>
   );
 }
