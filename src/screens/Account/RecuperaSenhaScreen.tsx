@@ -9,7 +9,7 @@ import Paragrafo from '../../components/typography/Paragrafo'
 import InputOutlined from '../../components/forms/InputOutlined'
 import FilledButton from '../../components/buttons/FilledButton'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
 export default function RecuperaSenhaScreen() {
   const { goBack } = useNavigate()
@@ -42,15 +42,14 @@ export default function RecuperaSenhaScreen() {
 
   return (
     <MainLayout carregando={loading} scroll={true}>
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 320 }}
       >
         <View className='flex-1 h-full px-4'>
           <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between', alignItems: 'center' }}>
             <IcoCelularLogin />
             <View className='w-full pb-20'>
-              <H2 title='Login' />
+              <H2 title='Recuperar senha' />
               <View className='mb-5 mt-3'>
                 <InputOutlined
                   onChange={setEmail}
@@ -72,7 +71,7 @@ export default function RecuperaSenhaScreen() {
             <View></View>
           </ScrollView>
         </View>
-      </KeyboardAvoidingView>
+      </ScrollView>
     </MainLayout >
   );
 }

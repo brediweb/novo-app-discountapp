@@ -11,7 +11,7 @@ export default function SemAuthHeaderTab(props: any) {
 
   return (
     <>
-      <View className='flex-1 '>
+      <View className='flex-1'>
         {tipoUser == 'Anunciante' ?
           <ModalTemplateLoginAnunciante visible={modalVisible} onClose={() => setModalVisible(false)} />
           :
