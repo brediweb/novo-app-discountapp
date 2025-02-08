@@ -17,7 +17,6 @@ export default function DiscotokenListagemScreen() {
     const [cupomAtual, setCupomAtual] = useState({} as any)
     const [isModal, setIsModal] = useState(false)
     const [permissaoLocal, setPermissaoLocal] = useState(false)
-
     const [mapLayout, setMapLayout] = useState({ width: 0, height: 0 })
     const mapRef = useRef<MapView>(null)
 
@@ -36,7 +35,6 @@ export default function DiscotokenListagemScreen() {
                     Accept: 'application/json',
                 }
                 const response = await api.get(`/discotoken/anunciantes`, { headers })
-                console.log(response.data.results.anunciantes)
                 setCupons(response.data.results.anunciantes)
             } catch (error: any) {
                 console.log('ERROR GET CUPONS ', error)
@@ -95,9 +93,9 @@ export default function DiscotokenListagemScreen() {
     return (
         <MainLayoutAutenticado marginTop={64} marginHorizontal={16}>
             {
-                cupons.map(cupom =>
+                cupons.map((cupom: any) =>
                     <TouchableOpacity key={cupom.id} onPress={() => handleCupom(cupom)}>
-                        <View style={{ backgroundColor: cupom?.anunciante?.cor_cupom ?? '#000000' }} className='overflow-hidden flex p-8 pl-12 mt-2 flex-row justify-center items-center h-32'>
+                        <View style={{ backgroundColor: '#000000' }} className='overflow-hidden flex p-8 pl-12 mt-2 flex-row justify-center items-center h-32'>
                             <View className='absolute -left-4 w-8 h-8 rounded-full bg-white' />
                             <View className='absolute -right-4 w-8 h-8 rounded-full bg-white' />
                             <Image source={{ uri: cupom?.photo }} className='w-24 h-24' />
