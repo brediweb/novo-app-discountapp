@@ -1,17 +1,17 @@
+import { api } from 'src/service/api'
 import { useEffect, useState } from 'react'
-import { View } from 'react-native'
 import Toast from 'react-native-toast-message'
+import { ScrollView, View } from 'react-native'
 import H5 from '../../../../components/typography/H5'
 import { useNavigate } from '../../../../hooks/useNavigate'
 import Caption from '../../../../components/typography/Caption'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import InputOutlined from '../../../../components/forms/InputOutlined'
 import FilledButton from '../../../../components/buttons/FilledButton'
 import MainLayoutAutenticado from '../../../../components/layout/MainLayoutAutenticado'
-import { api } from 'src/service/api'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function AlterarSenhaScreen() {
-  const { navigate, goBack } = useNavigate()
+  const { goBack } = useNavigate()
   const [senha, setSenha] = useState('')
   const [loading, setLoading] = useState(false)
   const [senhaAtual, setSenhaAtual] = useState('')
@@ -92,31 +92,33 @@ export default function AlterarSenhaScreen() {
     <MainLayoutAutenticado bottomDrawer loading={loading}>
       <H5>Alterar Senha</H5>
       <Caption>Altera a sua senha</Caption>
-      <View className='mt-6 mb-10'>
-        {/* <InputOutlined
+      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 220 }}>
+        <View className='mt-6 mb-10'>
+          {/* <InputOutlined
           keyboardType={''}
           secureTextEntry
           label='Senha atual'
           onChange={setSenhaAtual}
         /> */}
-        <InputOutlined
-          keyboardType={''}
-          label='Nova senha'
-          secureTextEntry
-          onChange={setSenha}
+          <InputOutlined
+            keyboardType={''}
+            label='Nova senha'
+            secureTextEntry
+            onChange={setSenha}
+          />
+          <InputOutlined
+            keyboardType={''}
+            secureTextEntry
+            label='Confirmar nova senha'
+            onChange={setConfirmarSenha}
+          />
+        </View>
+        <FilledButton
+          title='Confirmar'
+          onPress={onSubmit}
+          disabled={senhaAtual.length <= 0 || senha.length <= 0 || confirmarSenha.length <= 0 ? true : false}
         />
-        <InputOutlined
-          keyboardType={''}
-          secureTextEntry
-          label='Confirmar nova senha'
-          onChange={setConfirmarSenha}
-        />
-      </View>
-      <FilledButton
-        title='Confirmar'
-        onPress={onSubmit}
-        disabled={senhaAtual.length <= 0 || senha.length <= 0 || confirmarSenha.length <= 0 ? true : false}
-      />
+      </ScrollView>
     </MainLayoutAutenticado>
   );
 }
