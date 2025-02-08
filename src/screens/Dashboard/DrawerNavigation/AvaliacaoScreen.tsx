@@ -14,7 +14,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 export default function AvaliacaoScreen({ route }: { route?: any }) {
   const { goBack } = useNavigate()
-  const idOferta = route?.params[0]?.id
+  const id_oferta = route?.params.id_oferta
   const [mensagem, setMensagen] = useState('')
   const [loading, setLoading] = useState(false)
   const [contato, setContato] = useState<boolean | any>()
@@ -32,8 +32,8 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
           Authorization: `Bearer ${newJson.token}`,
         }
         const formData = {
-          anunciante_id: idOferta ?? route?.params?.id_anunciante,
-          comentario: mensagem,
+          anunciante_id: id_oferta ?? route?.params[0].id,
+          comentario: mensagem.length <= 1 ? 'Sem comentários' : mensagem,
           avaliacao: selecionaAvalaicao,
           permissao_contato: contato
         }
@@ -52,7 +52,7 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
           type: 'error',
           text1: error.response.data.message ?? 'Erro ao avaliar',
         })
-        console.log('ERRR avaliações: ', error);
+        console.error('ERRR avaliações: ', error.response.data);
       }
     }
     setLoading(false)

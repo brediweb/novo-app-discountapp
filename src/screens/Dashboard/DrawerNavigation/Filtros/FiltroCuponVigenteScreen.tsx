@@ -76,7 +76,7 @@ export default function FiltroCuponVigenteScreen() {
     <MainLayoutAutenticadoSemScroll bottomDrawer>
       <H5>Resultado da busca</H5>
       <Caption fontSize={14} fontWeight={'400'}>{listaprodutos.length} cupon(s) vigentes</Caption>
-      <View className='mt-3'>
+      <View className='mt-3 mb-6'>
         <FlatList
           data={listaprodutos}
           className='mb-16'

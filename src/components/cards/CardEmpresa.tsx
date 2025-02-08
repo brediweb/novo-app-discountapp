@@ -31,7 +31,7 @@ export default function CardEmpresa({ title, tituloOferta, link, descricao, imag
 
   return (
     <TouchableOpacity onPress={link} className='flex-row items-center rounded-lg p-4 mb-2' style={{ backgroundColor: colors.primary90 }}>
-      {imagem ?
+      {imagem != '-' && imagem ?
         <Image source={{ uri: imagem }} className='h-10 w-10 rounded-full' />
         :
         <View className='h-10 w-10 rounded-full items-center justify-center' style={{ backgroundColor: colors.primary40 }} >

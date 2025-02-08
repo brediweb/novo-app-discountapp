@@ -71,7 +71,7 @@ export default function OfertaDetalhesScreen(props: any) {
             Authorization: `Bearer ${newJson.token}`,
           }
           const response = await api.get(`/meus-cupoms/verificar?idOferta=${propsOferta ? propsOferta[0].id : idOferta}`, { headers })
-          if (response.data.results.Verificado) {
+          if (response.data.results.verificado) {
             clearInterval(intervalId)
             setMensagemSucesso(true)
             setModalVisible(true)

@@ -87,7 +87,7 @@ export default function CardProduto(
   const handleCloseModalSucesso = () => {
     setModalVisible(false)
     setModalSucesso(false)
-    navigate('AvaliacaoScreen', { id_anunciante: id_anunciante })
+    navigate('AvaliacaoScreen', { id_anunciante: id_anunciante, id_oferta: id_oferta })
   }
 
   const handleLogin = () => {
@@ -267,7 +267,7 @@ export default function CardProduto(
               <Image source={require('../../../assets/img/icons/close.png')} />
             </TouchableOpacity>
             <View className='mx-4 my-4'>
-              <Paragrafo align={'center'} title='Utilize o QR CODE abaixo para validar no estabelecimento (caixa)' />
+              <Paragrafo align={'center'} title='Utilize o QR CODE abaixo para validar no estabelecimento 123 (caixa)' />
               {modalSucesso === false &&
                 <View className='mx-auto'>
                   <LottieView style={{ width: 120, height: 120 }} source={require('../../animations/buscando.json')} autoPlay loop />

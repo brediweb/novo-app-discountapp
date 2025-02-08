@@ -234,7 +234,7 @@ export default function FormPessoaFisicaScreen({
 
       try {
         const response = await api.post(`/cadastro/pessoa-fisica`, dataForm);
-        if (!response.data.error) {
+        if (response.status === 200) {
           const storageEmail = await AsyncStorage.setItem('user-email', email);
           const jsonValue = JSON.stringify(response.data.results.id);
           const storagePerfil = await AsyncStorage.setItem(
@@ -260,6 +260,11 @@ export default function FormPessoaFisicaScreen({
           });
         }
       } catch (error: any) {
+        Toast.show({
+          type: 'error',
+          text1:
+            error.response.data.message ?? 'Ocorreu um erro, tente novamente !',
+        });
         console.error(error?.response?.data);
       }
     } else if (celularField && endereco) {
@@ -302,7 +307,7 @@ export default function FormPessoaFisicaScreen({
         Toast.show({
           type: 'error',
           text1:
-            error.response.data.message ?? 'Informe um Nome fantasia válido !',
+            error.response.data.message ?? 'Ocorreu um erro, tente novamente !',
         });
         console.error(error.response.data);
       }
@@ -347,7 +352,7 @@ export default function FormPessoaFisicaScreen({
         Toast.show({
           type: 'error',
           text1:
-            error.response.data.message ?? 'Informe um Nome fantasia válido !',
+            error.response.data.message ?? 'Ocorreu um erro, tente novamente !',
         });
         console.error(error?.response?.data);
       }
@@ -388,7 +393,7 @@ export default function FormPessoaFisicaScreen({
         Toast.show({
           type: 'error',
           text1:
-            error.response.data.message ?? 'Informe um Nome fantasia válido !',
+            error.response.data.message ?? 'Ocorreu um erro, tente novamente !',
         });
         console.error(error.response.data);
       }

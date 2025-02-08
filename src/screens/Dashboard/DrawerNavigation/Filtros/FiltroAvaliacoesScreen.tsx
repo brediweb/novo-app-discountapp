@@ -89,11 +89,13 @@ export default function FiltroAvaliacoesScreen() {
     <MainLayoutAutenticado notScroll={true} loading={isRefreshing} bottomDrawer>
       <View className='mb-6'>
         <H5>Resultado da busca</H5>
-        {totalCupons && totalCupons.length <= 1 ?
-          < Caption fontSize={14} fontWeight={'400'}>{totalCupons ?? '0'} cupom encontrado</Caption>
-          :
-          <Caption fontSize={14} fontWeight={'400'}>{totalCupons} cupoms encontrados</Caption>
-        }
+        <View className='pb-3'>
+          {totalCupons && totalCupons.length <= 1 ?
+            < Caption fontSize={14} fontWeight={'400'}>{totalCupons ?? '0'} cupom encontrado</Caption>
+            :
+            <Caption fontSize={14} fontWeight={'400'}>{totalCupons} cupoms encontrados</Caption>
+          }
+        </View>
 
         {melhoresAvaliacoes &&
           <FlatList
