@@ -15,7 +15,8 @@ import IcoCloseWhite from '../../../svg/IcoCloseWhite'
 import { useNavigate } from '../../../hooks/useNavigate'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Camera, useCameraDevices, CameraPosition } from 'react-native-vision-camera'
-import { Dimensions, Image, Modal, TouchableOpacity, View, Text, Keyboard, PermissionsAndroid, Alert, KeyboardAvoidingView, Platform } from 'react-native'
+import { Dimensions, Image, Modal, TouchableOpacity, View, Text, Keyboard, PermissionsAndroid, Alert, ScrollView } from 'react-native'
+import React from 'react'
 
 export default function ButtonsTecladoCamera() {
   const { navigate } = useNavigate()
@@ -134,56 +135,52 @@ export default function ButtonsTecladoCamera() {
           {loading &&
             <Loading />
           }
-          <View className=''>
+          <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 320 }}>
             <View className='relative rounded-lg  mx-6 px-4 py-24'>
-              <TouchableOpacity onPress={closeModal} className='absolute right-4 top-4'>
+              <TouchableOpacity onPress={closeModal} className='absolute right-2 top-10'>
                 <Image source={require('../../../../assets/img/icons/close.png')} />
               </TouchableOpacity>
 
-              <KeyboardAvoidingView behavior={Platform.OS == 'ios' ? 'position' : 'height'} >
-                {envioSucesso
-                  ? <View className='my-4 mx-8 items-center'>
-                    <H3 align={'center'}>Código <Text className=' font-bold'>{exibiCodigo}</Text> validado com sucesso!</H3>
-                    <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
-                    <View className='mt-6'>
-                      <FilledButton
-                        title='Válidar outro código'
-                        onPress={voltaModal}
-                      />
-                    </View>
-                  </View>
-                  : <View>
-                    <H3 align={'center'}>Informe as informações necessárias:</H3>
-
-                    <InputOutlined
-                      onChange={setCodigo}
-                      label='Código: '
-                      value={codigo}
-                      uppercase
-                      maxLength={10}
-                      keyboardType={'default'}
+              {envioSucesso
+                ? <View className='my-4 mx-8 items-center'>
+                  <H3 align={'center'}>Código <Text className=' font-bold'>{exibiCodigo}</Text> validado com sucesso!</H3>
+                  <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
+                  <View className='mt-6'>
+                    <FilledButton
+                      title='Válidar outro código'
+                      onPress={voltaModal}
                     />
-                    <InputOutlined
-                      onChange={setCodigoCliente}
-                      label='Código do Cliente: '
-                      value={codigoCliente}
-                      uppercase
-                      maxLength={10}
-                      keyboardType={'number-pad'}
-                    />
-
-                    <View className='mt-12'>
-                      <FilledButton
-                        disabled={codigo.length <= 0 ? true : false}
-                        title='Válidar Código'
-                        onPress={() => onSubmit()}
-                      />
-                    </View>
                   </View>
-                }
-              </KeyboardAvoidingView>
+                </View>
+                : <View className='mt-12'>
+                  <H3 align={'center'}>Informe as informações necessárias:</H3>
+
+                  <InputOutlined
+                    onChange={setCodigo}
+                    label='Código: '
+                    value={codigo}
+                    maxLength={10}
+                    keyboardType={'default'}
+                  />
+                  <InputOutlined
+                    onChange={setCodigoCliente}
+                    label='Código do Cliente: '
+                    value={codigoCliente}
+                    maxLength={10}
+                    keyboardType={'number-pad'}
+                  />
+
+                  <View className='mt-12'>
+                    <FilledButton
+                      disabled={codigo.length <= 0 ? true : false}
+                      title='Válidar Código'
+                      onPress={() => onSubmit()}
+                    />
+                  </View>
+                </View>
+              }
             </View>
-          </View>
+          </ScrollView>
         </Modal>
         <ModalTemplate
           closeSecondary={true}

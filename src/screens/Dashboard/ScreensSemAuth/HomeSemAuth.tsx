@@ -114,9 +114,9 @@ export default function HomeSemAuth() {
   }, [isFocused])
 
   return (
-    <MainLayoutAutenticado marginTop={Platform.OS == 'ios' ? 32 : 96} notScroll={true} loading={isRefreshing}>
+    <MainLayoutAutenticado marginTop={40} notScroll={true} loading={isRefreshing}>
       <ModalTemplateLogin visible={modalVisible} onClose={() => setModalVisible(false)} />
-      <ScrollView horizontal={true} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} className='w-full h-14 pb-0'>
+      <ScrollView horizontal={true} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} className='w-full h-14 pb-0 mt-12'>
         {listacategorias && listacategorias.map((categoria: any) => (
           <CardCategoria
             ativo={false}

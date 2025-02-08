@@ -141,7 +141,7 @@ export default function HomeScreen() {
 
   return (
     <MainLayoutAutenticado notScroll={true} loading={isRefreshing}>
-      <ScrollView horizontal={true} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} className='w-full h-14 pb-0'>
+      <ScrollView horizontal={true} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} className='w-full h-14 pb-0 -mt-4'>
         <CardCategoria
           ativo={false}
           titulo={"Discontoken"}

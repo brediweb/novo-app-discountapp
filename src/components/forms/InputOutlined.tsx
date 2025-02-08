@@ -76,7 +76,7 @@ const InputOutlined: React.FC<PropsInput> = ({
           style={{
             position: 'absolute',
             right: 16,
-            top: 16,
+            top: 23,
           }}
         >
           <Image

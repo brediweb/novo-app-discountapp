@@ -10,6 +10,7 @@ import FilledButton from '../../../components/buttons/FilledButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import MainLayoutAutenticado from '../../../components/layout/MainLayoutAutenticado'
 import { Image, View, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
 export default function AvaliacaoScreen({ route }: { route?: any }) {
   const { goBack } = useNavigate()
@@ -31,7 +32,7 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
           Authorization: `Bearer ${newJson.token}`,
         }
         const formData = {
-          anunciante_id: idOferta,
+          anunciante_id: idOferta ?? route?.params?.id_anunciante,
           comentario: mensagem,
           avaliacao: selecionaAvalaicao,
           permissao_contato: contato
@@ -47,8 +48,11 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
         })
         goBack()
       } catch (error: any) {
-        console.log(error)
-        console.log('ERRR avaliações: ', error?.response?.data);
+        Toast.show({
+          type: 'error',
+          text1: error.response.data.message ?? 'Erro ao avaliar',
+        })
+        console.log('ERRR avaliações: ', error);
       }
     }
     setLoading(false)
@@ -67,9 +71,8 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
   return (
     <MainLayoutAutenticado loading={loading}>
       <View className='mx-4 pb-20'>
-        <KeyboardAvoidingView
-          style={{ flex: 1 }}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        <ScrollView
+          contentContainerStyle={{ flex: 1, paddingBottom: 320 }}
         >
           <H3>Avalie a sua experiência</H3>
           <Paragrafo title='O que você achou da sua experiência com o anunciante ?' />
@@ -142,7 +145,7 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
             onPress={onSubmit}
             disabled={contato === null || selecionaAvalaicao.length <= 0 ? true : false}
           />
-        </KeyboardAvoidingView>
+        </ScrollView>
       </View>
     </MainLayoutAutenticado>
   );

@@ -107,53 +107,47 @@ export default function LoginClienteScreen() {
 
   return (
     <MainLayout carregando={loadign} scroll={true}>
-      <ScrollView
-        contentContainerStyle={{ paddingBottom: 320 }}
-      >
-        <View className='flex-1 px-4'>
-          <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between', alignItems: 'center' }}>
-            <IcoCelularLogin />
-            <View className='w-full mb-4'>
-              <H2 title='Login' />
-              <View className='mb-5 mt-3'>
-                <InputOutlined
-                  onChange={setEmail}
-                  label='Email'
-                  value={email}
-                  keyboardType={'email-address'}
-                />
-                <InputOutlined
-                  onChange={onChangePassword}
-                  label='Senha'
-                  secureTextEntry={true}
-                  keyboardType={'default'}
-                />
-                <View className='flex-row justify-between mt-2 mb-8'>
-                  <TouchableOpacity onPress={() => navigate('FormPessoaFisicaScreen')}>
-                    <Paragrafo title='Criar conta' />
-                  </TouchableOpacity>
+      <ScrollView contentContainerStyle={{ paddingBottom: 220, marginHorizontal: 20 }}>
+        <IcoCelularLogin />
+        <View className='w-full mb-4'>
+          <H2 title='Login' />
+          <View className='mb-5 mt-3'>
+            <InputOutlined
+              onChange={setEmail}
+              label='Email'
+              value={email}
+              keyboardType={'email-address'}
+            />
+            <InputOutlined
+              onChange={onChangePassword}
+              label='Senha'
+              secureTextEntry={true}
+              keyboardType={'default'}
+            />
+            <View className='flex-row justify-between mt-2 mb-8'>
+              <TouchableOpacity onPress={() => navigate('FormPessoaFisicaScreen')}>
+                <Paragrafo title='Criar conta' />
+              </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => navigate('RecuperaSenhaScreen')}>
-                    <Paragrafo title='Esqueceu a senha?' />
-                  </TouchableOpacity>
-                </View>
-                <FilledButton
-                  onPress={onSubmit}
-                  title='Entrar'
-                  disabled={email.length <= 0 || password.length <= 0 ? true : false}
-                />
-                <View className="mt-2"></View>
-                <FilledButton
-                  onPress={() => navigate('LoginScreen')}
-                  title='Trocar perfil'
-                  backgroundColor={colors.secondary60}
-                />
-              </View>
-              <View className='absolute bottom-0 right-0'>
-                <Caption fontWeight={'bold'}>{versionName ?? ''}</Caption>
-              </View>
+              <TouchableOpacity onPress={() => navigate('RecuperaSenhaScreen')}>
+                <Paragrafo title='Esqueceu a senha?' />
+              </TouchableOpacity>
             </View>
-          </ScrollView>
+            <FilledButton
+              onPress={onSubmit}
+              title='Entrar'
+              disabled={email.length <= 0 || password.length <= 0 ? true : false}
+            />
+            <View className="mt-2"></View>
+            <FilledButton
+              onPress={() => navigate('LoginScreen')}
+              title='Trocar perfil'
+              backgroundColor={colors.secondary60}
+            />
+          </View>
+          <View className='absolute bottom-0 right-0'>
+            <Caption fontWeight={'bold'}>{versionName ?? ''}</Caption>
+          </View>
         </View>
       </ScrollView>
     </MainLayout >

@@ -9,13 +9,12 @@ import { useNavigate } from '../../hooks/useNavigate'
 import IcoCelularLogin from '../../svg/IcoCelularLogin'
 import Caption from '../../components/typography/Caption'
 import MainLayout from '../../components/layout/MainLayout'
-import { Image, TouchableOpacity, View } from 'react-native'
+import { ScrollView, TouchableOpacity, View } from 'react-native'
 import Paragrafo from '../../components/typography/Paragrafo'
 import { useGlobal } from '../../context/GlobalContextProvider'
 import InputOutlined from '../../components/forms/InputOutlined'
 import FilledButton from '../../components/buttons/FilledButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { ScrollView } from 'react-native'
 
 export default function LoginAnuncianteScreen() {
   const { navigate } = useNavigate()
@@ -104,51 +103,45 @@ export default function LoginAnuncianteScreen() {
   }, [])
 
   return (
-    <MainLayout carregando={loadign} scroll={true}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 320 }}>
-        <View className='flex-1 px-4'>
-          <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between', alignItems: 'center' }}>
-            <IcoCelularLogin />
-            <View className='w-full mb-4'>
-              <H2 title='Login (Anunciante)' />
-              <View className='mb-5 mt-3'>
-                <InputOutlined
-                  onChange={setEmail}
-                  label='Email'
-                  value={email}
-                  keyboardType={'email-address'}
-                />
-                <InputOutlined
-                  onChange={onChangePassword}
-                  label='Senha'
-                  secureTextEntry={true}
-                  keyboardType={'default'}
-                />
-                <View className='flex-row justify-between mt-2 mb-8'>
-                  <TouchableOpacity onPress={() => navigate('FormPessoaJuridicaScreen')}>
-                    <Paragrafo title='Criar conta' />
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => navigate('RecuperaSenhaScreen')}>
-                    <Paragrafo title='Esqueceu a senha?' />
-                  </TouchableOpacity>
-                </View>
-                <FilledButton
-                  onPress={onSubmit}
-                  title='Entrar'
-                  disabled={email.length <= 0 || password.length <= 0 ? true : false}
-                />
-                <View className="mt-2"></View>
-                <FilledButton
-                  onPress={() => navigate('LoginScreen')}
-                  title='Trocar perfil'
-                  backgroundColor={colors.secondary60}
-                />
-              </View>
-              <View className='absolute bottom-0 right-0'>
-                <Caption fontWeight={'bold'}>{versionName ?? ''}</Caption>
-              </View>
-            </View>
-          </ScrollView>
+    <MainLayout carregando={loadign} scroll={false}>
+      <ScrollView contentContainerStyle={{ marginHorizontal: 20, paddingBottom: 320 }}>
+        <IcoCelularLogin />
+        <H2 title='Login (Anunciante)' />
+        <View className='mb-5 mt-3'>
+          <InputOutlined
+            onChange={setEmail}
+            label='Email'
+            value={email}
+            keyboardType={'email-address'}
+          />
+          <InputOutlined
+            onChange={onChangePassword}
+            label='Senha'
+            secureTextEntry={true}
+            keyboardType={'default'}
+          />
+          <View className='flex-row justify-between mt-2 mb-8'>
+            <TouchableOpacity onPress={() => navigate('FormPessoaJuridicaScreen')}>
+              <Paragrafo title='Criar conta' />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigate('RecuperaSenhaScreen')}>
+              <Paragrafo title='Esqueceu a senha?' />
+            </TouchableOpacity>
+          </View>
+          <FilledButton
+            onPress={onSubmit}
+            title='Entrar'
+            disabled={email.length <= 0 || password.length <= 0 ? true : false}
+          />
+          <View className="mt-2"></View>
+          <FilledButton
+            onPress={() => navigate('LoginScreen')}
+            title='Trocar perfil'
+            backgroundColor={colors.secondary60}
+          />
+        </View>
+        <View className='absolute bottom-0 right-0'>
+          <Caption fontWeight={'bold'}>{versionName ?? ''}</Caption>
         </View>
       </ScrollView>
     </MainLayout >

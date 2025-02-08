@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
 import 'react-native-gesture-handler';
-import 'react-native-reanimated'; // Deve ser importado no topo
+import 'react-native-reanimated';
+import {
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  View
+} from 'react-native';
+import { initialize } from 'react-native-clarity';
 import { colors } from './src/styles/colors';
 import Toast from 'react-native-toast-message';
 import Loading from './src/components/Loading';
-import { OneSignal } from 'react-native-onesignal';
-import { initialize } from 'react-native-clarity';
 import MainStack from './src/navigation/routes/MainStack';
-import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { GlobalContextProvider } from './src/context/GlobalContextProvider';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {
   DMSans_400Regular,
   DMSans_500Medium,
@@ -31,7 +37,8 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins';
 import { Roboto_500Medium } from '@expo-google-fonts/roboto';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { OneSignal } from 'react-native-onesignal';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -50,6 +57,7 @@ export default function App() {
     Roboto_500Medium,
   });
 
+  const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 0;
   useEffect(() => {
     if (Platform.OS === 'android') {
       initialize('k80ijj83lf'); // Inicialização do Clarity
@@ -67,16 +75,14 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <GlobalContextProvider>
-          <MainStack />
-          <Toast />
-        </GlobalContextProvider>
+        <View style={[styles.content, { paddingTop: statusBarHeight }]}>
+          <GlobalContextProvider>
+            <MainStack />
+            <Toast />
+          </GlobalContextProvider>
+        </View>
       </SafeAreaView>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor="transparent"
-        translucent
-      />
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
     </GestureHandlerRootView>
   );
 }
@@ -88,5 +94,8 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: colors.white,
+  },
+  content: {
+    flex: 1,
   },
 });

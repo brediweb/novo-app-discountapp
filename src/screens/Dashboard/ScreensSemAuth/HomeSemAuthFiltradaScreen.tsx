@@ -89,7 +89,7 @@ export default function HomeSemAuthFiltradaScreen(route: any) {
   }, [idCategoria])
 
   return (
-    <MainLayoutAutenticado notScroll={true} marginTop={0} loading={isRefreshing}>
+    <MainLayoutAutenticado notScroll={true} marginTop={40} loading={isRefreshing}>
       <ModalTemplateLogin visible={modalVisible} onClose={() => setModalVisible(false)} />
       <View className='mt-6 mb-3'>
       </View>

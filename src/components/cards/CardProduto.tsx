@@ -203,8 +203,9 @@ export default function CardProduto(
             Authorization: `Bearer ${newJson.token}`,
           }
           const response = await api.get(`/meus-cupoms/verificar?idOferta=${id_oferta}`, { headers })
-          if (response.data.results.Verificado) {
+          if (response.data.results.verificado) {
             clearInterval(intervalId)
+            setModalVisible(false)
             setModalSucesso(true)
           } else {
             console.log('nada encontrado');

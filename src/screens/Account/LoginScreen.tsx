@@ -87,7 +87,7 @@ export default function LoginScreen() {
 
   return (
     <MainLayout scroll={true}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <ModalTemplate
           width={'90%'}
           visible={modalVisible}

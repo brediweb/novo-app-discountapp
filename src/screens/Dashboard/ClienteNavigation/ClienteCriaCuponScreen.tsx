@@ -42,7 +42,7 @@ export default function ClienteCriaCuponScreen() {
   const { navigate } = useNavigate();
   const [titulo, setTitulo] = useState('');
   const [filial, setFilial] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [descricao, setDescricao] = useState('');
   const [qtdCupons, setQtdCupons] = useState('');
   const [valorReais, setValorReais] = useState('');
@@ -84,6 +84,7 @@ export default function ClienteCriaCuponScreen() {
     } catch (error) {
       console.log('ERROR GET Categorias: ', error);
     }
+    setLoading(false)
   }
 
   async function getDataLimite() {
@@ -468,7 +469,7 @@ export default function ClienteCriaCuponScreen() {
     precision: 2,
   });
 
-  if (!planActive) {
+  if (!planActive && !loading) {
     return (
       <MainLayoutAutenticado
         marginTop={0}

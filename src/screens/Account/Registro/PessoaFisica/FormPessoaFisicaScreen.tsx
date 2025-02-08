@@ -327,8 +327,6 @@ export default function FormPessoaFisicaScreen({
             'id-user',
             response.data.results.id.toString()
           );
-          console.log('teste', response.data.results.id);
-
           setSenhaUser(senha);
           Toast.show({
             type: 'success',
@@ -404,7 +402,6 @@ export default function FormPessoaFisicaScreen({
         `/localidades/estados/${uf}/municipios`
       );
       setListaCidades(response.data);
-      console.log('CIDADES', response.data);
     } catch (error: any) {
       console.log('ERRO', error);
     }
@@ -484,6 +481,19 @@ export default function FormPessoaFisicaScreen({
       nextInputRef.current.focus();
     }
   };
+
+  async function getEstados() {
+    try {
+      const response = await api_ibge.get(`/localidades/estados`);
+      setListaEstados(response.data);
+    } catch (error: any) {
+      console.error('ERRO GET Estados', error);
+    }
+  }
+
+  useEffect(() => {
+    getEstados();
+  }, [])
 
   useEffect(() => {
     if (checked) {
