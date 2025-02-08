@@ -80,7 +80,7 @@ export default function SugerirEstabelecimentosScreen() {
   }
 
   return (
-    <MainLayoutAutenticadoSemScroll marginTop={0} marginHorizontal={0}>
+    <MainLayoutAutenticadoSemScroll marginTop={0} loadign={loading} marginHorizontal={0}>
       <ScrollView>
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -88,7 +88,7 @@ export default function SugerirEstabelecimentosScreen() {
           <HeaderPrimary titulo='Sugerir estabelecimento' />
           <View className='mx-4 mt-6 pb-20'>
             <H5>Quer indicar algum estabelecimento comercial?</H5>
-            <View className='mt-2'/>
+            <View className='mt-2' />
             <Caption fontSize={14}>Conhece algum estabelecimento que ainda não é parceiro, mas que você gostaria de ver por aqui? É só indicar com os dados abaixo.</Caption>
 
             <View className='mt-6'>
