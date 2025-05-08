@@ -22,6 +22,9 @@ export default function FormPerfilScreen({ route }: { route: any }) {
     setSelectedOptions(options)
   }
 
+  console.log('Parse', parseFloat(infoForm.latitude), parseFloat(infoForm.longitude));
+
+
   async function onSubmit() {
     setLoading(true)
     if (selectedOptions.length <= 0) {
@@ -60,8 +63,8 @@ export default function FormPerfilScreen({ route }: { route: any }) {
     formdata.append('cpf_representante', `${infoForm.cpf_represetante}`)
     formdata.append('senha', `${infoForm.senha}`)
     formdata.append('perfil_id', `${categoriaIdString}`)
-    formdata.append('latitude', parseFloat(infoForm.latitude) as any)
-    formdata.append('longitude', parseFloat(infoForm.longitude) as any)
+    formdata.append('latitude', infoForm.latitude as any)
+    formdata.append('longitude', infoForm.longitude as any)
     if (infoForm?.logomarca) {
       if (infoForm?.logomarca?.path != undefined && infoForm?.logomarca?.path != '') {
         formdata.append('logomarca', novaImage as any)
@@ -79,6 +82,8 @@ export default function FormPerfilScreen({ route }: { route: any }) {
           type: 'success',
           text1: 'Cadastro realizado !',
         })
+        console.log('Cadastrado:', response.data);
+
         setTelefoneDigitado(infoForm.telefone)
         navigate('ValidaCodigoScreen')
       } else {
