@@ -17,12 +17,12 @@ export default function ContentBottomDrawer(props: any) {
       />
       <ItemDrawer
         titulo='Favoritos'
-         onPress={() => navigate('Favoritos')}
+        onPress={() => navigate('Favoritos')}
         imagem={require('../../../assets/img/icons/favoritos.png')}
       />
       <ItemDrawer
-        titulo='Utilizados'
-         onPress={() => navigate('Utilizados')}
+        titulo='Anúncios'
+        onPress={() => navigate('Utilizados')}
         imagem={require('../../../assets/img/icons/utilizados.png')}
       />
     </View>

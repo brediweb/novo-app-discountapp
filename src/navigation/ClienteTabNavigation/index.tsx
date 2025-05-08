@@ -135,7 +135,7 @@ export default function ClienteTabNavigation() {
         component={ClienteUtilizadosScreen}
         options={{
           headerShown: false,
-          tabBarLabel: 'Utilizados'
+          tabBarLabel: 'Anúncios'
         }}
       />
       <Tab.Screen

@@ -36,7 +36,7 @@ export default function ButtonClienteUtilizado({ titulo, usados, maximo, onPress
       </H5>
       <View className='bg-[#BB4706] rounded-3xl items-center min-w-[32] max-w-[140] mt-2 px-2 py-1'>
         <Caption fontSize={14} color={colors.white} fontWeight={'500'}>
-          {usados}/{maximo} utilizados
+          {usados}/{maximo} anúncios
         </Caption>
       </View>
     </TouchableOpacity>

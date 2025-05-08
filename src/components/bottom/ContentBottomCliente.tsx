@@ -17,12 +17,12 @@ export default function ContentBottomCliente(props: any) {
       />
       <ItemDrawer
         titulo='Anúncio'
-         onPress={() => navigate('ClienteCriaCuponScreen')}
+        onPress={() => navigate('ClienteCriaCuponScreen')}
         imagem={require('../../../assets/img/icons/plus.png')}
       />
       <ItemDrawer
-        titulo='Utilizados'
-         onPress={() => navigate('ClienteUtilizadosScreen')}
+        titulo='Anúncios'
+        onPress={() => navigate('ClienteUtilizadosScreen')}
         imagem={require('../../../assets/img/icons/utilizados.png')}
       />
     </View>
