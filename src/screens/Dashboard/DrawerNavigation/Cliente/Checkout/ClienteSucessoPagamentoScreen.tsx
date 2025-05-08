@@ -145,7 +145,6 @@ export default function ClienteSucessoPagamentoScreen() {
                   <H3 align={'center'}>
                     Ocorreu um erro ao finalizar seu pagamento, volte e tente novamente.
                   </H3>
-                  <Caption color={colors.error40} align={'center'} fontSize={17} margintop={20}>Motivo: {truncateString(messageErro, 120) ?? ''}</Caption>
                 </View>
               </View>
               <FilledButton
