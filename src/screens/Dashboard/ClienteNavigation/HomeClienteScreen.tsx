@@ -110,8 +110,6 @@ export default function HomeClienteScreen() {
         const headers = {
           Authorization: `Bearer ${newJson.token}`
         }
-        console.log({Authorization: `Bearer ${newJson.token}`});
-        
         const response = await api.get(`/consumo`, { headers })
         console.log('CONSUMO: ', response.data.results)
         setDadosConsumo(response.data.results)
@@ -199,7 +197,7 @@ export default function HomeClienteScreen() {
   }, [statusTesteGratis])
 
   useEffect(() => {
-    if (pacoteGratis && statusTesteGratis){
+    if (pacoteGratis && statusTesteGratis) {
       setModalPacoteGratis(true)
     }
   }, [pacoteGratis, statusTesteGratis])
@@ -217,7 +215,7 @@ export default function HomeClienteScreen() {
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_disponiveis}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Quantidade de anúncios vigentes</Text>
+              <Text className='font-semibold text-[#2f009c]'>Saldo de anúncios</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoVigentes.png')} />
@@ -226,7 +224,7 @@ export default function HomeClienteScreen() {
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_gerados}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Total de cupons publicados</Text>
+              <Text className='font-semibold text-[#2f009c]'>Anúncios vigentes</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoPublicados.png')} />
@@ -235,7 +233,7 @@ export default function HomeClienteScreen() {
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_consumidos}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Total de cupons consumidos</Text>
+              <Text className='font-semibold text-[#2f009c]'>Cupons: Publicados/utilizados</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoConsumidos.png')} />
@@ -244,7 +242,7 @@ export default function HomeClienteScreen() {
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_favoritos}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Total de cupons favoritos</Text>
+              <Text className='font-semibold text-[#2f009c]'>Favoritos</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoFavoritos.png')} />
