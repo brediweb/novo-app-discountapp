@@ -1,9 +1,8 @@
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 import { colors } from '../../../../styles/colors';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import ImagePicker from 'react-native-image-crop-picker';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from '../../../../hooks/useNavigate';
 import { api, api_cnpj, api_ibge } from '../../../../service/api';
@@ -32,8 +31,9 @@ import {
   Alert,
   PermissionsAndroid,
   Modal,
+  ScrollView,
+  Linking
 } from 'react-native';
-import ButtonPrimary from '../../../../components/buttons/ButtonPrimary';
 import InputOutlinedCadastro from '@components/forms/InputOutlinedCadastro';
 import InputOutlined from '@components/forms/InputOutlined';
 
@@ -380,16 +380,16 @@ export default function FormPessoaJuridicaScreen({
     setTelefone(phone);
   };
 
-  const handleCEPChange = (text: string) => {
-    const cleanedText = text.replace(/\D/g, '');
+  // const handleCEPChange = (text: string) => {
+  //   const cleanedText = text.replace(/\D/g, '');
 
-    let formattedCEP = cleanedText;
-    if (cleanedText.length > 5) {
-      formattedCEP = `${cleanedText.slice(0, 5)}-${cleanedText.slice(5, 8)}`;
-    }
+  //   let formattedCEP = cleanedText;
+  //   if (cleanedText.length > 5) {
+  //     formattedCEP = `${cleanedText.slice(0, 5)}-${cleanedText.slice(5, 8)}`;
+  //   }
 
-    setCep(formattedCEP);
-  };
+  //   setCep(formattedCEP);
+  // };
 
   async function handleCep() {
     const newCep = cep.replace(/\D/g, '');
@@ -765,11 +765,12 @@ export default function FormPessoaJuridicaScreen({
           mt={8}
           label="CEP"
           value={cep}
+          maxLength={10}
           error={errorCep}
           onBlur={handleCep}
           refInput={input5Ref}
           keyboardType={'number-pad'}
-          onChangeText={handleCEPChange}
+          onChangeText={(text: any) => setCep(text)}
           onSubmitEditing={() => focusNextInput(input6Ref)}
         />
         <View className="flex flex-row w-full">
@@ -923,6 +924,7 @@ export default function FormPessoaJuridicaScreen({
                     pode dar um zoom também.
                   </Caption>
                   <MapView
+                    provider={PROVIDER_GOOGLE}
                     showsMyLocationButton
                     onMapReady={() => {
                       Platform.OS === 'android'
@@ -1041,10 +1043,34 @@ export default function FormPessoaJuridicaScreen({
 
               {Platform.OS === 'ios' && !permissionGrantedIos && (
                 <View className="mt-2">
-                  <FilledButton
-                    title="Abrir Mapa"
-                    onPress={() => getPermissionIOS()}
-                  />
+                  <Caption
+                    color="#49454F"
+                    fontWeight={'bold'}
+                    align={'center'}
+                    fontSize={16}
+                  >
+                    Para selecionar a localização do seu empreendimento, é
+                    necessário permitir o acesso à sua localização. Após autorização, clique no botão: "Atualizar e Verificar Permissão".
+                  </Caption>
+                  <View className='mt-4'>
+                    <FilledButton
+                      title="Abrir Configurações"
+                      onPress={() =>
+                        Linking.openSettings()
+                      }
+                    />
+                  </View>
+                  <View className='mt-4 mb-4'>
+                    <FilledButton
+                      backgroundColor={'transparent'}
+                      color={'#5D35F1'}
+                      border
+                      title="Atualizar e Verificar Permissão"
+                      onPress={() =>
+                        getPermissionIOS()
+                      }
+                    />
+                  </View>
                 </View>
               )}
 
