@@ -7,6 +7,7 @@ import { colors } from '../../../../../styles/colors'
 import { useIsFocused } from '@react-navigation/native'
 import H3 from '../../../../../components/typography/H3'
 import H5 from '../../../../../components/typography/H5'
+import 'text-encoding';
 import Clipboard from '@react-native-clipboard/clipboard'
 import { useNavigate } from '../../../../../hooks/useNavigate'
 import Caption from '../../../../../components/typography/Caption'
@@ -193,24 +194,24 @@ export default function ClientePagamentoPixScreen() {
                   <H3 color={colors.secondary70}>Valor total R$:{dadosPix.total}</H3>
                 </View>
               }
-              {codigoPix &&
+              {codigoPix && codigoPix.length > 0 &&
                 <View className='mx-auto'>
                   <QRCode
                     size={180}
                     logoSize={40}
-                    value={codigoPix}
+                    value={"00020101021226820014br.gov.bcb.pix2560pix.stone.com.br/pix/v2/30952e15-9c5e-4333-9c10-be73e997d686520400005303986540520.005802BR5910Discontapp6014RIO DE JANEIRO62290525d8c3d85be99d754becf55ad25630471F8"}
                     logoBackgroundColor='transparent'
                   />
                 </View>
               }
-              {codigoPix &&
+              {codigoPix && codigoPix.length > 0 &&
                 <View className='relative'>
                   <InputArea
                     mt={20}
                     height={172}
                     label=''
                     keyboardType={''}
-                    value={codigoPix}
+                    value={"00020101021226820014br.gov.bcb.pix2560pix.stone.com.br/pix/v2/30952e15-9c5e-4333-9c10-be73e997d686520400005303986540520.005802BR5910Discontapp6014RIO DE JANEIRO62290525d8c3d85be99d754becf55ad25630471F8"}
                     onChange={() => { }}
                   />
                   <TouchableOpacity onPress={copyToClipboard} className='absolute top-[40px] right-2 z-50'>

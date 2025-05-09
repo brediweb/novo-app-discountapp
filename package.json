@@ -71,6 +71,7 @@
     "react-native-vision-camera": "^4.6.3",
     "react-native-web": "~0.19.6",
     "react-query": "^3.39.3",
+    "text-encoding": "^0.7.0",
     "zustand": "^4.3.9"
   },
   "devDependencies": {
