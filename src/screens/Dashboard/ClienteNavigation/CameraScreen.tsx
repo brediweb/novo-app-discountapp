@@ -135,6 +135,11 @@ export default function CameraScreen() {
             <View className='my-4 mx-8 items-center'>
               <H3 align={'center'}>Código validado com sucesso!</H3>
               <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
+              <TouchableOpacity onPress={closeModal} className='bg-[#6750A4] items-center justify-center rounded-full h-12 w-12 mr-3'>
+                <Text>
+                  Voltar
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>

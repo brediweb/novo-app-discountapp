@@ -15,7 +15,7 @@ export default function ClienteCupomSucessoScreen(props: any) {
   const { navigate } = useNavigate()
   const idOferta = props.route.params.response.data.results.id
 
-  const shareLinkAndText = async () => {
+  async function shareLinkAndText() {
     try {
       const options = {
         title: 'Compartilhar Link e Texto',
