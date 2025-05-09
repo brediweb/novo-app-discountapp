@@ -194,7 +194,7 @@ export default function ClientePagamentoPixScreen() {
                   <H3 color={colors.secondary70}>Valor total R$:{dadosPix.total}</H3>
                 </View>
               }
-              {codigoPix && codigoPix.length > 0 &&
+              {codigoPix && codigoPix.length > 0 && !timeOut &&
                 <View className='mx-auto'>
                   <QRCode
                     size={180}
@@ -204,7 +204,7 @@ export default function ClientePagamentoPixScreen() {
                   />
                 </View>
               }
-              {codigoPix && codigoPix.length > 0 &&
+              {codigoPix && codigoPix.length > 0 && !timeOut &&
                 <View className='relative'>
                   <InputArea
                     mt={20}
