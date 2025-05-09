@@ -126,78 +126,74 @@ export default function ClientePagamentoCartaoScreen() {
 
   return (
     <MainLayoutAutenticadoSemScroll marginTop={0} marginHorizontal={0}>
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
-        <HeaderPrimary voltarScreen={() => navigate('ClienteTipoPagamentoScreen')} titulo='Realizar pagamento' />
-        <ScrollView>
-          <View className='mx-7 mt-5 justify-between' >
-            <H5>Preencha com os dados do seu cartão de crédito</H5>
-            <Caption>
-              Nossa maior preocupação é a segurança dos seus dados. Este ambiente é totalmente seguro.
-            </Caption>
+      <HeaderPrimary voltarScreen={() => navigate('ClienteTipoPagamentoScreen')} titulo='Realizar pagamento' />
+      <ScrollView>
+        <View className='mx-7 mt-5 justify-between' >
+          <H5>Preencha com os dados do seu cartão de crédito</H5>
+          <Caption>
+            Nossa maior preocupação é a segurança dos seus dados. Este ambiente é totalmente seguro.
+          </Caption>
 
-            <View className='relative '>
-              <Image className='mx-auto mt-4' source={require('../../../../../../assets/img/cliente/cartao-dafault.png')} />
-              <View className='absolute mx-auto max-[220px] z-50'>
+          <View className='relative '>
+            <Image className='mx-auto mt-4' source={require('../../../../../../assets/img/cliente/cartao-dafault.png')} />
+            <View className='absolute mx-auto max-[220px] z-50 px-2 pt-2'>
 
-                <Text className='text-[16px] text-white top-[60px] left-16 font-bold'>{numeroCartao}</Text>
-                <Text className='text-[12px] text-white top-[63px] left-16'>Nome</Text>
-                <Text className='text-[12px] text-white top-[63px] left-16 font-bold'>{nomeTruncado}</Text>
-                <Text className='text-[12px] text-white top-8 left-[230px]'>Validade</Text>
-                <Text className='text-[12px] text-white top-8 left-[230px] font-bold'>{data}</Text>
-                <Text className='text-[10px] text-white top-9 left-16'>CVC</Text>
-                <Text className='text-[12px] text-white top-9 left-16 font-bold'>{cvc}</Text>
-              </View>
-
+              <Text className='text-[16px] text-white top-[60px] left-16 font-bold'>{numeroCartao}</Text>
+              <Text className='text-[12px] text-white top-[63px] left-16'>Nome</Text>
+              <Text className='text-[12px] text-white top-[63px] left-16 font-bold'>{nomeTruncado}</Text>
+              <Text className='text-[12px] text-white top-8 left-[230px]'>Validade</Text>
+              <Text className='text-[12px] text-white top-8 left-[230px] font-bold'>{data}</Text>
+              <Text className='text-[10px] text-white top-9 left-16'>CVC</Text>
+              <Text className='text-[12px] text-white top-9 left-16 font-bold'>{cvc}</Text>
             </View>
-            <View className='mt-4 mb-6'>
-              <InputMascaraPaper
-                maxLength={19}
-                value={numeroCartao}
-                label='Número do cartão'
-                keyboardType={'number-pad'}
-                onChangeText={(text: any) => handleNumeroCartao(text)}
-              />
-              <InputOutlined
-                mt={8}
-                label='CVC'
-                maxLength={3}
-                onChange={setCvc}
-                keyboardType={'number-pad'}
-              />
-              <InputMascaraPaper
-                mt={8}
-                value={data}
-                maxLength={5}
-                keyboardType={'number-pad'}
-                label='Data de validade (MM/AA)'
-                onChangeText={(text: any) => handleDataMask(text)}
-              />
-              <InputOutlined
-                mt={8}
-                keyboardType={''}
-                onChange={setNome}
-                label='Nome no cartão'
-              />
-              <InputMascaraPaper
-                mt={8}
-                maxLength={18}
-                value={cpfTitular}
-                keyboardType={'number-pad'}
-                label='CPF/CNPJ do titular do cartão'
-                onChangeText={(text: any) => handleCPFMask(text)}
-              />
-            </View>
-            <FilledButton
-              title='Continuar'
-              disabled={cvc.length <= 0 || nome.length <= 0 || numeroCartao.length <= 0 || data.length <= 0 || cpfTitular.length < 9 ? true : false}
-              onPress={handleSubmit}
+
+          </View>
+          <View className='mt-4 mb-6'>
+            <InputMascaraPaper
+              maxLength={19}
+              value={numeroCartao}
+              label='Número do cartão'
+              keyboardType={'number-pad'}
+              onChangeText={(text: any) => handleNumeroCartao(text)}
+            />
+            <InputOutlined
+              mt={8}
+              label='CVC'
+              maxLength={3}
+              onChange={setCvc}
+              keyboardType={'number-pad'}
+            />
+            <InputMascaraPaper
+              mt={8}
+              value={data}
+              maxLength={5}
+              keyboardType={'number-pad'}
+              label='Data de validade (MM/AA)'
+              onChangeText={(text: any) => handleDataMask(text)}
+            />
+            <InputOutlined
+              mt={8}
+              keyboardType={''}
+              onChange={setNome}
+              label='Nome no cartão'
+            />
+            <InputMascaraPaper
+              mt={8}
+              maxLength={18}
+              value={cpfTitular}
+              keyboardType={'number-pad'}
+              label='CPF/CNPJ do titular do cartão'
+              onChangeText={(text: any) => handleCPFMask(text)}
             />
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+          <FilledButton
+            title='Continuar'
+            disabled={cvc.length <= 0 || nome.length <= 0 || numeroCartao.length <= 0 || data.length <= 0 || cpfTitular.length < 9 ? true : false}
+            onPress={handleSubmit}
+          />
+        </View>
+        <View className='w-full h-[440px]' />
+      </ScrollView>
     </MainLayoutAutenticadoSemScroll>
   );
 }

@@ -13,7 +13,7 @@ import { useDadosPagamento } from '../../../../../stores/useDadosPagamento'
 import ModalTemplate from '../../../../../components/Modals/ModalTemplate'
 import InputMascaraPaper from '../../../../../components/forms/InputMascaraPaper'
 import MainLayoutAutenticado from '../../../../../components/layout/MainLayoutAutenticado'
-import { KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 
 
 export default function ClientePagamentoEndereco() {
@@ -257,10 +257,7 @@ export default function ClientePagamentoEndereco() {
           </ScrollView>
         </View>
       </ModalTemplate>
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      >
+      <ScrollView>
         <HeaderPrimary voltarScreen={() => navigate('ClientePagamentoCartaoScreen')} titulo='Realizar pagamento' />
         <View className='mx-7 mt-5 flex-1 justify-between' >
           <View>
@@ -326,7 +323,8 @@ export default function ClientePagamentoEndereco() {
             onPress={handleSubmit}
           />
         </View>
-      </KeyboardAvoidingView>
+        <View className='w-full h-[440px]' />
+      </ScrollView>
     </MainLayoutAutenticado>
   );
 }
