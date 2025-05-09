@@ -65,6 +65,7 @@ export default function FavoritosScreen() {
       id_oferta={item.id}
       status_favorito={item.status_favorito ?? true}
       nome_empresa={item.nome_anunciante}
+      dados_gerais={item}
       nome_filial={item.filial}
       get_produtos={getFavoritos}
       id_anunciante={item.anunciante_id}

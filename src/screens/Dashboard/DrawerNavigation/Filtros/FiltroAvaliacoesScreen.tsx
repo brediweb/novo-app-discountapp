@@ -62,6 +62,7 @@ export default function FiltroAvaliacoesScreen() {
     <CardProduto
       key={item.id}
       id_oferta={item.id}
+      dados_gerais={item}
       data_validade={item.data_validade}
       nome_filial={item.categoria_cupom}
       nome_produto={item.titulo_oferta}

@@ -51,6 +51,7 @@ export default function FiltroCuponVigenteScreen() {
   const renderItem = ({ item }: any) => (
     <CardProduto
       key={item.id}
+      dados_gerais={item}
       id_oferta={item.id}
       qr_code={item.codigo_cupom}
       data_validade={item.data_validade}

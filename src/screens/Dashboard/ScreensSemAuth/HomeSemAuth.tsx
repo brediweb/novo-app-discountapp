@@ -74,6 +74,7 @@ export default function HomeSemAuth() {
     item.anuncio === false ?
       <CardProduto
         key={item.id}
+        dados_gerais={item}
         id_oferta={item.id}
         imagem_capa={item.imagem}
         get_produtos={getProdutos}

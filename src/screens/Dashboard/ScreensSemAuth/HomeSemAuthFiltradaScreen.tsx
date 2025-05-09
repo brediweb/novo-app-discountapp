@@ -60,6 +60,7 @@ export default function HomeSemAuthFiltradaScreen(route: any) {
       :
       <CardProduto
         key={item.id}
+        dados_gerais={item}
         id_oferta={item.id}
         get_produtos={getProdutos}
         qr_code={item.codigo_cupom}

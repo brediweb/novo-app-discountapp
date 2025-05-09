@@ -1,7 +1,7 @@
 import Loading from '../Loading'
 import H3 from '../typography/H3'
 import { api } from '../../service/api'
-import { ScrollView } from 'react-native'
+import { Linking, ScrollView } from 'react-native'
 import Caption from '../typography/Caption'
 import { colors } from '../../styles/colors'
 import QRCode from 'react-native-qrcode-svg'
@@ -19,6 +19,7 @@ import IcoFavoritaAtivo from '../../svg/IcoFavoritaAtivo'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { View, TouchableOpacity, Text, Image, Modal, Dimensions } from 'react-native'
 import { useGlobal } from '../../context/GlobalContextProvider'
+import MapView, { Marker } from 'react-native-maps'
 
 interface PropsProduto {
   qr_code?: any
@@ -39,6 +40,7 @@ interface PropsProduto {
   vantagem_porcentagem?: any
   descricao_simples?: string
   descricao_completa?: string
+  dados_gerais?: any
 }
 
 export default function CardProduto(
@@ -48,6 +50,7 @@ export default function CardProduto(
     categoria,
     id_oferta,
     nome_filial,
+    dados_gerais,
     imagem_capa,
     nome_empresa,
     get_produtos,
@@ -73,6 +76,7 @@ export default function CardProduto(
   const [modalVisible, setModalVisible] = useState(false)
   const [modalSucesso, setModalSucesso] = useState(false)
   const [modalVisibleProduto, setModalVisibleProduto] = useState(false)
+  const [modalInfosAnunciante, setModalInfosAnunciante] = useState(false)
   const [modalVisibleDetalhes, setModalVisibleDetalhes] = useState(false)
 
   const handleOpenModal = () => {
@@ -88,6 +92,11 @@ export default function CardProduto(
     setModalVisible(false)
     setModalSucesso(false)
     navigate('AvaliacaoScreen', { id_anunciante: id_anunciante, id_oferta: id_oferta })
+  }
+
+  const handleCloseModalVoltar = () => {
+    setModalVisible(false)
+    setModalSucesso(false)
   }
 
   const handleLogin = () => {
@@ -236,6 +245,7 @@ export default function CardProduto(
     }
   }, [modalVisible])
 
+  const valor_bruto = 20
   return (
 
     <>
@@ -246,6 +256,14 @@ export default function CardProduto(
           <H3 color={colors.secondary70} align={'center'}>Cupom validado com sucesso !!!</H3>
           <View className='w-52 mt-6'>
             <ButtonOutline title='Avaliar anunciante' onPress={handleCloseModalSucesso} />
+            <View className='w-full h-4' />
+            <ButtonOutline
+              title='Voltar'
+              backgroundColor={'transparent'}
+              border
+              color={colors.secondary}
+              onPress={handleCloseModalVoltar}
+            />
           </View>
         </View>
       </ModalTemplate>
@@ -331,6 +349,62 @@ export default function CardProduto(
           </View>
         </View>
       </Modal>
+      <Modal visible={modalInfosAnunciante} animationType='slide' >
+        <View className='flex-1 w-full ' style={{ backgroundColor: colors.blackbase }}>
+          <View className='flex-1 justify-center my-20 mx-2 rounded-lg'>
+            <View className='bg-white mt-4'>
+              <ScrollView showsVerticalScrollIndicator={false} className='my-4 px-4'>
+                <TouchableOpacity onPress={() => setModalInfosAnunciante(false)} className='w-full rounded-md bg-[#2F009C] flex justify-center items-center h-12 mb-4 px-2'>
+                  <Text className='text-white'>
+                    Voltar
+                  </Text>
+                </TouchableOpacity>
+                <Caption color={colors.dark} fontSize={16} >
+                  Nome da Empresa: {nome_empresa}
+                </Caption>
+                <View className='w-full h-4' />
+                <Caption color={colors.dark} fontSize={16} >
+                  Telefone:
+                </Caption>
+                <View className='w-full h-4' />
+                <Caption color={colors.dark} fontSize={16} >
+                  Endereço:
+                </Caption>
+                <View className='w-full h-4' />
+                <Caption color={colors.dark} fontSize={16} >
+                  Instagram:
+                </Caption>
+                <View className='w-full h-4' />
+                <Caption color={colors.dark} fontSize={16} >
+                  Mapa:
+                </Caption>
+                <MapView
+                  onPress={() => Linking.openURL(`https://www.google.com/maps/@${dados_gerais.latitude},${dados_gerais.longitude},25z`)}
+                  className='w-full h-40 mt-2'
+                  initialRegion={{
+                    latitude: parseFloat(dados_gerais.latitude),
+                    longitude: parseFloat(dados_gerais.longitude),
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                  }}
+                >
+                  <Marker
+                    coordinate={{
+                      latitude: parseFloat(dados_gerais.latitude),
+                      longitude: parseFloat(dados_gerais.longitude),
+                    }}
+
+                    draggable
+                    pinColor={'#5D35F1'}
+                    anchor={{ x: 0.69, y: 1 }}
+                    centerOffset={{ x: -18, y: -60 }}
+                  />
+                </MapView>
+              </ScrollView>
+            </View>
+          </View>
+        </View>
+      </Modal>
       <View
         className='rounded-t-xl rounded-b-xl drop-shadow-md mx-1.5 mb-3 mt-3'
         style={{
@@ -347,18 +421,21 @@ export default function CardProduto(
         <View className='flex-row items-center py-3 px-2 mb-3'>
           <View className='flex-row w-full items-center justify-start'>
             {foto_user && foto_user != '-' ?
-              <Image source={{ uri: foto_user }} className='h-10 w-10 rounded-full mr-2 ' style={{ backgroundColor: colors.primary40 }} />
+              <TouchableOpacity onPress={() => setModalInfosAnunciante(true)}>
+                <Image source={{ uri: foto_user }} className='h-10 w-10 rounded-full mr-2 ' style={{ backgroundColor: colors.primary40 }} />
+              </TouchableOpacity>
               :
-              <View className='h-10 w-10 rounded-full items-center justify-center mr-2' style={{ backgroundColor: colors.primary40 }} >
-                {nome_empresa &&
-                  <Text className='text-base text-[#ffffff] font-medium' >{getInitials(nome_empresa)}</Text>
-                }
-              </View>
+              <TouchableOpacity onPress={() => setModalInfosAnunciante(true)}>
+                <View className='h-10 w-10 rounded-full items-center justify-center mr-2' style={{ backgroundColor: colors.primary40 }} >
+                  {nome_empresa &&
+                    <Text className='text-base text-[#ffffff] font-medium' >{getInitials(nome_empresa)}</Text>
+                  }
+                </View>
+              </TouchableOpacity>
             }
             <View className='w-full' style={{ maxWidth: '78%' }}>
-              {nome_empresa &&
-                <Text className='text-base text-[#775AFF] font-medium' >{nome_empresa}</Text>
-              }
+              <TouchableOpacity onPress={() => setModalInfosAnunciante(true)} className='w-full'>
+                {nome_empresa &&
               {/* {nome_filial &&
                 <Text className='text-sm text-[#775AFF]'>{nome_filial}</Text>
               } */}
@@ -415,6 +492,16 @@ export default function CardProduto(
             className='text-sm mb-4'
           >Válido até {data_validade}</Text>
           <Paragrafo color={'#49454F'} title={descricao_simples ?? ''} />
+              {/* Valor com desconto em reais */}
+              <Text className="text-lg">
+                Por:{' '}
+                <Text className="font-bold">
+                  R$: {(valor_bruto - parseFloat(vantagem_reais)).toFixed(2).replace('.', ',')}
+                </Text>
+              </Text>
+            </View>
+          )}
+
         </View>
         <View className={`justify-around items-center py-4 px-4 ${Dimensions.get('window').width > 300 && 'flex-row'}`}>
           <TouchableOpacity onPress={() => setModalVisibleDetalhes(true)} className='px-3 py-[10px]'>

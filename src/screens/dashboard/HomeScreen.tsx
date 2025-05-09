@@ -100,6 +100,7 @@ export default function HomeScreen() {
       <CardProduto
         key={item.id}
         id_oferta={item.id}
+        dados_gerais={item}
         imagem_capa={item.imagem}
         get_produtos={getProdutos}
         qr_code={item.codigo_cupom}

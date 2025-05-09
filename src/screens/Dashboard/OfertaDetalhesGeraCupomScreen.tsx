@@ -38,6 +38,7 @@ export default function OfertaDetalhesGeraCupomScreen(props: any) {
     <CardProduto
       key={item.id}
       id_oferta={item.id}
+      dados_gerais={item}
       qr_code={item.codigo_cupom}
       nome_empresa={item.anunciante}
       categoria={item.categoria_cupom}
