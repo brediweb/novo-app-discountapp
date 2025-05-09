@@ -256,7 +256,7 @@ export default function HomeClienteScreen() {
             <View className='bg-black/70 flex-1 flex justify-center items-center'>
               <View className='w-80 flex-col items-end justify-end'>
                 <TouchableOpacity onPress={() => setModalPacoteGratis(false)} className='mb-2'>
-                  <Image source={require('../../../../assets/img/icons/icoClose.png')} className='h-6 w-6' resizeMode='contain' />
+                  <Image source={require('../../../../assets/img/icons/ico-close.png')} className='h-6 w-6' resizeMode='contain' />
                 </TouchableOpacity>
                 <View className='w-80 h-80 bg-[#F9F9F9]'>
                   <View className='w-full bg-[#c9bfff] py-4'>
