@@ -19,7 +19,7 @@ import { Dimensions, Image, Modal, TouchableOpacity, View, Text, Keyboard, Permi
 import React from 'react'
 
 export default function ButtonsTecladoCamera() {
-  const { navigate } = useNavigate()
+  const { navigate, goBack } = useNavigate()
   const devices = useCameraDevices() as any
   const [codigo, setCodigo] = useState('')
   const [flashOn, setFlashOn] = useState(false)
@@ -179,6 +179,15 @@ export default function ButtonsTecladoCamera() {
                   </View>
                 </View>
               }
+              <View className='mt-6 mx-8'>
+                <FilledButton
+                  title='Voltar para o início'
+                  backgroundColor={'transparent'}
+                  color={colors.secondary50}
+                  border
+                  onPress={() => goBack()}
+                />
+              </View>
             </View>
           </ScrollView>
         </Modal>

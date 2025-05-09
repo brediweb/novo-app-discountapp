@@ -22,9 +22,6 @@ export default function FormPerfilScreen({ route }: { route: any }) {
     setSelectedOptions(options)
   }
 
-  console.log('Parse', parseFloat(infoForm.latitude), parseFloat(infoForm.longitude));
-
-
   async function onSubmit() {
     setLoading(true)
     if (selectedOptions.length <= 0) {

@@ -925,7 +925,6 @@ export default function FormPessoaJuridicaScreen({
                   </Caption>
                   <MapView
                     provider={PROVIDER_GOOGLE}
-                    showsMyLocationButton
                     onMapReady={() => {
                       Platform.OS === 'android'
                         ? PermissionsAndroid.request(
@@ -935,33 +934,31 @@ export default function FormPessoaJuridicaScreen({
                         })
                         : '';
                     }}
-                    region={{
-                      latitude: regiao.latitude,
-                      longitude: regiao.longitude,
-                      latitudeDelta: 0.2,
-                      longitudeDelta: 0.2,
-                    }}
+                    // region={{
+                    //   latitude: regiao.latitude,
+                    //   longitude: regiao.longitude,
+                    //   latitudeDelta: 0.2,
+                    //   longitudeDelta: 0.2,
+                    // }}
                     initialRegion={{
                       latitude: regiao.latitude,
                       longitude: regiao.longitude,
                       latitudeDelta: 0.2,
                       longitudeDelta: 0.2,
                     }}
-                    zoomEnabled
                     style={{
                       height: 400,
                       width: '100%',
                       marginTop: 8,
                     }}
-                    zoomTapEnabled={true}
                     loadingEnabled
                     showsBuildings={false}
                     showsTraffic={false}
                   >
                     <Marker
                       coordinate={{
-                        latitude: regiao.latitude,
-                        longitude: regiao.longitude,
+                        latitude: novaLocalizacao.latitude ?? regiao.latitude,
+                        longitude: novaLocalizacao.longitude ?? regiao.longitude,
                       }}
                       onDragEnd={(event) => {
                         // console.log(

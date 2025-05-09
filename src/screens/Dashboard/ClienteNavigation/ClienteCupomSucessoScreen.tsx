@@ -56,6 +56,12 @@ export default function ClienteCupomSucessoScreen(props: any) {
             <IcoCopy />
             <H3 align={'center'} color={colors.white}> Copiar</H3>
           </TouchableOpacity>
+          <TouchableOpacity
+            className='flex-row justify-center items-center bg-[#2F009C] py-1 rounded-xl mt-4'
+            onPress={() => navigate('Home')}
+          >
+            <H3 align={'center'} color={colors.white}> Voltar para o início </H3>
+          </TouchableOpacity>
 
         </View>
       </View>
