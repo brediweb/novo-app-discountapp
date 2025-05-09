@@ -137,38 +137,38 @@ export default function FormPessoaFisicaScreen({
     //   setErrorComplemento(true)
     //   return;
     // }
-    if (cpf.length <= 0) {
-      Toast.show({
-        type: 'error',
-        text1: 'Preencha o campo CPF !',
-      });
-      setErrorCpf(true);
-      return;
-    }
-    if (endereco.length <= 0) {
-      Toast.show({
-        type: 'error',
-        text1: 'Informe um Endereço válido !',
-      });
-      setErrorEndereco(true);
-      return;
-    }
-    if (!cpfValido) {
-      Toast.show({
-        type: 'error',
-        text1: 'Informe um CPF válido !',
-      });
-      setErrorCpf(true);
-      return;
-    }
-    if (cep.length <= 0 || cep.length < 8) {
-      Toast.show({
-        type: 'error',
-        text1: 'Informe um CEP válido !',
-      });
-      setErrorCep(true);
-      return;
-    }
+    // if (cpf.length <= 0) {
+    //   Toast.show({
+    //     type: 'error',
+    //     text1: 'Preencha o campo CPF !',
+    //   });
+    //   setErrorCpf(true);
+    //   return;
+    // }
+    // if (endereco.length <= 0) {
+    //   Toast.show({
+    //     type: 'error',
+    //     text1: 'Informe um Endereço válido !',
+    //   });
+    //   setErrorEndereco(true);
+    //   return;
+    // }
+    // if (!cpfValido) {
+    //   Toast.show({
+    //     type: 'error',
+    //     text1: 'Informe um CPF válido !',
+    //   });
+    //   setErrorCpf(true);
+    //   return;
+    // }
+    // if (cep.length <= 0 || cep.length < 8) {
+    //   Toast.show({
+    //     type: 'error',
+    //     text1: 'Informe um CEP válido !',
+    //   });
+    //   setErrorCep(true);
+    //   return;
+    // }
     if (senha.length <= 0) {
       Toast.show({
         type: 'error',
@@ -221,14 +221,14 @@ export default function FormPessoaFisicaScreen({
         nome_completo: nomeCompleto,
         email: email,
         telefone: novoTelefone,
-        endereco: endereco,
-        rua: rua,
-        bairro: bairro,
-        cep: novoCep,
-        cidade: cidade,
-        estado: estado,
-        complemento: complemento,
-        cpf: novoCpf,
+        // endereco: endereco,
+        // rua: rua,
+        // bairro: bairro,
+        // cep: novoCep,
+        // cidade: cidade,
+        // estado: estado,
+        // complemento: complemento,
+        // cpf: novoCpf,
         senha: senha,
       };
 
@@ -612,7 +612,7 @@ export default function FormPessoaFisicaScreen({
           onSubmitEditing={() => focusNextInput(input3Ref)}
           onChangeText={(text: any) => handlePhoneMask(text)}
         />
-        <InputMascaraPaper
+        {/* <InputMascaraPaper
           mt={8}
           label="CEP"
           value={cep}
@@ -673,8 +673,8 @@ export default function FormPessoaFisicaScreen({
           keyboardType={'default'}
           onChange={(text: string) => setComplemento(text)}
           onSubmitEditing={() => focusNextInput(input6Ref)}
-        />
-        <InputMascaraPaper
+        /> */}
+        {/* <InputMascaraPaper
           mt={8}
           required
           label="CPF"
@@ -685,7 +685,7 @@ export default function FormPessoaFisicaScreen({
           keyboardType={'number-pad'}
           onChangeText={(text: any) => handleCPFMask(text)}
           onSubmitEditing={() => focusNextInput(input7Ref)}
-        />
+        /> */}
         <InputOutlined
           mt={8}
           required

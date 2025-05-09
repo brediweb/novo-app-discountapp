@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 export default function CadastroSucessoScreen() {
   const { navigate } = useNavigate()
   const [loading, setLoading] = useState(false)
-  const { senhaUser, setTipoUser } = useGlobal()
+  const { senhaUser, setTipoUser, setUsuarioLogado } = useGlobal()
   const [emailStorage, setEmailStorage] = useState('')
 
   async function getEmail() {
@@ -48,11 +48,13 @@ export default function CadastroSucessoScreen() {
 
     try {
       const response = await api.post(`/login`, formData)
+
       if (response.status === 200) {
         const storageEmail = await AsyncStorage.setItem('dados-user', emailStorage)
         setTipoUser('Cliente')
         submitStorageLogin(response.data.results)
-        navigate('HomeDrawerNavigation')
+        navigate('OnBoardingScreen')
+        setUsuarioLogado(true)
       } else {
         navigate('LoginScreen')
       }

@@ -59,7 +59,6 @@ export default function LoginClienteScreen() {
       })
       if (!response.data.error) {
         const storageEmail = await AsyncStorage.setItem('user-email', email)
-        console.log(response.data.results)
         submitStorageLogin(response.data.results)
         setTipoUser('Cliente')
         Toast.show({
