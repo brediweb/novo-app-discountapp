@@ -142,11 +142,15 @@ export default function ButtonsTecladoCamera() {
               </TouchableOpacity>
 
               {envioSucesso
-                ? <View className='my-4 mx-8 items-center'>
+                ? <View className='my-4'>
                   <H3 align={'center'}>Código <Text className=' font-bold'>{exibiCodigo}</Text> validado com sucesso!</H3>
-                  <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
+                  <View className='flex items-center justify-center'>
+                    <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
+                  </View>
+
                   <View className='mt-6'>
                     <FilledButton
+
                       title='Válidar outro código'
                       onPress={voltaModal}
                     />
@@ -179,8 +183,9 @@ export default function ButtonsTecladoCamera() {
                   </View>
                 </View>
               }
-              <View className='mt-6 mx-8'>
+              <View className=''>
                 <FilledButton
+
                   title='Voltar para o início'
                   backgroundColor={'transparent'}
                   color={colors.secondary50}
