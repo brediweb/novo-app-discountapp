@@ -61,7 +61,7 @@ export default function ClienteConsumoScreen() {
           <H1 title={`R$ ${dadosConsumo?.total_gasto ?? 0.00}`} fontsize={36} fontWeight={'500'} color={colors.tertiary20} />
         </View>
 
-        <View className='mt-8'>
+        {/* <View className='mt-8'>
           <View className='flex-row mt-4'>
             <View className='rounded-tl rounded-bl w-1/3 h-9' style={{ backgroundColor: '#296FF5' }}></View>
             <View className=' w-1/3 h-9' style={{ backgroundColor: colors.tertiary20 }}></View>
@@ -84,7 +84,7 @@ export default function ClienteConsumoScreen() {
               </Caption>
             </View>
           </View>
-        </View>
+        </View> */}
 
         <CardConsumo
           titulo='Cupons disponíveis'

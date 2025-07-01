@@ -214,8 +214,10 @@ export default function HomeClienteScreen() {
         <View>
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
-              <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_disponiveis}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Saldo de anúncios</Text>
+              <Text className='font-semibold text-6xl text-[#2f009c]'>
+                {dadosConsumo?.cupons_disponiveis}
+              </Text>
+              <Text className='font-semibold text-[#2f009c]'>Anúncios ativos</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoVigentes.png')} />
@@ -223,22 +225,24 @@ export default function HomeClienteScreen() {
           </View>
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
-              <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_gerados}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Anúncios vigentes</Text>
+              <Text className='font-semibold text-6xl text-[#2f009c]'>
+                {dadosConsumo?.cupons_consumidos} / {dadosConsumo?.cupons_gerados}
+              </Text>
+              <Text className='font-semibold text-[#2f009c]'>Cupons consumidos / gerados</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoPublicados.png')} />
             </View>
           </View>
-          <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
+          {/* <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_consumidos}</Text>
-              <Text className='font-semibold text-[#2f009c]'>Cupons: Publicados/utilizados</Text>
+              <Text className='font-semibold text-[#2f009c]'>Cupons Utilizados</Text>
             </View>
             <View className='w-[18vw]'>
               <Image source={require('../../../../assets/img/icons/icoConsumidos.png')} />
             </View>
-          </View>
+          </View> */}
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>{dadosConsumo?.cupons_favoritos}</Text>
