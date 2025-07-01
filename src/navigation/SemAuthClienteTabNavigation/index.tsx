@@ -30,7 +30,7 @@ export default function SemAuthClienteTabNavigation() {
               iconName = focused
                 ? require('../../../assets/img/icons/favoritos-focus.png')
                 : require('../../../assets/img/icons/favoritos.png')
-            } else if (route.name === 'Utilizados') {
+            } else if (route.name === 'Meus Cupons') {
               iconName = focused
                 ? require('../../../assets/img/icons/utilizados-focus.png')
                 : require('../../../assets/img/icons/utilizados.png')
@@ -67,8 +67,8 @@ export default function SemAuthClienteTabNavigation() {
           })}
           component={FavoritosScreen}
         />
-        <Tab.Screen name="Utilizados"
-          options={{ headerTitle: 'Utilizados' }}
+        <Tab.Screen name="Meus Cupons"
+          options={{ headerTitle: 'Meus Cupons' }}
           component={UtilizadosScreen}
           listeners={({ navigation, route }) => ({
             tabPress: (e) => {

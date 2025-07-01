@@ -28,7 +28,7 @@ export default function HomeTabNavigation() {
             iconName = focused
               ? require('../../../assets/img/icons/house-focus.png')
               : require('../../../assets/img/icons/house.png')
-          } else if (route.name === 'Utilizados') {
+          } else if (route.name === 'Meus Cupons') {
             iconName = focused
               ? require('../../../assets/img/icons/utilizados-focus.png')
               : require('../../../assets/img/icons/utilizados.png')
@@ -62,7 +62,7 @@ export default function HomeTabNavigation() {
       <Tab.Screen name="Categorias" options={{ headerShown: true, tabBarItemStyle: { display: 'none' } }} component={HomeFiltradaScreen} />
       <Tab.Screen name="Discontoken" options={{ headerShown: true, tabBarItemStyle: { display: 'none' } }} component={DiscotokenListagemScreen} />
       <Tab.Screen name="Favoritos" options={{ headerTitle: 'Home 1' }} component={FavoritosScreen} />
-      <Tab.Screen name="Utilizados" options={{ headerTitle: 'Home 1' }} component={UtilizadosScreen} />
+      <Tab.Screen name="Meus Cupons" options={{ headerTitle: 'Home 1' }} component={UtilizadosScreen} />
       <Tab.Screen name="DetalhesHistorico" options={{ headerShown: false, tabBarItemStyle: { display: 'none' } }} component={ClienteOfertaDetalheHistoricoScreen} />
       <Tab.Screen name="Detalhes" options={{ headerShown: false, tabBarItemStyle: { display: 'none' } }} component={OfertaDetalhesScreen} />
     </Tab.Navigator>
