@@ -58,7 +58,7 @@ export default function CardProdutoDetalhes(
     <View className='rounded-xl p-4' style={{ backgroundColor: '#EEF0FF', borderColor: colors.secondary50, borderWidth: 3 }}>
 
       {imagem_cupom &&
-        <Image className='w-full h-40 rounded-t-xl mb-2' source={{ uri: imagem_cupom }} />
+        <Image className='w-full h-52 rounded-t-xl mb-2' source={{ uri: imagem_cupom }} />
       }
 
       <View className='flex-row'>
