@@ -69,7 +69,7 @@ export default function ClienteOfertaDetalheHistoricoScreen({ route }: { route?:
 
   return (
     <MainLayoutAutenticado marginTop={0} marginHorizontal={0} loading={loading}>
-      <HeaderPrimary titulo='Detalhe do Anúncio' voltarScreen={() => navigate('Utilizados')} />
+      <HeaderPrimary titulo='Detalhe do Anúncio' voltarScreen={() => navigate('Meus Cupons')} />
       <View className='mx-7 mt-5 min-h-full'>
         {oferta.length <= 0 &&
           <View className='flex justify-center items-center'>

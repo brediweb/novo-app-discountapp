@@ -122,7 +122,7 @@ export default function OfertaDetalhesScreen(props: any) {
         {propsOferta && propsOferta.slice(0, 1).map((item: any) => (
           <View className='flex-1' key={item}>
             <View className='mr-4'>
-              <HeaderPrimary titulo={`Detalhes: ${item.titulo_oferta}`} voltarScreen={() => navigate('Utilizados')} />
+              <HeaderPrimary titulo={`Detalhes: ${item.titulo_oferta}`} voltarScreen={() => navigate('Meus Cupons')} />
             </View>
             <View key={item.id} className='flex-1 h-full w-full justify-center items-center mt-12'>
               {mensagemSucesso === false &&
