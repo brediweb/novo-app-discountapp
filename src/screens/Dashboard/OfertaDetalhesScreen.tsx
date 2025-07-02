@@ -13,6 +13,7 @@ import ModalTemplate from '../../components/Modals/ModalTemplate'
 import HeaderPrimary from '../../components/header/HeaderPrimary'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import MainLayoutAutenticado from '../../components/layout/MainLayoutAutenticado'
+import ButtonOutline from '@components/buttons/ButtonOutline'
 
 export default function OfertaDetalhesScreen(props: any) {
   const isFocused = useIsFocused()
@@ -94,6 +95,15 @@ export default function OfertaDetalhesScreen(props: any) {
     goBack()
   }
 
+  const handleCloseModalSucesso = () => {
+    setModalVisible(false)
+    navigate('AvaliacaoScreen', { id_anunciante: props.route.params.cupom.cliente_id, id_oferta: props.route.params.cupom.idOferta })
+  }
+
+  const handleCloseModalVoltar = () => {
+    setModalVisible(false)
+  }
+
   useEffect(() => {
     if (isFocused) {
       setMensagemSucesso(false)
@@ -116,6 +126,17 @@ export default function OfertaDetalhesScreen(props: any) {
         <View className='w-full justify-center items-center h-96'>
           <LottieView style={{ width: 120, height: 120 }} source={require('../../animations/cupom-validado.json')} autoPlay loop />
           <H3 color={colors.secondary70} align={'center'}>Cupom validado com sucesso !!!</H3>
+          <View className='w-52 mt-6'>
+            <ButtonOutline title='Avaliar anunciante' onPress={handleCloseModalSucesso} />
+            <View className='w-full h-4' />
+            <ButtonOutline
+              title='Voltar'
+              backgroundColor={'transparent'}
+              border
+              color={colors.secondary}
+              onPress={handleCloseModalVoltar}
+            />
+          </View>
         </View>
       </ModalTemplate>
       <MainLayoutAutenticado marginHorizontal={0} marginTop={0} loading={loading}>

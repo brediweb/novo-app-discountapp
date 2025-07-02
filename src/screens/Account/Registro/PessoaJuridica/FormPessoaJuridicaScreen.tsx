@@ -84,6 +84,7 @@ export default function FormPessoaJuridicaScreen({
   const [nomeRepresetante, setNomeRepresetante] = useState('');
   const [nomeEmpressarial, setNomeEmpressarial] = useState('');
   const [regiao, setRegiao] = useState<any>(null);
+  const [localizacao, setLocalizacao] = useState<any>(null);
   const [modalUf, setModalUf] = useState(false);
   const [modalCidade, setModalCidade] = useState(false);
   const [novaLocalizacao, setNovaLocalizacao] = useState<ILocalizacao>({
@@ -113,6 +114,7 @@ export default function FormPessoaJuridicaScreen({
   async function validaCampos() {
     setModalAviso(false);
     setModalLocalizacao(false);
+    handleCep()
 
     if (novaLocalizacao?.latitude === 0 || novaLocalizacao?.longitude === 0) {
       return setErrorLocalizacao(
@@ -306,15 +308,6 @@ export default function FormPessoaJuridicaScreen({
         setLoading(false);
         return;
       }
-      // if (error?.response?.data?.results?.cpfusado) {
-      //   Toast.show({
-      //     type: 'error',
-      //     text1: 'CPF já cadastrado !',
-      //   });
-      //   setErrorCpfRepresetante(true);
-      //   setLoading(false);
-      //   return;
-      // }
     }
     setLoading(false);
   }
@@ -412,7 +405,7 @@ export default function FormPessoaJuridicaScreen({
         latitude: parseFloat(response.data.location.coordinates.latitude),
         longitude: parseFloat(response.data.location.coordinates.longitude),
       });
-      // console.log({
+      // console.log('teste', {
       //   latitude: parseFloat(response.data.location.coordinates.latitude),
       //   longitude: parseFloat(response.data.location.coordinates.longitude),
       // });
@@ -464,7 +457,7 @@ export default function FormPessoaJuridicaScreen({
 
   function getLocalizacao() {
     Geolocation.getCurrentPosition((info) => {
-      setRegiao({
+      setLocalizacao({
         latitude: info.coords.latitude,
         longitude: info.coords.longitude,
       });
@@ -544,7 +537,7 @@ export default function FormPessoaJuridicaScreen({
       },
       (location) => {
         // console.log('LOCATION', location);
-        setRegiao({
+        setLocalizacao({
           latitude: location.coords.latitude,
           longitude: location.coords.longitude,
         });
@@ -728,6 +721,7 @@ export default function FormPessoaJuridicaScreen({
         />
         <InputOutlinedCadastro
           mt={8}
+          height={64}
           required
           refInput={input1Ref}
           value={nomeEmpressarial}
@@ -1071,6 +1065,142 @@ export default function FormPessoaJuridicaScreen({
                 </View>
               )}
 
+              {!regiao && (
+                <Caption
+                  color="#ef4444"
+                  fontWeight={'bold'}
+                  align={'center'}
+                  margintop={8}
+                  fontSize={16}
+                >
+                  O CEP informado não possui uma localização válida. Por favor, veja o mapa abaixo e confirme o endereço de sua empresa.
+                </Caption>
+              )}
+
+              {!regiao && localizacao && Platform.OS === 'android' && (
+                <View className="mt-4">
+                  <Caption
+                    color="#49454F"
+                    fontWeight={'bold'}
+                    align={'center'}
+                    fontSize={16}
+                  >
+                    Selecione o Endereço do empreendimento:
+                  </Caption>
+                  <Caption
+                    color="#49454F"
+                    margintop={6}
+                    align={'center'}
+                    fontSize={16}
+                  >
+                    Basta segurar o ícone e arrastar para a melhor posição, você
+                    pode dar um zoom também.
+                  </Caption>
+                  <MapView
+                    provider={PROVIDER_GOOGLE}
+                    onMapReady={() => {
+                      Platform.OS === 'android'
+                        ? PermissionsAndroid.request(
+                          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                        ).then((granted) => {
+                          // console.log('Permissão', granted);
+                        })
+                        : '';
+                    }}
+                    initialRegion={{
+                      latitude: localizacao.latitude,
+                      longitude: localizacao.longitude,
+                      latitudeDelta: 0.2,
+                      longitudeDelta: 0.2,
+                    }}
+                    style={{
+                      height: 400,
+                      width: '100%',
+                      marginTop: 8,
+                    }}
+                    loadingEnabled
+                    showsBuildings={false}
+                    showsTraffic={false}
+                  >
+                    <Marker
+                      coordinate={{
+                        latitude: localizacao.latitude,
+                        longitude: localizacao.longitude,
+                      }}
+                      onDragEnd={(event) => {
+                        // console.log(
+                        //   'Evento DragEnd:',
+                        //   event.nativeEvent.coordinate
+                        // );
+                        setNovaLocalizacao(event.nativeEvent.coordinate);
+                      }}
+                      draggable
+                      pinColor={'#5D35F1'}
+                      anchor={{ x: 0.69, y: 1 }}
+                      centerOffset={{ x: -18, y: -60 }}
+                    />
+                  </MapView>
+                </View>
+              )}
+
+              {!regiao && localizacao && Platform.OS === 'ios' && permissionGrantedIos && (
+                <View className="mt-4">
+                  <Caption color="#49454F" fontWeight={'bold'} fontSize={16}>
+                    Selecione o Endereço do empreendimento:
+                  </Caption>
+                  <Caption color="#49454F" margintop={6} fontSize={16}>
+                    Basta segurar o ícone e arrastar para a melhor posição, você
+                    pode dar um zoom também.
+                  </Caption>
+                  <MapView
+                    showsMyLocationButton
+                    onMapReady={() => {
+                      Platform.OS === 'android'
+                        ? PermissionsAndroid.request(
+                          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+                        ).then((granted) => {
+                          // console.log('Permissão', granted);
+                        })
+                        : '';
+                    }}
+                    initialRegion={
+                      {
+                        latitude: localizacao.latitude,
+                        longitude: localizacao.longitude,
+                        latitudeDelta: 0.2,
+                        longitudeDelta: 0.2,
+                      }
+                    }
+                    zoomEnabled
+                    style={{
+                      height: 400,
+                      marginTop: 8,
+                      width: '100%',
+                      borderRadius: 10,
+                    }}
+                    zoomTapEnabled={true}
+                    loadingEnabled
+                    showsBuildings={false}
+                    showsTraffic={false}
+                  >
+                    <Marker
+                      coordinate={{
+                        latitude: localizacao.latitude,
+                        longitude: localizacao.longitude,
+                      }}
+                      onDragEnd={(event) => {
+                        // console.log(event.nativeEvent.coordinate);
+                        setNovaLocalizacao(event.nativeEvent.coordinate);
+                      }}
+                      draggable
+                      pinColor={'#5D35F1'}
+                      anchor={{ x: 0.69, y: 1 }}
+                      centerOffset={{ x: -18, y: -60 }}
+                    />
+                  </MapView>
+                </View>
+              )}
+
               {errorLocalizacao && (
                 <Caption
                   color="#ef4444"
@@ -1091,7 +1221,10 @@ export default function FormPessoaJuridicaScreen({
                   border
                   backgroundColor={'white'}
                   title="Voltar"
-                  onPress={() => setModalLocalizacao(false)}
+                  onPress={() => {
+                    setRegiao(null);
+                    setModalLocalizacao(false)
+                  }}
                 />
               </View>
             </View>

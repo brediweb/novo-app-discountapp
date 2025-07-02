@@ -183,7 +183,7 @@ export default function ButtonsTecladoCamera() {
                   </View>
                 </View>
               }
-              <View className=''>
+              <View className='mt-4'>
                 <FilledButton
 
                   title='Voltar para o início'
