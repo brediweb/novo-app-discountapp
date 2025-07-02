@@ -8,6 +8,7 @@ interface PropsInput {
   value?: string
   refInput?: any
   error?: boolean
+  height?: number
   edicao?: boolean
   keyboardType: any
   maxLength?: number
@@ -30,6 +31,7 @@ export default function InputOutlinedCadastro({
   onBlur,
   onFocus,
   required,
+  height,
   refInput,
   onChange,
   maxLength,
@@ -61,7 +63,10 @@ export default function InputOutlinedCadastro({
         placeholder={placeholder}
         autoCapitalize={uppercase}
         keyboardType={keyboardType}
-        style={{ color: '#49454F' }}
+        style={{
+          color: '#49454F',
+          height: height ?? 52,
+        }}
         maxLength={maxLength ?? 9999}
         onSubmitEditing={onSubmitEditing}
         label={`${label}${required ? '*' : ''}`}
