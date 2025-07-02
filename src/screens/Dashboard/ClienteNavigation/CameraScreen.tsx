@@ -132,14 +132,18 @@ export default function CameraScreen() {
               <Image source={require('../../../../assets/img/icons/close.png')} />
             </TouchableOpacity>
 
-            <View className='my-4 mx-8 items-center'>
-              <H3 align={'center'}>Código validado com sucesso!</H3>
-              <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
-              <TouchableOpacity onPress={closeModal} className='bg-[#6750A4] items-center justify-center rounded-full h-12 w-12 mr-3'>
-                <Text>
-                  Voltar
-                </Text>
-              </TouchableOpacity>
+            <View className='my-4'>
+              <View className='mx-8 mb-4 items-center'>
+                <H3 align={'center'}>Código validado com sucesso!</H3>
+                <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
+              </View>
+              <FilledButton
+                border
+                title='Voltar'
+                color={'#6750A4'}
+                onPress={() => closeModal()}
+                backgroundColor={'transparent'}
+              />
             </View>
           </View>
         </View>
