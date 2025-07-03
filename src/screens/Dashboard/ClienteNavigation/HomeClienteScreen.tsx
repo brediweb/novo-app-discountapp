@@ -1,21 +1,11 @@
 import { api } from '../../../service/api'
-import Toast from 'react-native-toast-message'
-import { colors } from '../../../styles/colors'
-import H3 from '../../../components/typography/H3'
 import React, { useEffect, useState } from 'react'
 import { useIsFocused } from '@react-navigation/native'
 import { useNavigate } from '../../../hooks/useNavigate'
-import Caption from '../../../components/typography/Caption'
-import Paragrafo from '../../../components/typography/Paragrafo'
-import { View, Text, Image, TouchableOpacity, Modal, Touchable } from 'react-native'
 import { useGlobal } from '../../../context/GlobalContextProvider'
-import FilledButton from '../../../components/buttons/FilledButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import IcoCupomDescontoPequeno from '../../../svg/IcoCupomDescontoPequeno'
-import InputMascaraPaper from '../../../components/forms/InputMascaraPaper'
+import { View, Text, Image, TouchableOpacity, Modal } from 'react-native'
 import MainLayoutAutenticado from '../../../components/layout/MainLayoutAutenticado'
-import ButtonClienteSwitch from '../../../components/buttons/Cliente/ButtonClienteSwitch'
-import ModalTemplateAtualizaCPF from '../../../components/Modals/ModalTemplateAtualizaCPF'
 
 interface PropsConsumo {
   total_gasto: string,
@@ -23,6 +13,7 @@ interface PropsConsumo {
   cupons_favoritos: number,
   cupons_consumidos: number,
   cupons_disponiveis: number,
+  ofertas_disponiveis: number
 }
 
 export default function HomeClienteScreen() {
@@ -33,8 +24,6 @@ export default function HomeClienteScreen() {
   const [primeiroNome, setPrimeiroNome] = useState('')
   const [dadosPerfil, setDadosPerfil] = useState<any>([])
   const [pacoteGratis, setPacoteGratis] = useState(false)
-  const [modalVisible, setModalVisible] = useState(false)
-  const [cpfRepresetante, setCpfRepresetante] = useState('')
   const [dadosConsumo, setDadosConsumo] = useState<PropsConsumo>()
   const { statusTesteGratis, setStatusTesteGratis, usuarioLogado } = useGlobal()
   const [modalPacoteGratis, setModalPacoteGratis] = useState(false)
@@ -111,71 +100,12 @@ export default function HomeClienteScreen() {
           Authorization: `Bearer ${newJson.token}`
         }
         const response = await api.get(`/consumo`, { headers })
-        console.log('CONSUMO: ', response.data.results)
         setDadosConsumo(response.data.results)
       }
     } catch (error: any) {
       console.log('ERROR GET - CONSUMO', error.response.data)
     }
     setLoading(false)
-  }
-
-  async function onSubmit() {
-    const jsonValue = await AsyncStorage.getItem('infos-user')
-
-    if (cpfRepresetante.length < 14) {
-      Toast.show({
-        type: 'error',
-        text1: 'CPF inválido',
-      })
-      return;
-    }
-
-    if (jsonValue) {
-      const newJson = JSON.parse(jsonValue)
-
-      const headers = {
-        Authorization: `Bearer ${newJson.token}`
-      }
-
-      const formdata = {
-        cpf_representante: cpfRepresetante,
-      }
-
-      try {
-        const response = await api.post(`/altera/anunciante`, formdata, {
-          headers: headers
-        })
-        if (!response.data.error) {
-          setModalVisible(false)
-          Toast.show({
-            type: 'success',
-            text1: 'Perfil atualizado !',
-          })
-        } else {
-          setModalVisible(true)
-          Toast.show({
-            type: 'error',
-            text1: response.data.message ?? 'Ocorreu um erro, tente novamente!',
-          })
-        }
-      } catch (error: any) {
-        Toast.show({
-          type: 'error',
-          text1: error.response.data.erro ?? 'Ocorreu um erro, tente novamente!',
-        })
-        console.log(error)
-      }
-    }
-  }
-
-  const handleCPFMask = (value: any) => {
-    let cpf = value
-      .replace(/\D/g, "")
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d{2})$/, "$1-$2");
-    setCpfRepresetante(cpf);
   }
 
   const handleGo = () => {
@@ -188,7 +118,6 @@ export default function HomeClienteScreen() {
       getOfertas()
       getConsumo()
       getPacoteGratis()
-      setModalVisible(dadosPerfil?.cpf_represetante == undefined || dadosPerfil?.cpf_represetante == '-' ? true : false)
     }
   }, [isFocused])
 
