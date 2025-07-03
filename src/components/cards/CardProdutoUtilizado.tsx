@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Caption from '../typography/Caption'
 import { colors } from '../../styles/colors'
-import { View, TouchableOpacity, Text, Image, Modal, SafeAreaView } from 'react-native'
-import { format } from 'date-fns';
+import { View, TouchableOpacity, Image } from 'react-native'
 
 interface PropsProduto {
   titulo: string
@@ -26,11 +25,6 @@ export default function CardProdutoUtilizado(
     status
   }: PropsProduto) {
 
-  const dataConvertidaCriacao = new Date(data_gerado)
-  const dataConvertidaValidacao = new Date(data_utilizado)
-  const dataFormatadaValidacao = format(dataConvertidaValidacao, 'dd/MM/yyyy')
-  const dataFormatadaCriacao = format(dataConvertidaCriacao, 'dd/MM/yyyy')
-
   return (
     <TouchableOpacity onPress={onPress} className='flex-row rounded bg-[#F0F0F0] mt-3'>
       {imagem &&
@@ -45,9 +39,9 @@ export default function CardProdutoUtilizado(
         </View>
         {status === 'N'
           ?
-          <Caption fontSize={14} fontWeight={'400'} color={colors.blackbase}>Criado: {dataFormatadaCriacao}</Caption>
+          <Caption fontSize={14} fontWeight={'400'} color={colors.blackbase}>Criado: {data_gerado}</Caption>
           :
-          <Caption fontSize={14} fontWeight={'400'} color={colors.blackbase}>Data de utilização: {dataFormatadaValidacao}</Caption>
+          <Caption fontSize={14} fontWeight={'400'} color={colors.blackbase}>Data de utilização: {data_utilizado}</Caption>
         }
         <Caption fontSize={14} fontWeight={'400'} color={colors.blackbase}>Código do Cupom: {codigo}</Caption>
       </View>
