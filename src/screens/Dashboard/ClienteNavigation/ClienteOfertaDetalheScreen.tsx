@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { Share, TouchableOpacity, View } from 'react-native'
 import { api } from '../../../service/api'
 import { useEffect, useState } from 'react'
 import { useNavigate } from '../../../hooks/useNavigate'
@@ -7,6 +7,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import HeaderPrimary from '../../../components/header/HeaderPrimary'
 import CardProdutoDetalhes from '../../../components/cards/CardProdutoDetalhes'
 import MainLayoutAutenticado from '../../../components/layout/MainLayoutAutenticado'
+import IcoShare from 'src/svg/IcoShare'
+import H3 from '@components/typography/H3'
+import { colors } from 'src/styles/colors'
 
 interface PropsOferta {
   id: number
@@ -54,6 +57,21 @@ export default function ClienteOfertaDetalheScreen({ route }: { route?: any }) {
     setLoading(false)
   }
 
+  async function shareLinkAndText() {
+    try {
+      const options = {
+        title: 'Compartilhar Link e Texto',
+        message: `Confira esse cupom que achei no app Discontapp: https://www.discontapp.com.br/desconto/${idOferta}`,
+        url: `https://www.discontapp.com.br/desconto/${idOferta}`,
+      };
+
+      await Share.share(options);
+    } catch (error: any) {
+      console.log('Erro ao compartilhar:', error.message)
+    }
+  }
+
+
   useEffect(() => {
     getOfertas()
   }, [])
@@ -88,6 +106,11 @@ export default function ClienteOfertaDetalheScreen({ route }: { route?: any }) {
             />
           </View>
         ))}
+
+        <TouchableOpacity className='flex-row justify-center items-center bg-[#2F009C] py-1 rounded-xl mt-4' onPress={shareLinkAndText} >
+          <IcoShare />
+          <H3 align={'center'} color={colors.white}> Compartilhar</H3>
+        </TouchableOpacity>
 
       </View>
     </MainLayoutAutenticado >

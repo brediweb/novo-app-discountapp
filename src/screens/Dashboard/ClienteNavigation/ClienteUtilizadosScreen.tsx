@@ -31,12 +31,11 @@ export default function ClienteUtilizadosScreen({ route }: { route?: any }) {
       try {
         const headers = {
           Authorization: `Bearer ${newJson.token}`,
-          'Content-Type': 'multipart/form-data'
         }
         const response = await api.get(`/meus-cupoms/anunciante`, { headers })
         setOferta(response.data.results)
       } catch (error: any) {
-        console.error(error)
+        console.error('Error GET Cupons Gerados: ', error)
       }
     }
 
