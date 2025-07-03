@@ -48,6 +48,7 @@ export default function ClienteCriaCuponScreen() {
   const [valorReais, setValorReais] = useState('');
   const [categorias, setCategorias] = useState([]);
   const [codigoCupom, setCodigoCupom] = useState('');
+  const [valorItem, setValorItem] = useState('');
   const [dadosUser, setDadosUser] = useState<any>({});
   const [resumoOferta, setResumoOferta] = useState('');
   const [tipoVantagem, setTipoVantagem] = useState('');
@@ -70,6 +71,7 @@ export default function ClienteCriaCuponScreen() {
   const [errorQtdCupons, setErrorQtdCupons] = useState(false);
   const [errorCategoria, setErrorCategoria] = useState(false);
   const [erroCodigoCupom, setErroCodigoCupom] = useState(false);
+  const [errorValorItem, seterrorValorItem] = useState(false);
   const [errorDataValidade, setErrorDataValidade] = useState(false);
   const [errorTipoVantagem, setErrorTipoVantagem] = useState(false);
   const [errorValueVantagem, setErrorValueVantagem] = useState(false);
@@ -82,7 +84,7 @@ export default function ClienteCriaCuponScreen() {
       setPlanActive(response.data.results.plano_ativo);
       setCategorias(response.data.results.perfil_id);
     } catch (error) {
-      console.log('ERROR GET Categorias: ', error);
+      console.error('ERROR GET Categorias: ', error);
     }
     setLoading(false)
   }
@@ -96,10 +98,9 @@ export default function ClienteCriaCuponScreen() {
           Authorization: `Bearer ${newJson.token}`,
         };
         const reponse = await api.get(`/verifica-data-limite`, { headers });
-        console.log(new Date(dataLimiteCriacao), 'data limite');
         setDataLimiteCriacao(reponse.data.results.validade);
       } catch (error: any) {
-        console.log('ERROR GET Data Limite: ', error.response.data);
+        console.error('ERROR GET Data Limite: ', error.response.data);
       }
     }
   }
@@ -161,26 +162,21 @@ export default function ClienteCriaCuponScreen() {
     try {
       const readStoragePermission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
       if (readStoragePermission !== PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('Permissão de leitura de armazenamento negada');
         showPermissionDeniedAlert(); // Exibe o alerta se a permissão for negada
         return false;
       }
 
       const writeStoragePermission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
       if (writeStoragePermission !== PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('Permissão de gravação no armazenamento negada');
         showPermissionDeniedAlert(); // Exibe o alerta se a permissão for negada
         return false;
       }
 
       const cameraPermission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
       if (cameraPermission !== PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('Permissão de câmera negada');
         showPermissionDeniedAlert(); // Exibe o alerta se a permissão for negada
         return false;
       }
-
-      console.log('Todas as permissões concedidas');
       return true;
     } catch (err) {
       console.warn('Erro ao solicitar permissões:', err);
@@ -207,10 +203,10 @@ export default function ClienteCriaCuponScreen() {
         setImagemSelecionada(image.path);
         setImagemEnvio(image);
       } catch (imageError) {
-        console.log('Erro ao abrir o ImagePicker:', imageError); // Se houver erro ao abrir o picker
+        console.error('Erro ao abrir o ImagePicker:', imageError); // Se houver erro ao abrir o picker
       }
     } else {
-      console.log('Permissões não concedidas, não foi possível abrir o ImagePicker');
+      console.error('Permissões não concedidas, não foi possível abrir o ImagePicker');
     }
   } */
 
@@ -225,11 +221,10 @@ export default function ClienteCriaCuponScreen() {
         compressImageQuality: 1,
         cropping: true,
       });
-      console.log(image)
       setImagemSelecionada(image.path);
       setImagemEnvio(image);
     } catch (imageError) {
-      console.log('Erro ao abrir o ImagePicker:', imageError); // Se houver erro ao abrir o picker
+      console.error('Erro ao abrir o ImagePicker:', imageError); // Se houver erro ao abrir o picker
     }
   }
 
@@ -248,6 +243,7 @@ export default function ClienteCriaCuponScreen() {
     setErrorTipoVantagem(false);
     setErrorValueVantagem(false);
     setErroCodigoCupom(false);
+    seterrorValorItem(false);
     setErrorCategoria(false);
     setErrorImagem(false);
 
@@ -323,6 +319,14 @@ export default function ClienteCriaCuponScreen() {
       setErroCodigoCupom(true);
       return;
     }
+    if (valorItem.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe o valor do item',
+      });
+      seterrorValorItem(true);
+      return;
+    }
     if (!optionSelected.categorias) {
       Toast.show({
         type: 'error',
@@ -369,7 +373,9 @@ export default function ClienteCriaCuponScreen() {
       const novoValorVantagem = RemoveCaracteres({ text: valueVantagem });
 
       const match = valorReais.match(/([\d,]+)/);
+      const matchItem = valorItem.match(/([\d,]+)/);
       const resultReais = match ? match[0] : '';
+      const resultReaisDoItem = matchItem ? matchItem[0] : '';
 
       const novaImage = {
         uri: imagemEnvio.path ?? '',
@@ -387,6 +393,7 @@ export default function ClienteCriaCuponScreen() {
       formdata.append('data_validade', `${dataFormatada}`);
       formdata.append('descricao_oferta', `${resumoOferta}`);
       formdata.append('descricao_completa', `${descricao}`);
+      formdata.append('valor', valorItem);
       formdata.append('codigo_cupom', `${codigoCupom}`);
       formdata.append('imagem_cupom', novaImage as any);
       formdata.append('quantidade_cupons', `${qtdCupons}`);
@@ -424,11 +431,12 @@ export default function ClienteCriaCuponScreen() {
         setDataSelecionada('');
         setImagemSelecionada('');
         setDataLimiteCriacao('');
+        setValorItem('');
         setNextComAlerta(false);
         setUpdate(update + 1);
         navigate('ClienteCupomSucessoScreen', { response });
       } catch (error: any) {
-        console.log('ERROR POST Cria Cupom: ', error);
+        console.error('ERROR POST Cria Cupom: ', error);
         Toast.show({
           type: 'error',
           text1:
@@ -437,7 +445,7 @@ export default function ClienteCriaCuponScreen() {
         });
       }
     } catch (error: any) {
-      console.log(error.response.data);
+      console.error(error.response.data);
     }
     setLoading(false);
   }
@@ -455,7 +463,7 @@ export default function ClienteCriaCuponScreen() {
 
   useEffect(() => {
     getData();
-    console.log(new Date(dataLimiteCriacao));
+    getPerfil();
   }, []);
 
   useEffect(() => {
@@ -686,6 +694,19 @@ export default function ClienteCriaCuponScreen() {
             uppercase={'characters'}
             keyboardType={'default'}
             onChange={setCodigoCupom}
+          />
+
+          <InputMascaraMoney
+            mt={12}
+            label=""
+            value={valorItem}
+            error={errorValorItem}
+            mask={realmask}
+            keyboardType={'number-pad'}
+            placeholder="Valor do Item (R$)"
+            onChangeText={(unmasked: any) => {
+              setValorItem(unmasked);
+            }}
           />
 
           <Text className="mt-4 mb-2 font-medium">

@@ -48,7 +48,7 @@ export default function SemAuthClienteTabNavigation() {
           tabBarLabelStyle: {
             fontSize: 14,
           },
-          tabBarOnPress: ({ navigation, route }) => {
+          tabBarOnPress: ({ navigation, route }: any) => {
             console.log(route)
           }
         })}
