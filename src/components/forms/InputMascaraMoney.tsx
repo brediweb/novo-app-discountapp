@@ -28,6 +28,7 @@ export default function InputMascaraMoney(
     onBlur,
     refInput,
     maxLength,
+    error,
     placeholder,
     onChangeText,
     keyboardType,
@@ -46,7 +47,10 @@ export default function InputMascaraMoney(
         placeholder={placeholder}
         onChangeText={onChangeText}
         keyboardType={keyboardType}
-        style={{ color: '#49454F' }}
+        style={{
+          color: '#49454F',
+          borderColor: error ? '#FF0000' : '#49454F'
+        }}
         maxLength={maxLength ?? 9999}
         placeholderTextColor={'#49454F'}
         onSubmitEditing={onSubmitEditing}

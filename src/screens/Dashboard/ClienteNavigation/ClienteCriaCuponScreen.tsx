@@ -327,6 +327,25 @@ export default function ClienteCriaCuponScreen() {
       seterrorValorItem(true);
       return;
     }
+    if (tipoVantagem === 'porcentagem' && parseFloat(valueVantagem) > 100) {
+      Toast.show({
+        type: 'error',
+        text1: 'A porcentagem não pode ser maior que 100%',
+      });
+      setErrorValueVantagem(true);
+      return;
+    }
+    const match = valorReais.match(/([\d,]+)/);
+    const resultReais = match ? match[0] : '';
+
+    const matchItem = valorItem.match(/([\d,]+)/);
+    const resultItem = matchItem ? matchItem[0] : '';
+
+    if (tipoVantagem === 'Vantagem em Reais' && parseFloat(resultReais) > parseFloat(resultItem)) {
+      Alert.alert('O valor do desconto não pode ser maior que o valor do item');
+      setErrorValueVantagem(true);
+      return;
+    }
     if (!optionSelected.categorias) {
       Toast.show({
         type: 'error',
