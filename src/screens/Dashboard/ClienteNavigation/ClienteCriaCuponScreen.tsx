@@ -373,9 +373,20 @@ export default function ClienteCriaCuponScreen() {
       const novoValorVantagem = RemoveCaracteres({ text: valueVantagem });
 
       const match = valorReais.match(/([\d,]+)/);
-      const matchItem = valorItem.match(/([\d,]+)/);
       const resultReais = match ? match[0] : '';
-      const resultReaisDoItem = matchItem ? matchItem[0] : '';
+
+      const matchItem = valorItem.match(/([\d,]+)/);
+      let resultItem = matchItem ? matchItem[0].replace(/,/g, '') : '';
+
+      // Acrescenta zeros conforme o tamanho
+      if (resultItem.length === 1) {
+        resultItem += '000';
+      } else if (resultItem.length === 2) {
+        resultItem += '00';
+      } else if (resultItem.length === 3) {
+        resultItem += '0';
+      }
+      const resultItemNumber = Number(resultItem);
 
       const novaImage = {
         uri: imagemEnvio.path ?? '',
@@ -393,7 +404,7 @@ export default function ClienteCriaCuponScreen() {
       formdata.append('data_validade', `${dataFormatada}`);
       formdata.append('descricao_oferta', `${resumoOferta}`);
       formdata.append('descricao_completa', `${descricao}`);
-      formdata.append('valor', valorItem);
+      formdata.append('valor', resultItemNumber);
       formdata.append('codigo_cupom', `${codigoCupom}`);
       formdata.append('imagem_cupom', novaImage as any);
       formdata.append('quantidade_cupons', `${qtdCupons}`);
@@ -436,7 +447,7 @@ export default function ClienteCriaCuponScreen() {
         setUpdate(update + 1);
         navigate('ClienteCupomSucessoScreen', { response });
       } catch (error: any) {
-        console.error('ERROR POST Cria Cupom: ', error);
+        console.error('ERROR POST Cria Cupom: ', error?.response?.data?.message);
         Toast.show({
           type: 'error',
           text1:
