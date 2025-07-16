@@ -111,19 +111,12 @@ export default function CardProduto(
     navigate('FormPessoaFisicaScreen')
   }
 
-  const getInitials = (fullName: any): any => {
-    const names = fullName.split(' ')
-
-    if (names.length >= 2) {
-      const firstNameInitial = names[0][0].toUpperCase()
-      const secondNameInitial = names[1][0].toUpperCase()
-      return `${firstNameInitial}${secondNameInitial}`
-    } else if (names.length == 1) {
-      return names[0][0].toUpperCase()
-    } else {
-
-      return ''
-    }
+  const getInitials = (fullName: string): string => {
+    const names = fullName.trim().split(' ').filter(Boolean);
+    if (names.length === 0) return '';
+    if (names.length === 1) return names[0][0].toUpperCase();
+    // Pega a primeira letra do primeiro e do último nome
+    return (names[0][0] + names[names.length - 1][0]).toUpperCase();
   }
 
   async function postFavorito() {
@@ -245,7 +238,6 @@ export default function CardProduto(
     }
   }, [modalVisible])
 
-  const valor_bruto = 20
   return (
 
     <>
@@ -420,7 +412,7 @@ export default function CardProduto(
         }}>
         <View className='flex-row items-center py-3 px-2 mb-3'>
           <View className='flex-row w-full items-center justify-start'>
-            {foto_user && foto_user != '-' ?
+            {foto_user ?
               <TouchableOpacity onPress={() => setModalInfosAnunciante(true)}>
                 <Image source={{ uri: foto_user }} className='h-10 w-10 rounded-full mr-2 ' style={{ backgroundColor: colors.primary40 }} />
               </TouchableOpacity>
@@ -436,12 +428,13 @@ export default function CardProduto(
             <View className='w-full' style={{ maxWidth: '78%' }}>
               <TouchableOpacity onPress={() => setModalInfosAnunciante(true)} className='w-full'>
                 {nome_empresa &&
-              {/* {nome_filial &&
-                <Text className='text-sm text-[#775AFF]'>{nome_filial}</Text>
-              } */}
-              <TouchableOpacity onPress={() => navigate('ListaAvaliacaoScreen', { id_anunciante })} className="flex-row gap-1">
+                  <Text className='text-sm text-[#775AFF]'>{nome_empresa}</Text>
+                }
+              </TouchableOpacity>
+              <TouchableOpacity onPress={media_avaliacao && total_avaliacao ? () => navigate('ListaAvaliacaoScreen', { id_anunciante }) : () => setModalInfosAnunciante(true)} className="flex-row gap-1">
                 {media_avaliacao && total_avaliacao ?
                   <View>
+                    <Text className='text-sm text-[#775AFF]'>{nome_filial}</Text>
                     <Image source={require('../../../assets/img/icons/star.png')} />
                     <Text className='text-xs text-[#775AFF]'>{media_avaliacao ?? 'Novo'} ({total_avaliacao ?? 'Novo'})</Text>
                   </View>
@@ -474,7 +467,7 @@ export default function CardProduto(
           {vantagem_reais && vantagem_reais != '-' &&
             <View className="bg-[#FFB876]">
               <Text className="text-center text-[#9C5706] font-medium text-[16px] py-2 ">
-                R$: {vantagem_reais} de desconto
+                R$: {parseFloat(vantagem_reais).toFixed(2).replace('.', ',')} de desconto
               </Text>
             </View>
           }
@@ -492,28 +485,35 @@ export default function CardProduto(
             className='text-sm mb-4'
           >Válido até {data_validade}</Text>
           <Paragrafo color={'#49454F'} title={descricao_simples ?? ''} />
-              {/* Valor com desconto em reais */}
-              <Text className="text-lg">
-                Por:{' '}
-                <Text className="font-bold">
-                  R$: {(valor_bruto - parseFloat(vantagem_reais)).toFixed(2).replace('.', ',')}
-                </Text>
-              </Text>
-            </View>
-          )}
+          {/* Valor com desconto em reais */}
+          <Text className="text-md">
+            De:{' '}
+            <Text className="line-through">
+              R$ {parseFloat(dados_gerais.valor).toFixed(2).replace('.', ',')}
+            </Text>
+          </Text>
+          <Text className="text-lg">
+            Por:{' '}
+            <Text className="font-bold">
+              {vantagem_reais != '-'
+                ? `R$: ${(parseFloat(dados_gerais.valor) - parseFloat(vantagem_reais)).toFixed(2).replace('.', ',')}`
+                : `R$: ${(dados_gerais.valor - (dados_gerais.valor * vantagem_porcentagem / 100)).toFixed(2).replace('.', ',')}`
+              }
+            </Text>
+          </Text>
+        </View>
 
-        </View>
-        <View className={`justify-around items-center py-4 px-4 ${Dimensions.get('window').width > 300 && 'flex-row'}`}>
-          <TouchableOpacity onPress={() => setModalVisibleDetalhes(true)} className='px-3 py-[10px]'>
-            <Text className='text-sm font-medium text-center' style={{ color: colors.secondary60 }}>Detalhes</Text>
-          </TouchableOpacity>
-          {usuarioLogado ?
-            <FilledButton onPress={geraCupom} title='Gerar Cupom' backgroundColor={colors.secondary60} color={colors.white} />
-            :
-            <FilledButton onPress={() => setModalSemAuth(true)} title='Gerar Cupom' backgroundColor={colors.secondary60} color={colors.white} />
-          }
-        </View>
-      </View >
+      </View>
+      <View className={`justify-around items-center py-4 px-4 ${Dimensions.get('window').width > 300 && 'flex-row'}`}>
+        <TouchableOpacity onPress={() => setModalVisibleDetalhes(true)} className='px-3 py-[10px]'>
+          <Text className='text-sm font-medium text-center' style={{ color: colors.secondary60 }}>Detalhes</Text>
+        </TouchableOpacity>
+        {usuarioLogado ?
+          <FilledButton onPress={geraCupom} title='Gerar Cupom' backgroundColor={colors.secondary60} color={colors.white} />
+          :
+          <FilledButton onPress={() => setModalSemAuth(true)} title='Gerar Cupom' backgroundColor={colors.secondary60} color={colors.white} />
+        }
+      </View>
     </>
 
   )
