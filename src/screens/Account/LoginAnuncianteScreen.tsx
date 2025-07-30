@@ -103,8 +103,8 @@ export default function LoginAnuncianteScreen() {
   }, [])
 
   return (
-    <MainLayout carregando={loadign} scroll={false}>
-      <ScrollView contentContainerStyle={{ marginHorizontal: 20, paddingBottom: 320 }}>
+    <MainLayout carregando={loadign} scroll={true}>
+      <ScrollView contentContainerStyle={{ marginHorizontal: 20, paddingBottom: 500 }}>
         <IcoCelularLogin />
         <H2 title='Login (Anunciante)' />
         <View className='mb-5 mt-3'>
