@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { TextInput } from 'react-native-paper';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
+import Caption from '@components/typography/Caption';
+import { colors } from 'src/styles/colors';
 
 // Definição das propriedades esperadas no componente
 interface PropsInput {
@@ -21,11 +23,13 @@ interface PropsInput {
   onFocus?: () => void;
   edicao?: boolean;
   required?: boolean;
+  clearInput?: any;
 }
 
 const InputOutlined: React.FC<PropsInput> = ({
   required,
   uppercase = 'none',
+  clearInput,
   label,
   onChange,
   mt,
@@ -51,6 +55,20 @@ const InputOutlined: React.FC<PropsInput> = ({
 
   return (
     <View style={{ marginTop: mt ?? 0 }}>
+      {clearInput &&
+        <View className='w-full h-4 relative z-50'>
+          <TouchableOpacity className='absolute h-12 flex top-10 right-2' onPress={clearInput}>
+            <Caption
+              fontSize={14}
+              align={'center'}
+              fontWeight={'500'}
+              color={colors.primary20}
+            >
+              Limpar
+            </Caption>
+          </TouchableOpacity>
+        </View>
+      }
       <TextInput
         label={`${label}${required ? '*' : ''}`}
         error={error}

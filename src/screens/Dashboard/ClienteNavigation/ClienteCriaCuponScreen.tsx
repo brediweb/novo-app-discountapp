@@ -497,6 +497,15 @@ export default function ClienteCriaCuponScreen() {
   }, []);
 
   useEffect(() => {
+    const onlyNumbers = valueVantagem.replace(/\D/g, '').slice(0, 2);
+    if (onlyNumbers === '') {
+      setValueVantagem('');
+    } else {
+      setValueVantagem(`${onlyNumbers}%`);
+    }
+  }, [valueVantagem]);
+
+  useEffect(() => {
     getPerfil();
   }, [dadosUser]);
 
@@ -689,13 +698,12 @@ export default function ClienteCriaCuponScreen() {
             />
           </View>
           {tipoVantagem === 'Vantagem Porcentagem' && (
-            <InputMascaraPorcentagem
-              mask="99%"
-              maxLength={6}
+            <InputOutlined
               value={valueVantagem}
               error={errorValueVantagem}
               keyboardType={'number-pad'}
-              onChangeText={setValueVantagem}
+              clearInput={() => setValueVantagem('')}
+              onChange={setValueVantagem}
               label="Vantagem em porcentagem (%)"
               placeholder="Vantagem em porcentagem (%)"
             />
