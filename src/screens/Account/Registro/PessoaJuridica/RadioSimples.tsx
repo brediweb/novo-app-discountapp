@@ -43,11 +43,10 @@ const RadioSimples: React.FC<RadioButtonProps> = ({ selectedOptions, onSelectOpt
 
   async function getCategorias() {
     try {
-      const response = await api.get('/categorias')
+      const response = await api.get('/categorias/cadastro')
       setListaCategorias(response.data.results);
-
     } catch (error: any) {
-
+      console.error('ERROR GET Categorias: ', error);
     }
   }
 
