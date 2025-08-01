@@ -20,6 +20,15 @@ interface PropsConsumo {
   cupons_favoritos: number,
   cupons_consumidos: number,
   cupons_disponiveis: number,
+  periodo_teste:
+  {
+    ativo: string,
+    data_criacao: string,
+    data_fim: string,
+    data_inicio: string,
+    id: any,
+  },
+
   extrato: [
     {
       codigo_pix: string
@@ -39,8 +48,7 @@ export default function ClienteConsumoScreen() {
   const [loading, setLoading] = useState(true)
   const [dadosConsumo, setDadosConsumo] = useState<PropsConsumo>()
 
-
-  console.log(typeof dadosConsumo?.extrato[0].total);
+  console.log(dadosConsumo?.periodo_teste);
 
 
   async function getConsumo() {
@@ -160,13 +168,35 @@ export default function ClienteConsumoScreen() {
         />
 
         <View className='mt-8'>
+          <H3 color={colors.tertiary20} >Pacote de Teste</H3>
+
+          {dadosConsumo && dadosConsumo.periodo_teste &&
+            <View className="mt-3">
+              <View
+                className="mt-2 border-solid border-2 px-2 py-4 rounded-xl"
+                style={{ borderColor: colors.secondary70 }}
+              >
+                <H1 fontWeight={'bold'} fontsize={16} title={`Data de início:`} />
+                <Paragrafo title={`${dadosConsumo.periodo_teste.data_inicio}`} />
+                <View className='w-full h-1' />
+                <H1 fontWeight={'bold'} fontsize={16} title={`Data fim:`} />
+                <Paragrafo title={`${dadosConsumo.periodo_teste.data_fim}`} />
+                <View className='w-full h-1' />
+                <H1 fontWeight={'bold'} fontsize={16} title={`Status:`} />
+                <Paragrafo title={`${dadosConsumo.periodo_teste.ativo ? 'Ativo' : 'Utilizado'}`} />
+              </View>
+            </View>
+          }
+        </View>
+
+        <View className='mt-8'>
           <H3 color={colors.tertiary20} >Extrato Completo</H3>
         </View>
         <View className='mt-2'>
           {dadosConsumo && (() => {
             const agrupado = agruparPorMes(dadosConsumo.extrato);
 
-            return Object.entries(agrupado).map(([mes, extratos]) => (
+            return Object.entries(agrupado).map(([mes, extratos]: any) => (
               <View key={mes} className="mb-3">
                 <View className='w-full bg-gray-400 h-[1px]' />
                 <Text className="text-lg text-center font-bold">{mes}</Text>
@@ -180,8 +210,10 @@ export default function ClienteConsumoScreen() {
                       style={{ borderColor: colors.secondary70 }}
                     >
                       <H3 color={colors.secondary20}>{formatarMoeda(extrato.total)}</H3>
+                      <View className='w-full h-2' />
                       <H1 fontWeight={'bold'} fontsize={16} title={`Status:`} />
                       <Paragrafo title={`${extrato.status}`} />
+                      <View className='w-full h-1' />
                       <H1 fontWeight={'bold'} fontsize={16} title={`Forma de pagamento:`} />
                       <Paragrafo title={`${extrato.forma_pagamento}`} />
                     </View>
