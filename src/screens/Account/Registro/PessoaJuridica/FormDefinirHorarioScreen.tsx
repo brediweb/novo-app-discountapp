@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
-import RadioSimples from './RadioSimples'
-import { api } from '../../../../service/api'
-import Toast from 'react-native-toast-message'
-import { useNavigate } from '../../../../hooks/useNavigate'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { useGlobal } from '../../../../context/GlobalContextProvider'
-import FilledButton from '../../../../components/buttons/FilledButton'
-import HeaderPrimary from '../../../../components/header/HeaderPrimary'
-import MainLayoutAutenticadoSemScroll from '../../../../components/layout/MainLayoutAutenticadoSemScroll'
-import InputOutlined from '@components/forms/InputOutlined'
-import { colors } from 'src/styles/colors'
+import FilledButton from '@components/buttons/FilledButton';
+import HeaderPrimary from '@components/header/HeaderPrimary';
+import MainLayoutAutenticadoSemScroll from '@components/layout/MainLayoutAutenticadoSemScroll';
+import { useNavigate } from '@hooks/useNavigate';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { MaskedTextInput } from 'react-native-mask-text';
+import Toast from 'react-native-toast-message';
+import { useGlobal } from 'src/context/GlobalContextProvider';
+import { api } from 'src/service/api';
+import { colors } from 'src/styles/colors';
 
 const diasDaSemana = [
   'Segunda-feira',
@@ -20,29 +19,38 @@ const diasDaSemana = [
   'Sexta-feira',
   'Sábado',
   'Domingo',
-]
+];
 
-export default function FormDefinirHorarioScreen({ route }: { route: any }) {
+const InputHorario = ({ label, value, onChangeText }: any) => (
+  <View style={styles.inputContainer}>
+    <Text style={styles.label}>{label}</Text>
+    <MaskedTextInput
+      mask="99:99"
+      keyboardType="numeric"
+      value={value}
+      onChangeText={onChangeText}
+      style={styles.input}
+      placeholder="00:00"
+    />
+  </View>
+);
+
+export default function HorariosFuncionamento({ route }: { route: any }) {
+  const [horarios, setHorarios] = useState({}) as any;
   const infoForm = route.params
   const { navigate } = useNavigate()
   const [loading, setLoading] = useState(false)
   const { setSenhaUser, setTelefoneDigitado, setTipoUser } = useGlobal()
 
-  // State com horários e flags de fechado
-  const [horarios, setHorarios] = useState<Record<string, string>>(
-    diasDaSemana.reduce((acc, dia) => ({ ...acc, [dia]: '' }), {})
-  )
-  const [fechados, setFechados] = useState<Record<string, boolean>>(
-    diasDaSemana.reduce((acc, dia) => ({ ...acc, [dia]: false }), {})
-  )
-
-  const toggleFechado = (dia: string) => {
-    setFechados(prev => ({ ...prev, [dia]: !prev[dia] }))
-  }
-
-  const alterarHorario = (dia: string, novoHorario: string) => {
-    setHorarios(prev => ({ ...prev, [dia]: novoHorario }))
-  }
+  const handleChange = (dia: any, campo: any, valor: any) => {
+    setHorarios((prev: any) => ({
+      ...prev,
+      [dia]: {
+        ...prev[dia],
+        [campo]: valor,
+      },
+    }));
+  };
 
   async function onSubmit() {
     setLoading(true)
@@ -115,55 +123,37 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
     setLoading(false)
   }
 
-  const mascaraHorario = (valor: string): string => {
-    // Remove tudo que não for número
-    const numeros = valor.replace(/\D/g, '');
-
-    // Limita a 4 dígitos (HHMM)
-    const limitado = numeros.slice(0, 4);
-
-    // Formata para HH:MM
-    if (limitado.length >= 3) {
-      return `${limitado.slice(0, 2)}:${limitado.slice(2, 4)}`;
-    } else if (limitado.length >= 1) {
-      return limitado;
-    }
-
-    return '';
-  };
-
   return (
-    <MainLayoutAutenticadoSemScroll loadign={loading} marginTop={0} marginHorizontal={0}>
-      <HeaderPrimary titulo='Informe os horários de funcionamento' />
-      <ScrollView className='mt-4 mx-4' contentContainerStyle={{ paddingBottom: 40 }}>
+    <MainLayoutAutenticadoSemScroll loadign={loading} marginHorizontal={0} marginTop={0}>
+      <HeaderPrimary titulo='Informe todos horários de funcionamento' />
+      <ScrollView contentContainerStyle={styles.container}>
         {diasDaSemana.map((dia) => (
-          <View key={dia} className='mb-4'>
-            <TouchableOpacity
-              onPress={() => toggleFechado(dia)}
-              className='mb-2 flex flex-row justify-start items-center gap-x-2'
-            >
-              <View
-                style={{
-                  backgroundColor: fechados[dia] ? colors.danger : 'transparent',
-                  borderColor: fechados[dia] ? colors.dark : colors.danger,
-                }}
-                className='w-4 h-4 border-solid border-2 rounded-full'
-              />
-              <Text>Está fechado para esse dia</Text>
-            </TouchableOpacity>
+          <View key={dia} style={styles.diaContainer}>
+            <Text style={styles.diaTitulo}>{dia}</Text>
 
-            <InputOutlined
-              label={dia}
-              value={horarios[dia]}
-              onChange={(text: string) => alterarHorario(dia, text)}
-              placeholder={dia}
-              keyboardType={'default'}
-              edicao={!fechados[dia]}
+            <InputHorario
+              label="Abertura"
+              value={horarios[dia]?.abertura || ''}
+              onChangeText={(text: any) => handleChange(dia, 'abertura', text)}
+            />
+            <InputHorario
+              label="Fechamento para almoço"
+              value={horarios[dia]?.fechamentoAlmoco || ''}
+              onChangeText={(text: any) => handleChange(dia, 'fechamentoAlmoco', text)}
+            />
+            <InputHorario
+              label="Volta do almoço"
+              value={horarios[dia]?.voltaAlmoco || ''}
+              onChangeText={(text: any) => handleChange(dia, 'voltaAlmoco', text)}
+            />
+            <InputHorario
+              label="Fechamento do dia"
+              value={horarios[dia]?.fechamento || ''}
+              onChangeText={(text: any) => handleChange(dia, 'fechamento', text)}
             />
           </View>
         ))}
       </ScrollView>
-
       <View className='mx-4 mt-6'>
         <FilledButton
           title='Próximo'
@@ -171,5 +161,39 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
         />
       </View>
     </MainLayoutAutenticadoSemScroll>
-  )
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+    paddingBottom: 100,
+  },
+  diaContainer: {
+    marginBottom: 24,
+    backgroundColor: '#f9f9f9',
+    padding: 16,
+    borderRadius: 10,
+  },
+  diaTitulo: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    textAlign: 'center',
+    color: colors.secondary70
+  },
+  inputContainer: {
+    marginBottom: 8,
+  },
+  label: {
+    fontSize: 14,
+    marginBottom: 4,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: colors.secondary70,
+    borderRadius: 6,
+    padding: 10,
+    fontSize: 16,
+  },
+});

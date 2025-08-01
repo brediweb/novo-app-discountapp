@@ -19,6 +19,7 @@ import FormPessoaFisicaScreen from '../../screens/Account/Registro/PessoaFisica/
 import FormPessoaJuridicaScreen from '../../screens/Account/Registro/PessoaJuridica/FormPessoaJuridicaScreen'
 import CadastroSucessoAnuncianteScreen from '../../screens/Account/Registro/PessoaJuridica/CadastroSucessoAnuncianteScreen'
 import OnBoardingScreen from '../../screens/Account/OnBoardingScreen'
+import FormDefinirHorarioScreen from '@screens/Account/Registro/PessoaJuridica/FormDefinirHorarioScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,7 @@ export default function MainStack() {
         <Stack.Screen name="FormPessoaFisicaScreen" component={FormPessoaFisicaScreen} />
         <Stack.Screen name="FormPessoaJuridicaScreen" component={FormPessoaJuridicaScreen} />
         <Stack.Screen name="FormPerfilScreen" component={FormPerfilScreen} />
+        <Stack.Screen name="FormDefinirHorarioScreen" component={FormDefinirHorarioScreen} />
         <Stack.Screen name="TermosCadastrosScreen" component={TermosCadastrosScreen} />
         <Stack.Screen name="TermoModeloScreen" component={TermoModeloScreen} />
         <Stack.Screen name="CadastroSucessoScreen" component={CadastroSucessoScreen} />

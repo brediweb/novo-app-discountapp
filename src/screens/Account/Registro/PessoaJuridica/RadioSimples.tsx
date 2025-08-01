@@ -8,7 +8,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import IcoRestaurante from '../../../../svg/IcoRestaurante'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
 import Paragrafo from '../../../../components/typography/Paragrafo'
-import { View, TouchableOpacity, Image, StyleSheet, FlatList, RefreshControl, Dimensions } from 'react-native'
+import { View, TouchableOpacity, Image, StyleSheet, FlatList, RefreshControl, Dimensions, ScrollView, Text } from 'react-native'
 
 interface RadioButtonProps {
   selectedOptions: string[];
