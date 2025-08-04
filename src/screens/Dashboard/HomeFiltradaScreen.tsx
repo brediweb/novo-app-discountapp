@@ -30,7 +30,8 @@ export default function HomeFiltradaScreen(route: any) {
         const response = await api.get(`/cupons/categoria/${idCategoria}`, { headers })
         setProdutos(response.data.results)
       } catch (error: any) {
-        console.log('Error Filtrar Categoria:', error)
+        console.error('Error Filtrar Categoria:', error)
+
       }
     }
     setIsRefreshing(false);
