@@ -10,11 +10,12 @@ import CardCategoria from '../../components/cards/CardCategoria'
 import ButtonOutline from '../../components/buttons/ButtonOutline'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import MainLayoutAutenticado from '../../components/layout/MainLayoutAutenticado'
-import { FlatList, RefreshControl, ScrollView, TouchableOpacity, View } from 'react-native'
+import { FlatList, RefreshControl, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 
 export default function HomeScreen() {
   const isFocused = useIsFocused()
   const { navigate } = useNavigate()
+  const [primeiroNome, setPrimeiroNome] = useState('')
   const [listaprodutos, setProdutos] = useState([])
   const [listacategorias, setCategorias] = useState([])
   const [isRefreshing, setIsRefreshing] = useState(true)
@@ -74,18 +75,17 @@ export default function HomeScreen() {
   async function getDadosPerfil() {
     setIsRefreshing(true)
     const jsonValue = await AsyncStorage.getItem('infos-user')
+
     if (jsonValue) {
       const newJson = JSON.parse(jsonValue)
 
-      const headers = {
-        Authorization: `Bearer ${newJson.token}`
-      }
       try {
-        const response = await api.get(`/perfil/pessoa-fisica/${newJson.id}`)
-        const jsonValue = JSON.stringify(response.data.results)
-        await AsyncStorage.setItem('dados-perfil', jsonValue)
+        const response = await api.get(`/perfil/pessoa-fisica/${newJson?.id}`)
+        setPrimeiroNome(response.data.results.nome_completo.split(' ')[0])
+        const novoJson = JSON.stringify(response.data.results)
+        await AsyncStorage.setItem('dados-perfil', novoJson)
       } catch (error: any) {
-        console.log('GET Dados Perfil (Cliente): ', error.response.data.message)
+        console.error('GET Dados Perfil (Cliente): ', error.response.data.message)
       }
     }
     setIsRefreshing(false)
@@ -159,6 +159,10 @@ export default function HomeScreen() {
           />
         ))}
       </ScrollView >
+
+      <View className="flex-row">
+        <Text className="text-[24px] font-semibold text-[#000] mb-3"> Boas-vindas, {primeiroNome ?? ''} 🎉</Text>
+      </View>
 
       {estadoSelecionado && cidadeSelecionada &&
         <TouchableOpacity onPress={() => navigate('FiltroCidadeScreen')} className=' ml-2'>
