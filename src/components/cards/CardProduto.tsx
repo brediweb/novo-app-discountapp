@@ -413,35 +413,36 @@ export default function CardProduto(
         <View className='flex-row items-center py-3 px-2 mb-3'>
           <View className='flex-row w-full items-center justify-start'>
             {foto_user ?
-              <TouchableOpacity onPress={() => setModalInfosAnunciante(true)}>
+              <TouchableOpacity className='' onPress={() => setModalInfosAnunciante(true)}>
                 <Image source={{ uri: foto_user }} className='h-10 w-10 rounded-full mr-2 ' style={{ backgroundColor: colors.primary40 }} />
               </TouchableOpacity>
               :
-              <TouchableOpacity onPress={() => setModalInfosAnunciante(true)}>
+              <TouchableOpacity className='' onPress={() => setModalInfosAnunciante(true)}>
                 <View className='h-10 w-10 rounded-full items-center justify-center mr-2' style={{ backgroundColor: colors.primary40 }} >
                   {nome_empresa &&
-                    <Text className='text-base text-[#ffffff] font-medium' >{getInitials(nome_empresa)}</Text>
+                    <Text className='text-base text-[#fff] font-medium' >{getInitials(nome_empresa)}</Text>
                   }
                 </View>
               </TouchableOpacity>
             }
-            <View className='w-full' style={{ maxWidth: '78%' }}>
-              <TouchableOpacity onPress={() => setModalInfosAnunciante(true)} className='w-full'>
-                {nome_empresa &&
-                  <Text className='text-sm text-[#775AFF]'>{nome_empresa}</Text>
-                }
-              </TouchableOpacity>
-              <TouchableOpacity onPress={media_avaliacao && total_avaliacao ? () => navigate('ListaAvaliacaoScreen', { id_anunciante }) : () => setModalInfosAnunciante(true)} className="flex-row gap-1">
-                {media_avaliacao && total_avaliacao ?
-                  <View>
-                    <Text className='text-sm text-[#775AFF]'>{nome_filial}</Text>
-                    <Image source={require('../../../assets/img/icons/star.png')} />
-                    <Text className='text-xs text-[#775AFF]'>{media_avaliacao ?? 'Novo'} ({total_avaliacao ?? 'Novo'})</Text>
-                  </View>
-                  :
-                  <Text className='text-xs text-[#6b6b6a]'>Novo anunciante!</Text>
-                }
-              </TouchableOpacity >
+            <View className='flex-row w-full flex justify-start items-center' style={{ maxWidth: '40%' }}>
+              <View>
+                <TouchableOpacity onPress={() => setModalInfosAnunciante(true)} className='w-full'>
+                  {nome_empresa &&
+                    <Text className='text-sm text-[#775AFF]'>{nome_empresa}</Text>
+                  }
+                </TouchableOpacity>
+                <TouchableOpacity onPress={media_avaliacao && total_avaliacao ? () => navigate('ListaAvaliacaoScreen', { id_anunciante }) : () => setModalInfosAnunciante(true)} className="">
+                  {media_avaliacao && total_avaliacao ?
+                    <View className='flex flex-row'>
+                      <Image source={require('../../../assets/img/icons/star.png')} />
+                      <Text className='text-xs text-[#775AFF]'>{media_avaliacao ?? 'Novo'} ({total_avaliacao ?? 'Novo'})</Text>
+                    </View>
+                    :
+                    <Text className='text-xs text-[#6b6b6a]'>Novo anunciante!</Text>
+                  }
+                </TouchableOpacity >
+              </View>
             </View>
             {status_favorito ?
               <TouchableOpacity onPress={removeFavorito} className='absolute right-0'>
