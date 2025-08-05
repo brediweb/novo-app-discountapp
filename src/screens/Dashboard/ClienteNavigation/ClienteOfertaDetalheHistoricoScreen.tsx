@@ -71,7 +71,7 @@ export default function ClienteOfertaDetalheHistoricoScreen({ route }: { route?:
     <MainLayoutAutenticado marginTop={0} marginHorizontal={0} loading={loading}>
       <HeaderPrimary titulo='Detalhe do Anúncio' voltarScreen={() => navigate('Meus Cupons')} />
       <View className='mx-7 mt-5 min-h-full'>
-        {oferta.length <= 0 &&
+        {oferta.length <= 0 && !loading &&
           <View className='flex justify-center items-center'>
             <Text className='text-brand-danger'>Não foi possível carregar as informações</Text>
           </View>
