@@ -32,7 +32,7 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
           Authorization: `Bearer ${newJson.token}`,
         }
         const formData = {
-          anunciante_id: id_oferta ?? route?.params[0].id,
+          anunciante_id: route?.params[0]?.anunciante_id ?? route?.params?.dados_gerais?.anunciante_id,
           comentario: mensagem.length <= 1 ? 'Sem comentários' : mensagem,
           avaliacao: selecionaAvalaicao,
           permissao_contato: contato
