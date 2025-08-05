@@ -91,7 +91,7 @@ export default function CardProduto(
   const handleCloseModalSucesso = () => {
     setModalVisible(false)
     setModalSucesso(false)
-    navigate('AvaliacaoScreen', { id_anunciante: id_anunciante, id_oferta: id_oferta })
+    navigate('AvaliacaoScreen', { id_anunciante: id_anunciante, id_oferta: id_oferta, dados_gerais })
   }
 
   const handleCloseModalVoltar = () => {
@@ -111,13 +111,13 @@ export default function CardProduto(
     navigate('FormPessoaFisicaScreen')
   }
 
-  const getInitials = (fullName: string): string => {
+  const getInitials = (fullName: string = ''): string => {
     const names = fullName.trim().split(' ').filter(Boolean);
     if (names.length === 0) return '';
     if (names.length === 1) return names[0][0].toUpperCase();
-    // Pega a primeira letra do primeiro e do último nome
     return (names[0][0] + names[names.length - 1][0]).toUpperCase();
-  }
+  };
+
 
   async function postFavorito() {
     setLoading(true)
@@ -225,6 +225,37 @@ export default function CardProduto(
       clearInterval(intervalId);
     }
   }
+
+  function formatarTelefone(telefone: string = ''): string {
+    // Remove tudo que não for número
+    const apenasNumeros = telefone.replace(/\D/g, '');
+
+    // Verifica se tem DDD (11 dígitos ou mais)
+    if (apenasNumeros.length >= 10) {
+      const ddd = apenasNumeros.slice(0, 2);
+      const numero = apenasNumeros.slice(2);
+
+      if (numero.length === 9) {
+        // Ex: (91) 91234-5678
+        return `(${ddd}) ${numero.slice(0, 5)}-${numero.slice(5)}`;
+      } else if (numero.length === 8) {
+        // Ex: (91) 1234-5678
+        return `(${ddd}) ${numero.slice(0, 4)}-${numero.slice(4)}`;
+      }
+    }
+
+    // Se não tem DDD ou é inválido, retorna apenas os últimos dígitos com hífen se possível
+    if (apenasNumeros.length === 9) {
+      return `${apenasNumeros.slice(0, 5)}-${apenasNumeros.slice(5)}`;
+    } else if (apenasNumeros.length === 8) {
+      return `${apenasNumeros.slice(0, 4)}-${apenasNumeros.slice(4)}`;
+    }
+
+    return telefone; // Se não couber em nenhum caso, retorna como veio
+  }
+
+  console.log(foto_user);
+
 
   useEffect(() => {
     if (modalVisible) {
@@ -356,15 +387,11 @@ export default function CardProduto(
                 </Caption>
                 <View className='w-full h-4' />
                 <Caption color={colors.dark} fontSize={16} >
-                  Telefone:
+                  Telefone: {formatarTelefone(dados_gerais?.telefone)}
                 </Caption>
                 <View className='w-full h-4' />
                 <Caption color={colors.dark} fontSize={16} >
-                  Endereço:
-                </Caption>
-                <View className='w-full h-4' />
-                <Caption color={colors.dark} fontSize={16} >
-                  Instagram:
+                  Endereço: {dados_gerais?.endereco}
                 </Caption>
                 <View className='w-full h-4' />
                 <Caption color={colors.dark} fontSize={16} >
@@ -412,16 +439,16 @@ export default function CardProduto(
         }}>
         <View className='flex-row items-center py-3 px-2 mb-3'>
           <View className='flex-row w-full items-center justify-start'>
-            {foto_user ?
+            {foto_user && foto_user != '-' ?
               <TouchableOpacity className='' onPress={() => setModalInfosAnunciante(true)}>
                 <Image source={{ uri: foto_user }} className='h-10 w-10 rounded-full mr-2 ' style={{ backgroundColor: colors.primary40 }} />
               </TouchableOpacity>
               :
               <TouchableOpacity className='' onPress={() => setModalInfosAnunciante(true)}>
                 <View className='h-10 w-10 rounded-full items-center justify-center mr-2' style={{ backgroundColor: colors.primary40 }} >
-                  {nome_empresa &&
-                    <Text className='text-base text-[#fff] font-medium' >{getInitials(nome_empresa)}</Text>
-                  }
+                  <Text className='text-base text-[#fff] font-medium' >
+                    {getInitials(nome_empresa ?? 'New User')}
+                  </Text>
                 </View>
               </TouchableOpacity>
             }
