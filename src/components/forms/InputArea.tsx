@@ -15,9 +15,10 @@ interface PropsInputOutlined {
   textTransform?: any
   uppercase?: any
   error?: boolean
+  editable?: boolean
 }
 
-export default function InputArea({ label, onChange, mt, secureTextEntry, placeholder, keyboardType, value, height, maxLength, uppercase, error }: PropsInputOutlined) {
+export default function InputArea({ label, onChange, mt, secureTextEntry, editable, placeholder, keyboardType, value, height, maxLength, uppercase, error }: PropsInputOutlined) {
 
   return (
     <View className='' style={{ marginTop: mt ?? 0 }}>
@@ -27,6 +28,7 @@ export default function InputArea({ label, onChange, mt, secureTextEntry, placeh
         error={error}
         mode='outlined'
         multiline={true}
+        editable={editable}
         numberOfLines={4}
         onChange={onChange}
         maxLength={maxLength}

@@ -4,18 +4,19 @@ import { TouchableOpacity, View } from 'react-native'
 
 interface RadioButtonProps {
   options: string[];
+  desativar?: boolean;
   selectedOption: string;
   onSelectOption: (option: string) => void;
 }
 
-export default function RadioButton({ options, selectedOption, onSelectOption }: RadioButtonProps) {
+export default function RadioButton({ options, selectedOption, onSelectOption, desativar }: RadioButtonProps) {
   return (
     <View>
       {options.map((option) => (
         <TouchableOpacity
           key={option}
           className='flex-row items-center mb-2'
-          onPress={() => onSelectOption(option)}
+          onPress={desativar ? () => { } : () => onSelectOption(option)}
         >
           <View
             className='rounded-xl justify-center items-center mr-2 w-6 h-6'

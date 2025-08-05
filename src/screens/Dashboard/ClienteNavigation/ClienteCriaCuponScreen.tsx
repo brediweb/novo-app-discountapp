@@ -75,6 +75,7 @@ export default function ClienteCriaCuponScreen() {
   const [errorDataValidade, setErrorDataValidade] = useState(false);
   const [errorTipoVantagem, setErrorTipoVantagem] = useState(false);
   const [errorValueVantagem, setErrorValueVantagem] = useState(false);
+  const [modalConfirmar, setModalConfirmar] = useState(false)
 
   const { update, setUpdate } = useGlobal();
 
@@ -228,6 +229,199 @@ export default function ClienteCriaCuponScreen() {
     }
   }
 
+  async function validar() {
+    const dataHoje = new Date();
+    const dataEscolhida = new Date(dataSelecionada);
+
+    getData();
+    setErrorTitulo(false);
+    setErrorDataValidade(false);
+    setErrorResumo(false);
+    setErrorDescricao(false);
+    setErrorQtdCupons(false);
+    setErrorTipoVantagem(false);
+    setErrorValueVantagem(false);
+    setErroCodigoCupom(false);
+    seterrorValorItem(false);
+    setErrorCategoria(false);
+    setErrorImagem(false);
+
+    if (titulo.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe um título',
+      });
+      setErrorTitulo(true);
+      return;
+    }
+    if (dataSelecionada.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe uma data de validade',
+      });
+      setErrorDataValidade(true);
+      return;
+    }
+    if (dataEscolhida < dataHoje) {
+      Toast.show({
+        type: 'error',
+        text1: 'Data de validade inválida',
+      });
+      setErrorDataValidade(true);
+      return;
+    }
+    if (resumoOferta.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe um resumo',
+      });
+      setErrorResumo(true);
+      return;
+    }
+    if (descricao.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe uma descrição',
+      });
+      setErrorDescricao(true);
+      return;
+    }
+    if (qtdCupons.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe quantidade de cupons',
+      });
+      setErrorQtdCupons(true);
+      return;
+    }
+    if (!tipoVantagem) {
+      Toast.show({
+        type: 'error',
+        text1: 'Selecione uma vantagem',
+      });
+      setErrorTipoVantagem(true);
+      return;
+    }
+    if (valorReais.length <= 0 && valueVantagem.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe o valor da vantagem',
+      });
+      setErrorValueVantagem(true);
+      return;
+    }
+    if (codigoCupom.length >= 1 && codigoCupom.length <= 9) {
+      Toast.show({
+        type: 'error',
+        text1: 'Código deve ter 10 carecteres',
+      });
+      setErroCodigoCupom(true);
+      return;
+    }
+    if (valorItem.length <= 0) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe o valor do item',
+      });
+      seterrorValorItem(true);
+      return;
+    }
+    if (tipoVantagem === 'porcentagem' && parseFloat(valueVantagem) > 100) {
+      Toast.show({
+        type: 'error',
+        text1: 'A porcentagem não pode ser maior que 100%',
+      });
+      setErrorValueVantagem(true);
+      return;
+    }
+    const match = valorReais.match(/([\d,]+)/);
+    const resultReais = match ? match[0] : '';
+
+    const matchItem = valorItem.match(/([\d,]+)/);
+    const resultItem = matchItem ? matchItem[0] : '';
+
+    if (tipoVantagem === 'Vantagem em Reais' && parseFloat(resultReais) > parseFloat(resultItem)) {
+      Alert.alert('O valor do desconto não pode ser maior que o valor do item');
+      setErrorValueVantagem(true);
+      return;
+    }
+    if (!optionSelected.categorias) {
+      Toast.show({
+        type: 'error',
+        text1: 'Selecione uma categoria',
+      });
+      setErrorCategoria(true);
+      return;
+    }
+    if (!imagemEnvio) {
+      Toast.show({
+        type: 'error',
+        text1: 'Selecione uma imagem',
+      });
+      setErrorImagem(true);
+      return;
+    }
+    setLoading(true);
+
+    try {
+      const headers = {
+        Authorization: `Bearer ${dadosUser.token}`,
+        'Content-Type': 'multipart/form-data',
+      };
+      const response = await api.get(`/validacao-texto`, {
+        params: {
+          texto: `${descricao} ${codigoCupom} ${resumoOferta} ${titulo}`,
+        },
+        headers: headers,
+      });
+
+      if (response.data.vocabulario_incorreto && !nextComAlerta) {
+        Toast.show({
+          type: 'error',
+          text1:
+            response.data.message ??
+            'Possui mensgem com vocabulário inrregular !',
+        });
+        setPalavrasErradas(response.data.results);
+        setModalCorretor(true);
+        setLoading(false);
+        return;
+      }
+
+      const novoValorVantagem = RemoveCaracteres({ text: valueVantagem });
+
+      const match = valorReais.match(/([\d,]+)/);
+      const resultReais = match ? match[0] : '';
+
+      const matchItem = valorItem.match(/([\d,]+)/);
+      let resultItem = matchItem ? matchItem[0].replace(/,/g, '') : '';
+
+      // Acrescenta zeros conforme o tamanho
+      if (resultItem.length === 1) {
+        resultItem += '000';
+      } else if (resultItem.length === 2) {
+        resultItem += '00';
+      } else if (resultItem.length === 3) {
+        resultItem += '0';
+      }
+      const resultItemNumber = Number(resultItem);
+
+      const novaImage = {
+        uri: imagemEnvio.path ?? '',
+        type: 'image/.png',
+        name: ' ',
+      };
+      const dataOriginal = new Date(dataSelecionada);
+      const dataFormatada = format(dataOriginal, ' yyyy-MM-dd');
+
+
+      setModalConfirmar(true)
+
+    } catch (error: any) {
+      console.error(error.response.data);
+    }
+    setLoading(false);
+  }
 
 
   async function onSubmit() {
@@ -448,6 +642,7 @@ export default function ClienteCriaCuponScreen() {
           type: 'success',
           text1: 'Oferta criada com sucesso!',
         });
+        setModalConfirmar(false)
         setValorReais('');
         setTitulo('');
         setFilial('');
@@ -464,9 +659,14 @@ export default function ClienteCriaCuponScreen() {
         setValorItem('');
         setNextComAlerta(false);
         setUpdate(update + 1);
+        getPerfil()
         navigate('ClienteCupomSucessoScreen', { response });
       } catch (error: any) {
         console.error('ERROR POST Cria Cupom: ', error?.response?.data?.message);
+        Alert.alert(
+          'Error', error?.response?.data?.message ??
+        'Verifique sua conexão com a internet',
+        )
         Toast.show({
           type: 'error',
           text1:
@@ -542,6 +742,7 @@ export default function ClienteCriaCuponScreen() {
 
   return (
     <>
+
       <Modal visible={modalCorretor} transparent={true}>
         <View
           className="flex-1 w-full justify-center items-center"
@@ -590,9 +791,208 @@ export default function ClienteCriaCuponScreen() {
         marginHorizontal={0}
         loading={loading}
       >
+        <Modal visible={modalConfirmar} transparent animationType='slide' className='flex-1 w-full h-full z-20'>
+          <View className=' flex-1 justify-center items-center' style={{ backgroundColor: 'rgba(000, 000, 000, 0.5)' }}>
+            <ScrollView
+              className='w-[80%] px-4 bg-white rounded-xl py-12 my-12' style={{ borderColor: colors.secondary30, borderWidth: 2, }}>
+              <Text
+                className="mb-4 font-bold text-lg text-center"
+                style={{ color: colors.error40 }}
+              >
+                Confirme as informações antes de cadastrar sua oferta:
+              </Text>
+              <InputOutlined
+                value={titulo}
+                error={errorTitulo}
+                edicao={false}
+                label="Título da oferta"
+                keyboardType={'default'}
+              />
+              {dataSelecionada &&
+                <InputOutlined
+                  mt={12}
+                  keyboardType={'default'}
+                  edicao={false}
+                  label='Data de Validade'
+                  value={format(new Date(dataSelecionada), 'dd/MM/yyyy') ?? 'Data de validade'}
+                />
+              }
+              <Text
+                className="mb-1 mt-4 font-medium"
+                style={{ color: errorTipoVantagem ? colors.error40 : '#49454F' }}
+              >
+                Detalhes resumida:
+              </Text>
+              <InputArea
+                height={120}
+                editable={false}
+                error={errorResumo}
+                value={resumoOferta}
+                keyboardType={'default'}
+                onChange={setResumoOferta}
+                placeholder="Descrição resumida - Um resumo rapído e objetivo sobre a oferta"
+              />
+              <Text
+                className="mb-1 mt-4 font-medium"
+                style={{ color: errorTipoVantagem ? colors.error40 : '#49454F' }}
+              >
+                Detalhes da oferta:
+              </Text>
+              <InputArea
+                height={180}
+                value={descricao}
+                editable={false}
+                error={errorDescricao}
+                keyboardType={'default'}
+                onChange={setDescricao}
+                placeholder="Detalhes da oferta - Mais longo e detalhado sobre caracteristicas do produto ou serviço, data de validade, condições de uso e outra informações relevantes"
+              />
+              <InputOutlined
+                mt={12}
+                maxLength={5}
+                edicao={false}
+                value={qtdCupons}
+                error={errorQtdCupons}
+                onChange={setQtdCupons}
+                label="Quantidade de cupons"
+                keyboardType={'number-pad'}
+              />
+              <View className="mt-4">
+                <Text
+                  className="mb-2 font-medium"
+                  style={{ color: errorTipoVantagem ? colors.error40 : '#49454F' }}
+                >
+                  Vantagem selecionada:
+                </Text>
+                <RadioButton
+                  options={['Vantagem Porcentagem', 'Vantagem em Reais']}
+                  selectedOption={tipoVantagem}
+                  desativar={true}
+                  onSelectOption={handleTipoVantagem}
+                />
+              </View>
+              {tipoVantagem === 'Vantagem Porcentagem' && (
+                <InputOutlined
+                  value={valueVantagem}
+                  error={errorValueVantagem}
+                  keyboardType={'number-pad'}
+
+                  onChange={setValueVantagem}
+                  label="Vantagem em porcentagem (%)"
+                  edicao={false}
+                  placeholder="Vantagem em porcentagem (%)"
+                />
+              )}
+              {tipoVantagem === 'Vantagem em Reais' && (
+                <InputOutlined
+                  mt={12}
+                  label="Vantagem em reais"
+                  value={valorReais}
+                  keyboardType={'number-pad'}
+                  error={errorValueVantagem}
+                  placeholder="Vantagem em reais (R$)"
+                  edicao={false}
+                />
+              )}
+              <InputOutlined
+                mt={12}
+                maxLength={10}
+                value={codigoCupom}
+                edicao={false}
+                error={erroCodigoCupom}
+                label="Código do Cupom"
+                uppercase={'characters'}
+                keyboardType={'default'}
+                onChange={setCodigoCupom}
+              />
+              <InputOutlined
+                mt={12}
+                label="Valor do Item (R$)"
+                value={valorItem}
+                edicao={false}
+                error={errorValorItem}
+                keyboardType={'number-pad'}
+                placeholder="Valor do Item (R$)"
+              />
+              <Text className="mt-4 mb-2 font-medium">
+                Categoria selecionada:
+              </Text>
+              <View className="w-full flex justify-start items-center">
+                {categorias &&
+                  categorias.map((option: any) => (
+                    <TouchableOpacity
+                      key={option.id}
+                    >
+                      {option.id === optionSelected?.id &&
+                        <View
+                          className="flex-row items-center justify-center"
+                        >
+                          {option.title != '' ? (
+                            <View className="mb-3">
+                              {option.icon ? (
+                                <View className="scale-75">{option.icon}</View>
+                              ) : (
+                                <Image
+                                  className="w-12 h-12"
+                                  source={{ uri: option.icone }}
+                                />
+                              )}
+                            </View>
+                          ) : option.icon ? (
+                            <View className="scale-75">{option.icon}</View>
+                          ) : (
+                            <Image
+                              className="w-12 h-12"
+                              source={{ uri: option.icone }}
+                            />
+                          )}
+                          {option.title != '' && (
+                            <View className="absolute bottom-0">
+                              <Paragrafo
+                                color={'#2F009C'}
+                                title={option.categorias}
+                              />
+                            </View>
+                          )}
+                        </View>
+                      }
+                    </TouchableOpacity>
+                  ))}
+              </View>
+
+              <Text className="mb-2 font-medium mt-2">
+                Imagem selecionada:
+              </Text>
+              {imagemSelecionada &&
+                <TouchableOpacity
+                  className="items-center w-full h-52 mx-auto mb-8"
+                  style={{
+                    borderWidth: 2,
+                    borderStyle: 'dashed',
+                    borderColor: colors.primary20,
+                    backgroundColor: colors.primary90,
+                  }}
+                >
+                  <Image
+                    className="w-full h-52"
+                    resizeMode="cover"
+                    source={{ uri: imagemSelecionada }}
+                  />
+                </TouchableOpacity>
+              }
+
+              <FilledButton onPress={onSubmit} title="Criar anúncio" />
+              <View className='w-full h-2' />
+              <FilledButton onPress={() => setModalConfirmar(false)} title="Voltar" backgroundColor={colors.gray} />
+
+              <View className='w-full h-28' />
+
+            </ScrollView>
+          </View>
+        </Modal>
         <HeaderPrimary titulo="Criar anúncio" />
 
-        <View className="mt-8 mx-7 pb-20">
+        <View className="mt-4 mx-7 pb-20">
           <InputMascaraPaper
             value={titulo}
             error={errorTitulo}
@@ -876,7 +1276,7 @@ export default function ClienteCriaCuponScreen() {
             </TouchableOpacity>
           )}
 
-          <FilledButton onPress={onSubmit} title="Criar anúncio" />
+          <FilledButton onPress={validar} title="Revisar anúncio" />
         </View>
       </MainLayoutAutenticado>
     </>
