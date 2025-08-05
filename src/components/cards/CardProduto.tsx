@@ -382,19 +382,67 @@ export default function CardProduto(
                     Voltar
                   </Text>
                 </TouchableOpacity>
-                <Caption color={colors.dark} fontSize={16} >
-                  Nome da Empresa: {nome_empresa}
+                <View className='flex-row items-center'>
+                  <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} margintop={0}>
+                    Média de Avaliação: {' '}
+                  </Caption>
+                  <View className='flex flex-row '>
+                    <Text>{media_avaliacao ?? 'Novo anunciante'}</Text>
+                    <Image source={require('../../../assets/img/icons/star.png')} className='' />
+                  </View>
+                </View>
+                <View className='w-full h-4' />
+                <Caption color={colors.dark} fontWeight={'bold'} fontSize={16} >
+                  Nome da Empresa:{' '}
+                  <Caption color={colors.dark} fontSize={16} margintop={0} >
+                    {nome_empresa}
+                  </Caption>
                 </Caption>
                 <View className='w-full h-4' />
-                <Caption color={colors.dark} fontSize={16} >
-                  Telefone: {formatarTelefone(dados_gerais?.telefone)}
+
+                <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
+                  Telefone: {' '}
+                  <Caption color={colors.dark} fontSize={16} >
+                    {formatarTelefone(dados_gerais?.telefone)}
+                  </Caption>
                 </Caption>
                 <View className='w-full h-4' />
-                <Caption color={colors.dark} fontSize={16} >
-                  Endereço: {dados_gerais?.endereco}
+                <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
+                  Endereço: {' '}
+                  <Caption color={colors.dark} fontSize={16} margintop={0}>
+                    {dados_gerais?.endereco}
+                  </Caption>
                 </Caption>
+                <View className='w-full mt-2'>
+                  <Caption color={colors.dark} fontWeight={'bold'} margintop={0} fontSize={16} >
+                    Horários:
+                  </Caption>
+                  <View>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Segunda-feira:
+                    </Caption>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Terça-feira:
+                    </Caption>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Quarta-feira:
+                    </Caption>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Quinta-feira:
+                    </Caption>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Sexta-feira:
+                    </Caption>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Sábado:
+                    </Caption>
+                    <Caption color={colors.dark} fontSize={12} >
+                      Domingo:
+                    </Caption>
+                  </View>
+                </View>
                 <View className='w-full h-4' />
-                <Caption color={colors.dark} fontSize={16} >
+                <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
                   Mapa:
                 </Caption>
                 <MapView
