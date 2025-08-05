@@ -4,6 +4,7 @@ import MainLayoutAutenticadoSemScroll from '@components/layout/MainLayoutAutenti
 import { useNavigate } from '@hooks/useNavigate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
+import { Switch } from 'react-native';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { MaskedTextInput } from 'react-native-mask-text';
 import Toast from 'react-native-toast-message';
@@ -41,6 +42,16 @@ export default function HorariosFuncionamento({ route }: { route: any }) {
   const { navigate } = useNavigate()
   const [loading, setLoading] = useState(false)
   const { setSenhaUser, setTelefoneDigitado, setTipoUser } = useGlobal()
+  const [diasFechados, setDiasFechados] = useState<{ [key: string]: boolean }>({});
+
+  const isDiaAberto = (dia: string) => !diasFechados[dia];
+
+  const toggleFechado = (dia: string) => {
+    setDiasFechados((prev) => ({
+      ...prev,
+      [dia]: !prev[dia],
+    }));
+  };
 
   const handleChange = (dia: any, campo: any, valor: any) => {
     setHorarios((prev: any) => ({
@@ -54,6 +65,12 @@ export default function HorariosFuncionamento({ route }: { route: any }) {
 
   async function onSubmit() {
     setLoading(true)
+    if (!horarios) {
+      Toast.show({
+        type: 'error',
+        text1: 'Informe os horários de funconamento'
+      })
+    }
     if (!infoForm) {
       Toast.show({
         type: 'error',
@@ -127,36 +144,55 @@ export default function HorariosFuncionamento({ route }: { route: any }) {
     <MainLayoutAutenticadoSemScroll loadign={loading} marginHorizontal={0} marginTop={0}>
       <HeaderPrimary titulo='Informe todos horários de funcionamento' />
       <ScrollView contentContainerStyle={styles.container}>
-        {diasDaSemana.map((dia) => (
-          <View key={dia} style={styles.diaContainer}>
-            <Text style={styles.diaTitulo}>{dia}</Text>
+        {diasDaSemana.map((dia) => {
+          const aberto = isDiaAberto(dia);
 
-            <InputHorario
-              label="Abertura"
-              value={horarios[dia]?.abertura || ''}
-              onChangeText={(text: any) => handleChange(dia, 'abertura', text)}
-            />
-            <InputHorario
-              label="Fechamento para almoço"
-              value={horarios[dia]?.fechamentoAlmoco || ''}
-              onChangeText={(text: any) => handleChange(dia, 'fechamentoAlmoco', text)}
-            />
-            <InputHorario
-              label="Volta do almoço"
-              value={horarios[dia]?.voltaAlmoco || ''}
-              onChangeText={(text: any) => handleChange(dia, 'voltaAlmoco', text)}
-            />
-            <InputHorario
-              label="Fechamento do dia"
-              value={horarios[dia]?.fechamento || ''}
-              onChangeText={(text: any) => handleChange(dia, 'fechamento', text)}
-            />
-          </View>
-        ))}
+          return (
+            <View key={dia} style={styles.diaContainer}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Text style={styles.diaTitulo}>{dia}</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={{ marginRight: 8 }}>Fechado</Text>
+                  <Switch
+                    value={diasFechados[dia] || false}
+                    onValueChange={() => toggleFechado(dia)}
+                    thumbColor={diasFechados[dia] ? colors.danger : colors.secondary70}
+                  />
+                </View>
+              </View>
+
+              {aberto && (
+                <>
+                  <InputHorario
+                    label="Abertura"
+                    value={horarios[dia]?.abertura || ''}
+                    onChangeText={(text: any) => handleChange(dia, 'abertura', text)}
+                  />
+                  <InputHorario
+                    label="Fechamento para almoço"
+                    value={horarios[dia]?.fechamentoAlmoco || ''}
+                    onChangeText={(text: any) => handleChange(dia, 'fechamentoAlmoco', text)}
+                  />
+                  <InputHorario
+                    label="Volta do almoço"
+                    value={horarios[dia]?.voltaAlmoco || ''}
+                    onChangeText={(text: any) => handleChange(dia, 'voltaAlmoco', text)}
+                  />
+                  <InputHorario
+                    label="Fechamento do dia"
+                    value={horarios[dia]?.fechamento || ''}
+                    onChangeText={(text: any) => handleChange(dia, 'fechamento', text)}
+                  />
+                </>
+              )}
+            </View>
+          );
+        })}
       </ScrollView>
       <View className='mx-4 mt-6'>
         <FilledButton
           title='Próximo'
+          disabled={horarios ? false : true}
           onPress={onSubmit}
         />
       </View>
