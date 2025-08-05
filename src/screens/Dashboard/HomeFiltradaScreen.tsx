@@ -31,7 +31,6 @@ export default function HomeFiltradaScreen(route: any) {
         setProdutos(response.data.results)
       } catch (error: any) {
         console.error('Error Filtrar Categoria:', error)
-
       }
     }
     setIsRefreshing(false);

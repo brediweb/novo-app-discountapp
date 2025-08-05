@@ -96,6 +96,12 @@ export default function HomeSemAuthFiltradaScreen(route: any) {
       </View>
       <SafeAreaView>
         <ScrollView horizontal={true} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} className='w-full h-14 pb-2' >
+          <CardCategoria
+            ativo={false}
+            slug={'todas'}
+            titulo={'Todas'}
+            onPress={() => navigate('HomeSemAuth')}
+          />
           {listacategorias && listacategorias.map((categoria: any) => (
             <CardCategoria
               ativo={idCategoria === categoria.id ? true : false} // Destacar a categoria selecionada

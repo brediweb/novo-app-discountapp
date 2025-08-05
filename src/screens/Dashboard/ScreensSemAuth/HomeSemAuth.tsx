@@ -118,6 +118,12 @@ export default function HomeSemAuth() {
     <MainLayoutAutenticado marginTop={40} notScroll={true} loading={isRefreshing}>
       <ModalTemplateLogin visible={modalVisible} onClose={() => setModalVisible(false)} />
       <ScrollView horizontal={true} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} className='w-full h-14 pb-0 mt-12'>
+        <CardCategoria
+          ativo={false}
+          slug={'todas'}
+          titulo={'Todas'}
+          onPress={() => navigate('HomeSemAuth')}
+        />
         {listacategorias && listacategorias.map((categoria: any) => (
           <CardCategoria
             ativo={false}
