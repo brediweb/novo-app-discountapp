@@ -114,7 +114,6 @@ export default function FormPessoaJuridicaScreen({
   async function validaCampos() {
     setModalAviso(false);
     setModalLocalizacao(false);
-    handleCep()
 
     if (novaLocalizacao?.latitude === 0 || novaLocalizacao?.longitude === 0) {
       return setErrorLocalizacao(
@@ -411,6 +410,12 @@ export default function FormPessoaJuridicaScreen({
       // });
     } catch (error: any) {
       console.error('Error GET CEP', error);
+      setEndereco('');
+      setCidade('');
+      setEstado('');
+      setUf('');
+      setRua('');
+      setBairro('');
     }
     setLoading(false)
   }

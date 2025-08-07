@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { Image, View } from 'react-native'
 import IcoMulher from '../../../../../svg/IcoMulher'
 import H2 from '../../../../../components/typography/H2'
 import { useNavigate } from '../../../../../hooks/useNavigate'
@@ -17,7 +17,14 @@ export default function ClienteTesteGratisSucessoScreen() {
         <View></View>
         <View className='items-center'>
           <View className='mb-4 mt-4'>
-            <LottieView style={{ width: 280, height: 280 }} source={require('../../../../../animations/pacote-comprado.json')} autoPlay loop />
+            {/* <LottieView style={{ width: 280, height: 280 }} source={require('../../../../../animations/pacote-comprado.json')} autoPlay loop /> */}
+            <Image
+              source={require('./../../../../../../assets/img/icons/icon-sucesso.png')}
+              style={{
+                width: 280,
+                height: 280,
+              }}
+            />
           </View>
           <H3 align={'left'}>
             Parabéns, tudo pronto para iniciar o seu teste 🎉
