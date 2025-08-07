@@ -810,7 +810,7 @@ export default function ClienteCriaCuponScreen() {
               />
               {dataSelecionada &&
                 <InputOutlined
-                  mt={12}
+                  mt={10}
                   keyboardType={'default'}
                   edicao={false}
                   label='Data de Validade'
