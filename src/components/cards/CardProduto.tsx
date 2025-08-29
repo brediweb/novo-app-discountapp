@@ -43,6 +43,16 @@ interface PropsProduto {
   dados_gerais?: any
 }
 
+interface HorariosProps {
+  [key: string]: {
+    fechado: boolean
+    horario_abertura: string
+    horario_abertura_almoco: string
+    horario_fechamento: string
+    horario_fechamento_almoco: string
+  }
+}
+
 export default function CardProduto(
   {
     qr_code,
@@ -78,6 +88,7 @@ export default function CardProduto(
   const [modalVisibleProduto, setModalVisibleProduto] = useState(false)
   const [modalInfosAnunciante, setModalInfosAnunciante] = useState(false)
   const [modalVisibleDetalhes, setModalVisibleDetalhes] = useState(false)
+  const [listaHorarios, setListaHorarios] = useState<HorariosProps>({})
 
   const handleOpenModal = () => {
     setModalVisible(true)
@@ -254,10 +265,18 @@ export default function CardProduto(
     return telefone; // Se não couber em nenhum caso, retorna como veio
   }
 
-  console.log(foto_user);
-
+  async function getHorarios() {
+    console.log(`/horarios-funcionamento?user_id=${id_anunciante}`);
+    try {
+      const response = await api.get(`/horarios-funcionamento?user_id=${id_anunciante}`)
+      setListaHorarios(response.data.results.horarios)
+    } catch (error: any) {
+      console.error('ERROR GET Horarios: ', error.response.data)
+    }
+  }
 
   useEffect(() => {
+    getHorarios()
     if (modalVisible) {
       getVerifica()
     }
@@ -419,25 +438,25 @@ export default function CardProduto(
                   </Caption>
                   <View>
                     <Caption color={colors.dark} fontSize={12} >
-                      Segunda-feira:
+                      Segunda-feira: {listaHorarios?.segunda?.fechado ? 'Fechado' : `${listaHorarios?.segunda?.horario_abertura ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento ?? '-'} / ${listaHorarios?.segunda?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                     <Caption color={colors.dark} fontSize={12} >
-                      Terça-feira:
+                      Terça-feira: {listaHorarios?.terca?.fechado ? 'Fechado' : `${listaHorarios?.terca?.horario_abertura ?? '-'} às ${listaHorarios?.terca?.horario_fechamento ?? '-'} / ${listaHorarios?.terca?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.terca?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                     <Caption color={colors.dark} fontSize={12} >
-                      Quarta-feira:
+                      Quarta-feira: {listaHorarios?.quarta?.fechado ? 'Fechado' : `${listaHorarios?.quarta?.horario_abertura ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento ?? '-'} / ${listaHorarios?.quarta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                     <Caption color={colors.dark} fontSize={12} >
-                      Quinta-feira:
+                      Quinta-feira: {listaHorarios?.quinta?.fechado ? 'Fechado' : `${listaHorarios?.quinta?.horario_abertura ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento ?? '-'} / ${listaHorarios?.quinta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                     <Caption color={colors.dark} fontSize={12} >
-                      Sexta-feira:
+                      Sexta-feira: {listaHorarios?.sexta?.fechado ? 'Fechado' : `${listaHorarios?.sexta?.horario_abertura ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento ?? '-'} / ${listaHorarios?.sexta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                     <Caption color={colors.dark} fontSize={12} >
-                      Sábado:
+                      Sábado: {listaHorarios?.sabado?.fechado ? 'Fechado' : `${listaHorarios?.sabado?.horario_abertura ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento ?? '-'} / ${listaHorarios?.sabado?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                     <Caption color={colors.dark} fontSize={12} >
-                      Domingo:
+                      Domingo: {listaHorarios?.domingo?.fechado ? 'Fechado' : `${listaHorarios?.domingo?.horario_abertura ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento ?? '-'} / ${listaHorarios?.domingo?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento_almoco ?? '-'}`}
                     </Caption>
                   </View>
                 </View>
