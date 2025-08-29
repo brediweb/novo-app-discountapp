@@ -46,21 +46,34 @@ export default function NotificacoesScreen() {
 
   return (
     <MainLayoutAutenticado marginHorizontal={0}>
-      {listaNotificacao && listaNotificacao.map((item: PropsNotificacao) => (
-        <CardNotificacao
-          key={item.id}
-          titulo={item.data}
-          subtitulo={item.hora}
-          descricao={item.titulo}
-          visualizado={item.visualizado}
-          onPress={() => navigate('NotificacoesDetalhesScreen', { id: item.id })}
-        />
-      ))}
+      {listaNotificacao &&
+        [...listaNotificacao]
+          .sort((a: PropsNotificacao, b: PropsNotificacao) => {
+            // data no formato 'DD/MM/YYYY' e hora 'HH:mm'
+            const [diaA, mesA, anoA] = a.data.split('/').map(Number)
+            const [horaA, minutoA] = a.hora.split(':').map(Number)
+            const dateA = new Date(anoA, mesA - 1, diaA, horaA, minutoA)
+
+            const [diaB, mesB, anoB] = b.data.split('/').map(Number)
+            const [horaB, minutoB] = b.hora.split(':').map(Number)
+            const dateB = new Date(anoB, mesB - 1, diaB, horaB, minutoB)
+
+            return dateB.getTime() - dateA.getTime()
+          })
+          .map((item: PropsNotificacao) => (
+            <CardNotificacao
+              key={item.id}
+              titulo={item.data}
+              subtitulo={item.hora}
+              descricao={item.titulo}
+              visualizado={item.visualizado}
+              onPress={() => navigate('NotificacoesDetalhesScreen', { id: item.id })}
+            />
+          ))}
 
       {listaNotificacao.length === 0 && !loading &&
-        < H3 align={"center"}>Nenhuma notificação encontrada</H3>
+        <H3 align={"center"}>Nenhuma notificação encontrada</H3>
       }
-
-    </MainLayoutAutenticado >
+    </MainLayoutAutenticado>
   );
 }
