@@ -27,6 +27,7 @@ export default function HomeClienteScreen() {
   const [dadosConsumo, setDadosConsumo] = useState<PropsConsumo>()
   const { statusTesteGratis, setStatusTesteGratis, usuarioLogado } = useGlobal()
   const [modalPacoteGratis, setModalPacoteGratis] = useState(false)
+  const [assinaturasAtivas, setAssinaturasAtivas] = useState<any>([])
 
   async function getPacoteGratis() {
     setLoading(true)
@@ -108,6 +109,24 @@ export default function HomeClienteScreen() {
     setLoading(false)
   }
 
+  async function getAssinaturaAtiiva() {
+    setLoading(true)
+    try {
+      const jsonValue = await AsyncStorage.getItem('infos-user')
+      if (jsonValue) {
+        const newJson = JSON.parse(jsonValue)
+        const headers = {
+          Authorization: `Bearer ${newJson.token}`
+        }
+        const response = await api.get(`/pagamento/assinatura/minhas`, { headers })
+        setAssinaturasAtivas(response.data.results)
+      }
+    } catch (error: any) {
+      console.log('ERROR GET - CONSUMO', error.response.data)
+    }
+    setLoading(false)
+  }
+
   const handleGo = () => {
     navigate('ClientePacotesScreen')
     setModalPacoteGratis(false)
@@ -118,6 +137,7 @@ export default function HomeClienteScreen() {
       getOfertas()
       getConsumo()
       getPacoteGratis()
+      getAssinaturaAtiiva()
     }
   }, [isFocused])
 
@@ -141,6 +161,21 @@ export default function HomeClienteScreen() {
         </View>
 
         <View>
+          {assinaturasAtivas &&
+            <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
+              <View className='w-[64vw]'>
+                <Text className='font-semibold text-6xl text-[#2f009c]'>
+                  {assinaturasAtivas && assinaturasAtivas.assinaturas
+                    ? assinaturasAtivas.assinaturas.filter((item: any) => item.pode_cancelar === true).length
+                    : 0}
+                </Text>
+                <Text className='font-semibold text-[#2f009c]'>Plano de recorrência ativo</Text>
+              </View>
+              <View className='w-[18vw]'>
+                <Image source={require('../../../../assets/img/icons/icoVigentes.png')} />
+              </View>
+            </View>
+          }
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>
               <Text className='font-semibold text-6xl text-[#2f009c]'>
