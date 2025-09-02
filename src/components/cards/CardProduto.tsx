@@ -266,7 +266,6 @@ export default function CardProduto(
   }
 
   async function getHorarios() {
-    console.log(`/horarios-funcionamento?user_id=${id_anunciante}`);
     try {
       const response = await api.get(`/horarios-funcionamento?user_id=${id_anunciante}`)
       setListaHorarios(response.data.results.horarios)

@@ -49,13 +49,15 @@ export default function LoginAnuncianteScreen() {
 
   async function onSubmit() {
     setLoading(true)
+    const formdata = {
+      email: email,
+      password: password,
+      role: "Anunciante",
+      player_id: playerId,
+    }
     try {
-      const response = await api.post(`/login`, {
-        email: email,
-        password: password,
-        role: "Anunciante",
-        player_id: playerId,
-      })
+      const response = await api.post(`/login`, formdata)
+
       if (!response.data.error) {
         const storageEmail = await AsyncStorage.setItem('user-email', email)
         submitStorageLogin(response.data.results)

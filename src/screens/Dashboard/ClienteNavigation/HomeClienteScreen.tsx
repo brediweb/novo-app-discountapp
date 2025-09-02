@@ -84,7 +84,7 @@ export default function HomeClienteScreen() {
         const response = await api.get(`/meus-cupons/anunciante`, { headers })
         setOferta(response.data.results)
       } catch (error: any) {
-        console.log('GET ERROR Minhas Ofertas: ', error)
+        console.error('GET ERROR Minhas Ofertas: ', error)
       }
     }
     setLoading(false)
