@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import CardNotFound from '../../../../components/cards/CardNotFound'
 import HeaderPrimary from '../../../../components/header/HeaderPrimary'
 import MainLayoutAutenticado from '../../../../components/layout/MainLayoutAutenticado'
+import CardProduto from '@components/cards/CardProduto'
 
 export default function FiltroOfertasPorcentagemScreen() {
   const { navigate } = useNavigate()
@@ -34,21 +35,36 @@ export default function FiltroOfertasPorcentagemScreen() {
         })
         setCuponsPorcentagem(response.data.results)
         setTotalCupons(response.data.results.length)
+        console.log(response.data.results[0].anunciante_id);
 
       } catch (error: any) {
-        console.log('ERROR - Filtro Melhores Ofertas: ', error.response.data)
+        console.error('ERROR - Filtro Melhores Ofertas: ', error.response.data)
       }
       setIsRefreshing(false)
     }
   }
 
   const renderItem = ({ item }: any) => (
-    <CardEmpresa
-      title={item.anunciante}
-      imagem={item.imagem_anunciante}
-      tituloOferta={item.titulo_oferta}
-      descricao={item.descricao_oferta}
-      link={() => navigate('OfertaDetalhesGeraCupomScreen', item)}
+    <CardProduto
+      key={item.id}
+      id_oferta={item.id}
+      dados_gerais={item}
+      imagem_capa={item.imagem_cupom}
+      get_produtos={getOfertas}
+      qr_code={item.codigo_cupom}
+      nome_empresa={item.anunciante}
+      categoria={item.categoria_cupom}
+      nome_produto={item.titulo_oferta}
+      id_anunciante={item.anunciante_id}
+      data_validade={item.data_validade}
+      foto_user={item.imagem_anunciante}
+      vantagem_reais={item.vantagem_reais}
+      total_avaliacao={item.qtd_avaliacoes}
+      status_favorito={item.status_favorito}
+      media_avaliacao={item.media_avaliacoes}
+      descricao_simples={item.descricao_oferta}
+      descricao_completa={item.descricao_completa}
+      vantagem_porcentagem={item.vantagem_porcentagem}
     />
   )
 
