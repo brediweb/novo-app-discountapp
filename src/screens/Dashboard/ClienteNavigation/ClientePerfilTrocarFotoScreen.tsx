@@ -38,7 +38,7 @@ export default function ClientePerfilTrocarFotoScreen() {
       const newJson = JSON.parse(jsonValue);
       try {
         const response = await api.get(`/perfil/pessoa-juridica/${newJson.id}`);
-        console.log(response.data.results);
+
         setLogomarca(response.data.results.logomarca);
       } catch (error: any) {
         console.log('Error GET Perfil: ', error.response.data);

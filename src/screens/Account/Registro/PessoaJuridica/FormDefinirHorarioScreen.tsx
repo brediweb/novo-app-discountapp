@@ -3,7 +3,7 @@ import HeaderPrimary from '@components/header/HeaderPrimary';
 import MainLayoutAutenticadoSemScroll from '@components/layout/MainLayoutAutenticadoSemScroll';
 import { useNavigate } from '@hooks/useNavigate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Button, Alert, Switch, TextInput, StyleSheet, ScrollView } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { useGlobal } from 'src/context/GlobalContextProvider';
@@ -21,11 +21,12 @@ const diasDaSemana = [
 ];
 
 export default function FormDefinirHorarioScreen({ route }: { route: any }) {
-  const infoForm = route.params
   const { navigate } = useNavigate()
   const [loading, setLoading] = useState(false)
-  const { setSenhaUser, setTelefoneDigitado, setTipoUser } = useGlobal()
+  const { setSenhaUser, senhaUser, setTelefoneDigitado, setTipoUser } = useGlobal()
   const [diasFechados, setDiasFechados] = useState<{ [key: string]: boolean }>({});
+  const [emailStorage, setEmailStorage] = useState('')
+  const [token, setToken] = useState('')
   const [horarios, setHorarios] = useState<{
     [key: string]: {
       abertura?: string;
@@ -59,130 +60,147 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
     return `${limited.slice(0, 2)}:${limited.slice(2)}`;
   }
 
-
-  async function onSubmit() {
-    // Montar o array final com os dados
-    const horariosArray = diasDaSemana.map((dia) => {
-      const fechado = diasFechados[dia] || false;
-      return {
-        dia,
-        fechado,
-        abertura: horarios[dia]?.abertura || '',
-        fechamentoAlmoco: horarios[dia]?.fechamentoAlmoco || '',
-        voltaAlmoco: horarios[dia]?.voltaAlmoco || '',
-        fechamento: horarios[dia]?.fechamento || '',
+  async function postSalvaHorarios() {
+    try {
+      // Mapeia os dias para o formato que a API espera
+      const payload = {
+        horarios: [
+          {
+            segunda: {
+              fechado: diasFechados['Segunda'] || false,
+              horario_abertura: horarios['Segunda']?.abertura || "",
+              horario_fechamento_almoco: horarios['Segunda']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Segunda']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Segunda']?.fechamento || "",
+            },
+            terca: {
+              fechado: diasFechados['Terça'] || false,
+              horario_abertura: horarios['Terça']?.abertura || "",
+              horario_fechamento_almoco: horarios['Terça']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Terça']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Terça']?.fechamento || "",
+            },
+            quarta: {
+              fechado: diasFechados['Quarta'] || false,
+              horario_abertura: horarios['Quarta']?.abertura || "",
+              horario_fechamento_almoco: horarios['Quarta']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Quarta']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Quarta']?.fechamento || "",
+            },
+            quinta: {
+              fechado: diasFechados['Quinta'] || false,
+              horario_abertura: horarios['Quinta']?.abertura || "",
+              horario_fechamento_almoco: horarios['Quinta']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Quinta']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Quinta']?.fechamento || "",
+            },
+            sexta: {
+              fechado: diasFechados['Sexta'] || false,
+              horario_abertura: horarios['Sexta']?.abertura || "",
+              horario_fechamento_almoco: horarios['Sexta']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Sexta']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Sexta']?.fechamento || "",
+            },
+            sabado: {
+              fechado: diasFechados['Sábado'] || false,
+              horario_abertura: horarios['Sábado']?.abertura || "",
+              horario_fechamento_almoco: horarios['Sábado']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Sábado']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Sábado']?.fechamento || "",
+            },
+            domingo: {
+              fechado: diasFechados['Domingo'] || false,
+              horario_abertura: horarios['Domingo']?.abertura || "",
+              horario_fechamento_almoco: horarios['Domingo']?.fechamentoAlmoco || "",
+              horario_abertura_almoco: horarios['Domingo']?.voltaAlmoco || "",
+              horario_fechamento: horarios['Domingo']?.fechamento || "",
+            },
+          },
+        ],
       };
-    });
 
-    // Validação: todos os campos obrigatórios
-    for (const item of horariosArray) {
-      if (!item.fechado) {
-        if (
-          !item.abertura ||
-          !item.fechamentoAlmoco ||
-          !item.voltaAlmoco ||
-          !item.fechamento
-        ) {
-          Alert.alert('Preencha todos os horários para os dias abertos.');
-          return;
-        }
-      }
-    }
+      const response = await api.post(`/salva/horarios-funcionamento`, payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    setLoading(true)
-    const novaImage = { uri: infoForm?.dataform?.logomarca?.path ?? '', type: 'image/.png', name: ' ' }
-    const formdata = new FormData()
-
-    formdata.append('nome_fantasia', `${infoForm.dataform.nome_fantasia}`)
-    formdata.append('nome_empresarial', `${infoForm.dataform.nome_empresarial}`)
-    formdata.append('cnpj', `${infoForm.dataform.cnpj}`)
-    formdata.append('endereco', `${infoForm.dataform.endereco}`)
-    formdata.append('estado', `${infoForm.dataform.estado}`)
-    formdata.append('cidade', `${infoForm.dataform.cidade}`)
-    formdata.append('cep', `${infoForm.dataform.cep}`)
-    formdata.append('bairro', `${infoForm.dataform.bairro}`)
-    formdata.append('rua', `${infoForm.dataform.rua}`)
-    formdata.append('numero', `${infoForm.dataform.numero}`)
-    formdata.append('email', `${infoForm.dataform.email}`)
-    formdata.append('telefone', `${infoForm.dataform.telefone}`)
-    formdata.append('nome_representante', `${infoForm.dataform.nome_represetante}`)
-    formdata.append('endereco_representante', `${infoForm.dataform.endereco_represetante}`)
-    formdata.append('cpf_representante', `${infoForm.dataform.cpf_represetante}`)
-    formdata.append('senha', `${infoForm.dataform.senha}`)
-    formdata.append('perfil_id', `${infoForm.categorias}`)
-    formdata.append('latitude', infoForm.dataform.latitude as any)
-    formdata.append('longitude', infoForm.dataform.longitude as any)
-
-    if (infoForm?.dataform?.logomarca) {
-      if (infoForm?.dataform?.logomarca?.path != undefined && infoForm?.dataform?.logomarca?.path != '') {
-        formdata.append('logomarca', novaImage as any)
-        try {
-          const response = await api.post("/cadastro/pessoa-juridica", formdata,
-            { headers: { 'Content-Type': 'multipart/form-data' } })
-          if (!response.data.error) {
-            await AsyncStorage.setItem('user-email', infoForm?.dataform.email)
-            await AsyncStorage.setItem('id-user', response.data.results.id.toString())
-            setSenhaUser(infoForm?.dataform.senha)
-            setTipoUser('Anunciante')
-            Toast.show({
-              type: 'success',
-              text1: 'Cadastro realizado !',
-            })
-            // console.log('Cadastrado:', response.data);
-
-            setTelefoneDigitado(infoForm.dataform.telefone)
-            navigate('ValidaCodigoScreen')
-          } else {
-            Toast.show({
-              type: 'error',
-              text1: response.data.erro.message ?? 'Ocorreu um erro, tente novamente mais tarde !',
-            })
-            console.error('Cadastro Pessoa Jurídica: ', response.data.erro.message)
-          }
-        } catch (error: any) {
-          Toast.show({
-            type: 'error',
-            text1: error?.response?.data.message ?? 'Ocorreu um erro, tente novamente mais tarde !',
-          })
-          console.error('Cadastro Pessoa Jurídica2 ', error.response.data)
-        }
-      }
-    } else {
-      try {
-        const response = await api.post("/cadastro/pessoa-juridica", formdata,
-          { headers: { 'Content-Type': 'multipart/form-data' } })
-        if (!response.data.error) {
-          await AsyncStorage.setItem('user-email', infoForm?.dataform.email)
-          await AsyncStorage.setItem('id-user', response.data.results.id.toString())
-          setSenhaUser(infoForm?.dataform.senha)
-          setTipoUser('Anunciante')
-          Toast.show({
-            type: 'success',
-            text1: 'Cadastro realizado !',
-          })
-          // console.log('Cadastrado:', response.data);
-
-          setTelefoneDigitado(infoForm.dataform.telefone)
-          navigate('ValidaCodigoScreen')
-        } else {
-          Toast.show({
-            type: 'error',
-            text1: response.data.erro.message ?? 'Ocorreu um erro, tente novamente mais tarde !',
-          })
-          console.error('Cadastro Pessoa Jurídica: ', response.data.erro.message)
-          setLoading(false)
-        }
-      } catch (error: any) {
+      if (response.status === 200) {
+        console.log(response.data);
+        Toast.show({
+          type: 'success',
+          text1: 'Horários salvos com sucesso!',
+        });
+        navigate('CadastroSucessoAnuncianteScreen')
+      } else {
         Toast.show({
           type: 'error',
-          text1: error?.response?.data.message ?? 'Ocorreu um erro, tente novamente mais tarde !',
-        })
-        console.error('Cadastro Pessoa Jurídica2 ', error.data)
-        setLoading(false)
+          text1: 'Erro ao salvar horários',
+        });
       }
+    } catch (error: any) {
+      console.error('Erro ao salvar horários: ', error);
+      Toast.show({
+        type: 'error',
+        text1: 'Erro ao salvar horários',
+      });
+    }
+  }
+
+  async function getEmail() {
+    setLoading(true)
+    try {
+      const storageEmail = await AsyncStorage.getItem('user-email')
+      if (storageEmail !== null && senhaUser !== null) {
+        setEmailStorage(storageEmail)
+        setTimeout(() => {
+          postLogin()
+        }, 3000);
+      }
+    } catch (error: any) {
+      console.log('Error Storage: ', error)
+    }
+  }
+
+  const submitStorageLogin = async (value: any) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem('infos-user', jsonValue)
+    } catch (error: any) {
+      console.error(error)
+    }
+  }
+
+  async function postLogin() {
+    const formData = {
+      email: emailStorage,
+      password: senhaUser,
+      role: "Anunciante"
+    }
+
+    try {
+      const response = await api.post(`/login`, formData)
+      if (!response.data.error) {
+        const storageEmail = await AsyncStorage.setItem('user-email', emailStorage)
+        submitStorageLogin(response.data.results)
+        setTipoUser('Anunciante')
+        setToken(response.data.results.token)
+      } else {
+        console.error(response.data.error);
+        Toast.show({
+          type: 'error',
+          text1: 'Erro ao carregar dados do usuário, verifique sua conexão',
+        });
+      }
+    } catch (error: any) {
+      console.error('Error Login Horários: ', error)
     }
     setLoading(false)
   }
+
+  useEffect(() => {
+    getEmail()
+  }, [])
 
   return (
     <MainLayoutAutenticadoSemScroll loadign={loading} marginTop={0} marginHorizontal={0}>
@@ -234,7 +252,10 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
           </View>
         ))}
         <View className='my-4'>
-          <FilledButton title='Salvar Horários' onPress={onSubmit} />
+          <FilledButton title='Salvar Horários' onPress={postSalvaHorarios} />
+        </View>
+        <View className='mb-4'>
+          <FilledButton backgroundColor={colors.gray} title='Pular' onPress={() => { navigate('CadastroSucessoAnuncianteScreen') }} />
         </View>
       </ScrollView>
     </MainLayoutAutenticadoSemScroll >

@@ -88,7 +88,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
         })
         setSeconds(30)
         if (tipoUser === 'Anunciante') {
-          navigation.navigate('CadastroSucessoAnuncianteScreen')
+          navigation.navigate('FormDefinirHorarioScreen')
         } else {
           navigation.navigate('CadastroSucessoScreen')
         }
@@ -114,7 +114,7 @@ export default function ValidaCodigoScreen({ navigation }: { navigation: any }) 
 
   function skipValidacao() {
     if (tipoUser === 'Anunciante') {
-      navigation.navigate('CadastroSucessoAnuncianteScreen')
+      navigation.navigate('FormDefinirHorarioScreen')
     } else {
       navigation.navigate('CadastroSucessoScreen')
     }
