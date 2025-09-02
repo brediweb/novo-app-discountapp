@@ -48,9 +48,6 @@ export default function ClienteConsumoScreen() {
   const [loading, setLoading] = useState(true)
   const [dadosConsumo, setDadosConsumo] = useState<PropsConsumo>()
 
-  console.log(dadosConsumo?.periodo_teste);
-
-
   async function getConsumo() {
     setLoading(true)
     try {

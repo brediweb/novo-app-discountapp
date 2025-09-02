@@ -162,7 +162,9 @@ export default function HomeClienteScreen() {
 
         <View>
           {assinaturasAtivas &&
-            <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
+            <TouchableOpacity
+              onPress={() => navigate('ClienteAssinaturaScreen')}
+              className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
               <View className='w-[64vw]'>
                 <Text className='font-semibold text-6xl text-[#2f009c]'>
                   {assinaturasAtivas && assinaturasAtivas.assinaturas
@@ -174,7 +176,7 @@ export default function HomeClienteScreen() {
               <View className='w-[18vw]'>
                 <Image source={require('../../../../assets/img/icons/icoVigentes.png')} />
               </View>
-            </View>
+            </TouchableOpacity>
           }
           <View className="flex flex-row bg-[#f1eeff] border-2 border-[#775aff] rounded-xl justify-between p-2 py-4 mt-3">
             <View className='w-[64vw]'>

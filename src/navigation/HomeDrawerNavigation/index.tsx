@@ -45,6 +45,7 @@ import ClienteSucessoPagamentoScreen from '../../screens/Dashboard/DrawerNavigat
 import ClienteSucessoPagamentoPixScreen from '../../screens/Dashboard/DrawerNavigation/Cliente/Checkout/ClienteSucessoPagamentoPixScreen'
 import ClienteTesteGratisSucessoScreen from '../../screens/Dashboard/DrawerNavigation/Cliente/Checkout/ClienteTesteGratisSucessoScreen'
 import DiscontokenScreen from '../../screens/Dashboard/DisconTokenScreen'
+import ClienteAssinaturaScreen from '@screens/Dashboard/DrawerNavigation/Cliente/Checkout/ClienteAssinaturaScreen'
 
 const Drawer = createDrawerNavigator()
 
@@ -123,6 +124,7 @@ export default function HomeDrawerNavigation() {
       <Drawer.Screen options={{ headerShown: false }} name="ClienteSucessoPagamentoScreen" component={ClienteSucessoPagamentoScreen} />
       <Drawer.Screen options={{ headerShown: false }} name="ClienteTesteGratisSucessoScreen" component={ClienteTesteGratisSucessoScreen} />
       <Drawer.Screen options={{ headerShown: false }} name="ClienteConsumoScreen" component={ClienteConsumoScreen} />
+      <Drawer.Screen options={{ headerShown: false }} name="ClienteAssinaturaScreen" component={ClienteAssinaturaScreen} />
     </Drawer.Navigator>
   )
 }

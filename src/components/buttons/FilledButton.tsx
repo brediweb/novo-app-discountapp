@@ -9,9 +9,10 @@ interface PropsFilledButton {
   backgroundColor?: any,
   disabled?: any,
   border?: boolean
+  borderColor?: any
 }
 
-export default function FilledButton({ title, onPress, backgroundColor, color, disabled, border }: PropsFilledButton) {
+export default function FilledButton({ title, onPress, backgroundColor, color, disabled, border, borderColor }: PropsFilledButton) {
   return (
     <>{disabled ?
 
@@ -29,7 +30,7 @@ export default function FilledButton({ title, onPress, backgroundColor, color, d
         style={[
           styles.container,
           backgroundColor && { backgroundColor: backgroundColor },
-          border && { borderWidth: 2, borderColor: colors.primary40 }
+          border && { borderWidth: 2, borderColor: borderColor ?? colors.primary40 }
         ]}>
         <Text
           style={[
