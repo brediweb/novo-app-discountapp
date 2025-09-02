@@ -57,6 +57,8 @@ export default function LoginClienteScreen() {
         password: password,
         player_id: playerId,
       })
+      OneSignal.User.addEmail(email)
+
       if (!response.data.error) {
         const storageEmail = await AsyncStorage.setItem('user-email', email)
         submitStorageLogin(response.data.results)

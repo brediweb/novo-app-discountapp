@@ -305,6 +305,7 @@ export default function ClientePagamentoEndereco() {
               />
               <InputOutlined
                 mt={8}
+                required
                 label='Número'
                 keyboardType={'number-pad'}
                 onChange={setNumero}

@@ -3,6 +3,7 @@ import HeaderPrimary from '@components/header/HeaderPrimary';
 import MainLayoutAutenticadoSemScroll from '@components/layout/MainLayoutAutenticadoSemScroll';
 import { useNavigate } from '@hooks/useNavigate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { View, Text, Button, Alert, Switch, TextInput, StyleSheet, ScrollView } from 'react-native';
 import Toast from 'react-native-toast-message';
@@ -22,6 +23,7 @@ const diasDaSemana = [
 
 export default function FormDefinirHorarioScreen({ route }: { route: any }) {
   const { navigate } = useNavigate()
+  const isFocused = useIsFocused()
   const [loading, setLoading] = useState(false)
   const { setSenhaUser, senhaUser, setTelefoneDigitado, setTipoUser } = useGlobal()
   const [diasFechados, setDiasFechados] = useState<{ [key: string]: boolean }>({});
@@ -61,6 +63,7 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
   }
 
   async function postSalvaHorarios() {
+    setLoading(true)
     try {
       // Mapeia os dias para o formato que a API espera
       const payload = {
@@ -145,21 +148,22 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
         text1: 'Erro ao salvar horários',
       });
     }
+    setLoading(false)
   }
 
   async function getEmail() {
     setLoading(true)
     try {
       const storageEmail = await AsyncStorage.getItem('user-email')
+      console.log(storageEmail !== null && senhaUser !== null);
       if (storageEmail !== null && senhaUser !== null) {
         setEmailStorage(storageEmail)
-        setTimeout(() => {
-          postLogin()
-        }, 3000);
+        postLogin(storageEmail)
       }
     } catch (error: any) {
       console.log('Error Storage: ', error)
     }
+    setLoading(false)
   }
 
   const submitStorageLogin = async (value: any) => {
@@ -171,9 +175,9 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
     }
   }
 
-  async function postLogin() {
+  async function postLogin(emailarmazenado: any) {
     const formData = {
-      email: emailStorage,
+      email: emailarmazenado,
       password: senhaUser,
       role: "Anunciante"
     }
@@ -181,7 +185,6 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
     try {
       const response = await api.post(`/login`, formData)
       if (!response.data.error) {
-        const storageEmail = await AsyncStorage.setItem('user-email', emailStorage)
         submitStorageLogin(response.data.results)
         setTipoUser('Anunciante')
         setToken(response.data.results.token)
@@ -201,6 +204,12 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
   useEffect(() => {
     getEmail()
   }, [])
+
+  useEffect(() => {
+    if (isFocused) {
+      getEmail()
+    }
+  }, [isFocused])
 
   return (
     <MainLayoutAutenticadoSemScroll loadign={loading} marginTop={0} marginHorizontal={0}>

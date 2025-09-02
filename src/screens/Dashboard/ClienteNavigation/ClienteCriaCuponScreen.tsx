@@ -662,6 +662,7 @@ export default function ClienteCriaCuponScreen() {
         getPerfil()
         navigate('ClienteCupomSucessoScreen', { response });
       } catch (error: any) {
+        setModalConfirmar(false)
         console.error('ERROR POST Cria Cupom: ', error?.response?.data?.message);
         Alert.alert(
           'Error', error?.response?.data?.message ??
@@ -981,7 +982,11 @@ export default function ClienteCriaCuponScreen() {
                 </TouchableOpacity>
               }
 
-              <FilledButton onPress={onSubmit} title="Criar anúncio" />
+              {loading ?
+                <FilledButton color={colors.dark} backgroundColor={colors.tertiary} onPress={() => { }} title="Carregando..." />
+                :
+                <FilledButton onPress={onSubmit} title="Criar anúncio" />
+              }
               <View className='w-full h-2' />
               <FilledButton onPress={() => setModalConfirmar(false)} title="Voltar" backgroundColor={colors.gray} />
 

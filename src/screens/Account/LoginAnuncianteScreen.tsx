@@ -55,6 +55,7 @@ export default function LoginAnuncianteScreen() {
       role: "Anunciante",
       player_id: playerId,
     }
+    OneSignal.User.addEmail(email)
     try {
       const response = await api.post(`/login`, formdata)
 

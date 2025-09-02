@@ -9,7 +9,7 @@ import Paragrafo from '../../../components/typography/Paragrafo'
 import FilledButton from '../../../components/buttons/FilledButton'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import MainLayoutAutenticado from '../../../components/layout/MainLayoutAutenticado'
-import { Image, View, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native'
+import { Image, View, TouchableOpacity, KeyboardAvoidingView, Platform, Alert } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
 export default function AvaliacaoScreen({ route }: { route?: any }) {
@@ -20,9 +20,15 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
   const [contato, setContato] = useState<boolean | any>()
   const [contatoMarcado, setContatoMarcado] = useState('')
   const [selecionaAvalaicao, setSelecionaAvalaicao] = useState('')
+  console.log(selecionaAvalaicao);
 
   async function onSubmit() {
     const jsonValue = await AsyncStorage.getItem('infos-user')
+
+    if (!selecionaAvalaicao) {
+      Alert.alert('Error', 'Selecione uma avaliação')
+    }
+
     setLoading(true)
     if (jsonValue) {
       const newJson = JSON.parse(jsonValue)

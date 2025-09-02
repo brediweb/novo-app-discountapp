@@ -125,7 +125,7 @@ export default function ClienteAssinaturaScreen() {
 
   return (
     <MainLayoutAutenticado marginTop={0} marginHorizontal={0} loading={loading}>
-      <HeaderPrimary titulo='Assinatura Ativa' />
+      <HeaderPrimary titulo='Assinaturas ativas' />
       <Modal
         visible={modal}
         transparent
@@ -212,6 +212,14 @@ export default function ClienteAssinaturaScreen() {
                 }
               </View>
             ))}
+          {dadosAssinatura && dadosAssinatura?.assinaturas?.length <= 0 &&
+            <Text style={{
+              fontSize: 16,
+              textAlign: 'center'
+            }}>
+              Não possui assinaturas ativas ou histórico delas
+            </Text>
+          }
         </View>
       </View>
     </MainLayoutAutenticado >
