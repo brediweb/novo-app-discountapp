@@ -20,7 +20,6 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
   const [contato, setContato] = useState<boolean | any>()
   const [contatoMarcado, setContatoMarcado] = useState('')
   const [selecionaAvalaicao, setSelecionaAvalaicao] = useState('')
-  console.log(selecionaAvalaicao);
 
   async function onSubmit() {
     const jsonValue = await AsyncStorage.getItem('infos-user')

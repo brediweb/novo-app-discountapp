@@ -24,7 +24,7 @@ export default function PerfilScreen() {
   const [complemento, setComplemento] = useState('')
   const [nomeCompleto, setNomeCompleto] = useState('')
 
-  const getPerfil = async () => {
+  async function getPerfil() {
     setLoadig(true)
     const jsonValue = await AsyncStorage.getItem('infos-user')
     if (jsonValue) {
@@ -35,7 +35,6 @@ export default function PerfilScreen() {
         setEmail(response.data.results.email)
         setEndereco(response.data.results.endereco)
         setComplemento(response.data.results.complemento)
-
         handleCPFMask(response.data.results.cpf)
         handlePhoneMask(response.data.results.telefone)
       } catch (error: any) {

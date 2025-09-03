@@ -47,11 +47,6 @@ export default function ClientePerfilTrocarFotoScreen() {
   }
 
   async function handleAtualizaLogoPerfil(logo: any) {
-    console.log({
-      uri: logo.path,
-      type: logo.mime,
-      name: logo.filename,
-    });
     const jsonValue = await AsyncStorage.getItem('infos-user');
     if (jsonValue) {
       const newJsonUsuario = JSON.parse(jsonValue);
