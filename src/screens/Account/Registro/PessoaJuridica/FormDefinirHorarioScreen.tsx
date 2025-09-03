@@ -217,42 +217,54 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
       <ScrollView contentContainerStyle={styles.container}>
         {diasDaSemana.map((dia) => (
           <View key={dia} style={styles.diaContainer}>
-            <Text style={styles.diaTitulo}>{dia}</Text>
-            <View style={styles.switchContainer}>
-              <Text>Fechado</Text>
-              <Switch
-                value={diasFechados[dia] || false}
-                thumbColor={colors.secondary70}
-                onValueChange={(value) => handleSwitch(dia, value)}
-              />
+            <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+              <Text style={styles.diaTitulo}>{dia}</Text>
+              <View style={styles.switchContainer}>
+                <Text>Aberto</Text>
+                <Switch
+                  style={{
+                    height: 32,
+                    marginHorizontal: 4
+                  }}
+                  trackColor={{ false: '#767577', true: colors.danger }}
+                  thumbColor={diasFechados[dia] || false ? '#f4f3f4' : colors.secondary40}
+                  value={diasFechados[dia] || false}
+                  onValueChange={(value) => handleSwitch(dia, value)}
+                />
+                <Text>Fechado</Text>
+              </View>
             </View>
             {!diasFechados[dia] && (
               <View style={styles.inputsContainer}>
                 <TextInput
                   style={styles.input}
                   keyboardType='number-pad'
-                  placeholder="Abertura"
+                  placeholder="Horário de Abertura"
                   value={horarios[dia]?.abertura || ''}
+                  placeholderTextColor={colors.gray}
                   onChangeText={(text) => handleHorarioChange(dia, 'abertura', maskHorario(text))}
                 />
                 <TextInput
                   style={styles.input}
                   keyboardType='number-pad'
-                  placeholder="Fechamento Almoço"
+                  placeholder="Horário de Fechamento Almoço"
+                  placeholderTextColor={colors.gray}
                   value={horarios[dia]?.fechamentoAlmoco || ''}
                   onChangeText={(text) => handleHorarioChange(dia, 'fechamentoAlmoco', maskHorario(text))}
                 />
                 <TextInput
                   style={styles.input}
                   keyboardType='number-pad'
-                  placeholder="Volta Almoço"
+                  placeholder="Horário da Volta Almoço"
+                  placeholderTextColor={colors.gray}
                   value={horarios[dia]?.voltaAlmoco || ''}
                   onChangeText={(text) => handleHorarioChange(dia, 'voltaAlmoco', maskHorario(text))}
                 />
                 <TextInput
                   style={styles.input}
                   keyboardType='number-pad'
-                  placeholder="Fechamento"
+                  placeholder="Horário de Fechamento"
+                  placeholderTextColor={colors.gray}
                   value={horarios[dia]?.fechamento || ''}
                   onChangeText={(text) => handleHorarioChange(dia, 'fechamento', maskHorario(text))}
                 />
@@ -282,14 +294,13 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   diaTitulo: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 8,
   },
   switchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
   },
   inputsContainer: {
     marginTop: 8,

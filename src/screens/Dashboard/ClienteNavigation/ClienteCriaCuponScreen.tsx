@@ -37,9 +37,11 @@ import {
   Alert,
 } from 'react-native';
 import { useGlobal } from '../../../context/GlobalContextProvider';
+import { useIsFocused } from '@react-navigation/native';
 
 export default function ClienteCriaCuponScreen() {
   const { navigate } = useNavigate();
+  const isFocused = useIsFocused()
   const [titulo, setTitulo] = useState('');
   const [filial, setFilial] = useState('');
   const [loading, setLoading] = useState(true);
@@ -709,6 +711,13 @@ export default function ClienteCriaCuponScreen() {
   useEffect(() => {
     getPerfil();
   }, [dadosUser]);
+
+  useEffect(() => {
+    if (isFocused) {
+      getData();
+      getPerfil();
+    }
+  }, [isFocused]);
 
   const realmask = createNumberMask({
     prefix: ['R', '$', ' '],
