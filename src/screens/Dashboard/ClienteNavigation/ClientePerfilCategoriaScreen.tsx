@@ -15,7 +15,10 @@ import {
   StyleSheet,
   Image,
   Dimensions,
+  Text,
 } from 'react-native';
+import ButtonOutline from '@components/buttons/ButtonOutline';
+import { colors } from 'src/styles/colors';
 
 export default function ClientePerfilCategoriaScreen() {
   const { navigate } = useNavigate();
@@ -23,6 +26,7 @@ export default function ClientePerfilCategoriaScreen() {
   const screenWidth = Dimensions.get('window').width;
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [listaCategorias, setListaCategorias] = useState([]);
+  const [listaCategoriasPerfil, setListaCategoriasPerfil] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<any[]>(
     []
@@ -51,7 +55,7 @@ export default function ClientePerfilCategoriaScreen() {
 
   async function getCategorias() {
     try {
-      const response = await api.get('/categorias');
+      const response = await api.get('/categorias/cadastro');
       setListaCategorias(response.data.results);
     } catch (error: any) {
       console.log('Erro ao buscar categorias', error.response.data);
@@ -60,7 +64,6 @@ export default function ClientePerfilCategoriaScreen() {
 
   async function savePerfil() {
     const jsonValue = await AsyncStorage.getItem('infos-user');
-    console.log(selectedOptions);
     if (jsonValue) {
       const newJson = JSON.parse(jsonValue);
       try {
@@ -72,6 +75,7 @@ export default function ClientePerfilCategoriaScreen() {
           { categorias: selectedOptions },
           { headers }
         );
+        // navigate('ClientePerfilScreen')
         Toast.show({
           type: 'success',
           text1: 'Categorias atualizadas!',
@@ -90,7 +94,7 @@ export default function ClientePerfilCategoriaScreen() {
       const newJson = JSON.parse(jsonValue);
       try {
         const response = await api.get(`/perfil/pessoa-juridica/${newJson.id}`);
-        setCategoriasSelecionadas(response.data.results.perfil_id);
+        setListaCategoriasPerfil(response.data.results.perfil_id);
       } catch (error: any) {
         console.log('Error GET Perfil: ', error.response.data);
       }
@@ -170,18 +174,24 @@ export default function ClientePerfilCategoriaScreen() {
   }, [selectedOptions]);
 
   return (
-    <MainLayoutAutenticado notScroll marginTop={20} marginHorizontal={16}>
+    <MainLayoutAutenticado notScroll marginTop={20}>
       <ButtonPerfil
         mt={64}
         fontsize={24}
         title="Perfil - Categorias"
-        onPress={() => savePerfil()}
+        onPress={() => { }}
         image={
           needSave
             ? require('../../../../assets/img/icons/save.png')
             : require('../../../../assets/img/icons/save-mark.png')
         }
       />
+      <View style={{ width: '100%', height: 100, display: 'flex', justifyContent: 'center', position: 'absolute', bottom: 180, zIndex: 100, backgroundColor: colors.white }}>
+        <ButtonOutline
+          title='Atualizar'
+          onPress={() => savePerfil()}
+        />
+      </View>
       <FlatList
         data={listaCategorias}
         renderItem={renderItemSegundo}
@@ -189,17 +199,19 @@ export default function ClientePerfilCategoriaScreen() {
         refreshControl={
           <RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} />
         }
-        contentContainerStyle={{ paddingBottom: 40 }}
+        contentContainerStyle={{ paddingBottom: 200 }}
       />
+
     </MainLayoutAutenticado>
   );
 }
 
+const screenWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 4,
-    maxWidth: '33.333%',
+    maxWidth: screenWidth > 375 ? '30%' : '100%',
     flexDirection: 'row',
     alignItems: 'stretch',
     justifyContent: 'space-between',
