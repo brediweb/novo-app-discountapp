@@ -400,13 +400,15 @@ export default function CardProduto(
                   </Text>
                 </TouchableOpacity>
                 <View className='flex-row items-center'>
-                  <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} margintop={0}>
-                    Média de Avaliação: {' '}
-                  </Caption>
-                  <View className='flex flex-row '>
-                    <Text>{media_avaliacao ?? 'Novo anunciante!'}</Text>
-                    {media_avaliacao &&
-                      <Image source={require('../../../assets/img/icons/star.png')} className='' />
+                  <View className='flex flex-row items-center'>
+                    <Text style={{ fontWeight: 'bold', color: colors.dark, fontSize: 16, marginTop: 0 }}>
+                      Média de Avaliação:{' '}
+                      <Text style={{ fontWeight: 'normal' }}>
+                        {media_avaliacao && media_avaliacao !== '0' && media_avaliacao.length > 0 ? media_avaliacao : 'Novo anunciante!'}
+                      </Text>
+                    </Text>
+                    {media_avaliacao !== '0' &&
+                      <Image source={require('../../../assets/img/icons/star.png')} style={{ width: 16, height: 16, marginLeft: 4 }} />
                     }
                   </View>
                 </View>
@@ -442,7 +444,6 @@ export default function CardProduto(
                     </TouchableOpacity>
                   </>
                 }
-
                 {listaHorarios?.segunda?.horario_abertura || listaHorarios?.segunda?.fechado &&
                   <View className='w-full mt-2'>
                     <Caption color={colors.dark} fontWeight={'bold'} margintop={0} fontSize={16} >
@@ -473,7 +474,6 @@ export default function CardProduto(
                     </View>
                   </View>
                 }
-
                 {dados_gerais.latitude && dados_gerais.longitude &&
                   <>
                     <View className='w-full h-4' />
