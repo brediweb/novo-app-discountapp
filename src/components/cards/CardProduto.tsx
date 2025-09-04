@@ -129,9 +129,6 @@ export default function CardProduto(
     return (names[0][0] + names[names.length - 1][0]).toUpperCase();
   };
 
-  console.log(listaHorarios);
-
-
   async function postFavorito() {
     setLoading(true)
     const jsonValue = await AsyncStorage.getItem('infos-user')
@@ -150,7 +147,7 @@ export default function CardProduto(
         })
         get_produtos()
       } catch (error: any) {
-        console.log('ERROR Favoritar Oferta: ', error)
+        console.error('ERROR Favoritar Oferta: ', error)
       }
     }
     setLoading(false)
@@ -175,7 +172,7 @@ export default function CardProduto(
         })
         get_produtos()
       } catch (error: any) {
-        console.log('ERROR Favoritar Oferta: ', error.response.data)
+        console.error('ERROR Favoritar Oferta: ', error.response.data)
       }
     }
     setLoading(false)
@@ -197,7 +194,7 @@ export default function CardProduto(
 
         handleOpenModal()
       } catch (error: any) {
-        console.log('ERROR POST Gera Cupom: ', error.response.data.message)
+        console.error('ERROR POST Gera Cupom: ', error.response.data.message)
         Toast.show({
           type: 'error',
           text1: error.response.data.message ?? 'Ocorreu um erro, tente novamente!',
@@ -206,9 +203,6 @@ export default function CardProduto(
     }
     setLoading(false)
   }
-
-  console.log(dadosUser);
-
 
   async function getVerifica() {
     const intervalId = setInterval(async () => {
@@ -226,8 +220,7 @@ export default function CardProduto(
             setModalVisible(false)
             setModalSucesso(true)
           } else {
-            console.log('nada encontrado');
-
+            console.warn('nada encontrado');
           }
         }
       } catch (error: any) {
@@ -278,6 +271,11 @@ export default function CardProduto(
       console.error('ERROR GET Horarios: ', error.response.data)
     }
   }
+
+  const abrirNoMaps = (endereco: string) => {
+    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endereco)}`;
+    Linking.openURL(url);
+  };
 
   useEffect(() => {
     getHorarios()
@@ -400,8 +398,8 @@ export default function CardProduto(
           <View className='flex-1 justify-center my-20 mx-2 rounded-lg'>
             <View className='bg-white mt-4'>
               <ScrollView showsVerticalScrollIndicator={false} className='my-4 px-4'>
-                <TouchableOpacity onPress={() => setModalInfosAnunciante(false)} className='w-full rounded-md bg-[#2F009C] flex justify-center items-center h-12 mb-4 px-2'>
-                  <Text className='text-white'>
+                <TouchableOpacity onPress={() => setModalInfosAnunciante(false)} className='w-full rounded-md border-solid border-2 border-[#2F009C] flex justify-center items-center h-12 mb-4 px-2'>
+                  <Text className='text-[#2F009C]'>
                     Voltar
                   </Text>
                 </TouchableOpacity>
@@ -410,8 +408,10 @@ export default function CardProduto(
                     Média de Avaliação: {' '}
                   </Caption>
                   <View className='flex flex-row '>
-                    <Text>{media_avaliacao ?? 'Novo anunciante'}</Text>
-                    <Image source={require('../../../assets/img/icons/star.png')} className='' />
+                    <Text>{media_avaliacao ?? 'Novo anunciante!'}</Text>
+                    {media_avaliacao &&
+                      <Image source={require('../../../assets/img/icons/star.png')} className='' />
+                    }
                   </View>
                 </View>
                 <View className='w-full h-4' />
@@ -429,67 +429,85 @@ export default function CardProduto(
                     {formatarTelefone(dados_gerais?.telefone)}
                   </Caption>
                 </Caption>
-                <View className='w-full h-4' />
-                <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
-                  Endereço: {' '}
-                  <Caption color={colors.dark} fontSize={16} margintop={0}>
-                    {dados_gerais?.endereco}
-                  </Caption>
-                </Caption>
-                <View className='w-full mt-2'>
-                  <Caption color={colors.dark} fontWeight={'bold'} margintop={0} fontSize={16} >
-                    Horários:
-                  </Caption>
-                  <View>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Segunda-feira: {listaHorarios?.segunda?.fechado ? 'Fechado' : `${listaHorarios?.segunda?.horario_abertura ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento ?? '-'} / ${listaHorarios?.segunda?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento_almoco ?? '-'}`}
+                {dados_gerais.endereco && dados_gerais.endereco.length > 5 &&
+                  <>
+                    <View className='w-full h-4' />
+                    <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
+                      Endereço: {' '}
+                      <Caption color={colors.dark} fontSize={16} margintop={0}>
+                        {dados_gerais?.endereco}
+                      </Caption>
                     </Caption>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Terça-feira: {listaHorarios?.terca?.fechado ? 'Fechado' : `${listaHorarios?.terca?.horario_abertura ?? '-'} às ${listaHorarios?.terca?.horario_fechamento ?? '-'} / ${listaHorarios?.terca?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.terca?.horario_fechamento_almoco ?? '-'}`}
-                    </Caption>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Quarta-feira: {listaHorarios?.quarta?.fechado ? 'Fechado' : `${listaHorarios?.quarta?.horario_abertura ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento ?? '-'} / ${listaHorarios?.quarta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento_almoco ?? '-'}`}
-                    </Caption>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Quinta-feira: {listaHorarios?.quinta?.fechado ? 'Fechado' : `${listaHorarios?.quinta?.horario_abertura ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento ?? '-'} / ${listaHorarios?.quinta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento_almoco ?? '-'}`}
-                    </Caption>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Sexta-feira: {listaHorarios?.sexta?.fechado ? 'Fechado' : `${listaHorarios?.sexta?.horario_abertura ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento ?? '-'} / ${listaHorarios?.sexta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento_almoco ?? '-'}`}
-                    </Caption>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Sábado: {listaHorarios?.sabado?.fechado ? 'Fechado' : `${listaHorarios?.sabado?.horario_abertura ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento ?? '-'} / ${listaHorarios?.sabado?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento_almoco ?? '-'}`}
-                    </Caption>
-                    <Caption color={colors.dark} fontSize={12} >
-                      Domingo: {listaHorarios?.domingo?.fechado ? 'Fechado' : `${listaHorarios?.domingo?.horario_abertura ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento ?? '-'} / ${listaHorarios?.domingo?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento_almoco ?? '-'}`}
-                    </Caption>
-                  </View>
-                </View>
-                <View className='w-full h-4' />
-                <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
-                  Mapa:
-                </Caption>
-                <MapView
-                  onPress={() => Linking.openURL(`https://www.google.com/maps/@${dados_gerais.latitude},${dados_gerais.longitude},25z`)}
-                  className='w-full h-40 mt-2'
-                  initialRegion={{
-                    latitude: parseFloat(dados_gerais.latitude),
-                    longitude: parseFloat(dados_gerais.longitude),
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                  }}
-                >
-                  <Marker
-                    coordinate={{
-                      latitude: parseFloat(dados_gerais.latitude),
-                      longitude: parseFloat(dados_gerais.longitude),
-                    }}
+                    <TouchableOpacity onPress={() => abrirNoMaps(dados_gerais.endereco)} className='w-full flex-row justify-between rounded-md bg-[#2F009C] flex items-center h-10 px-2 mt-2'>
+                      <Text className='text-white font-bold text-base'>
+                        Abrir mapa
+                      </Text>
+                      <Image source={require(`../../../assets/img/icons/icon-mapa.png`)} className='w-7 h-auto' resizeMode='contain' />
+                    </TouchableOpacity>
+                  </>
+                }
 
-                    draggable
-                    pinColor={'#5D35F1'}
-                    anchor={{ x: 0.69, y: 1 }}
-                    centerOffset={{ x: -18, y: -60 }}
-                  />
-                </MapView>
+                {listaHorarios?.segunda?.horario_abertura || listaHorarios?.segunda?.fechado &&
+                  <View className='w-full mt-2'>
+                    <Caption color={colors.dark} fontWeight={'bold'} margintop={0} fontSize={16} >
+                      Horários:
+                    </Caption>
+                    <View>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Segunda-feira: {listaHorarios?.segunda?.fechado ? 'Fechado' : `${listaHorarios?.segunda?.horario_abertura ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento ?? '-'} / ${listaHorarios?.segunda?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Terça-feira: {listaHorarios?.terca?.fechado ? 'Fechado' : `${listaHorarios?.terca?.horario_abertura ?? '-'} às ${listaHorarios?.terca?.horario_fechamento ?? '-'} / ${listaHorarios?.terca?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.terca?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Quarta-feira: {listaHorarios?.quarta?.fechado ? 'Fechado' : `${listaHorarios?.quarta?.horario_abertura ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento ?? '-'} / ${listaHorarios?.quarta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Quinta-feira: {listaHorarios?.quinta?.fechado ? 'Fechado' : `${listaHorarios?.quinta?.horario_abertura ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento ?? '-'} / ${listaHorarios?.quinta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Sexta-feira: {listaHorarios?.sexta?.fechado ? 'Fechado' : `${listaHorarios?.sexta?.horario_abertura ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento ?? '-'} / ${listaHorarios?.sexta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Sábado: {listaHorarios?.sabado?.fechado ? 'Fechado' : `${listaHorarios?.sabado?.horario_abertura ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento ?? '-'} / ${listaHorarios?.sabado?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                      <Caption color={colors.dark} fontSize={12} >
+                        Domingo: {listaHorarios?.domingo?.fechado ? 'Fechado' : `${listaHorarios?.domingo?.horario_abertura ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento ?? '-'} / ${listaHorarios?.domingo?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento_almoco ?? '-'}`}
+                      </Caption>
+                    </View>
+                  </View>
+                }
+
+                {dados_gerais.latitude && dados_gerais.longitude &&
+                  <>
+                    <View className='w-full h-4' />
+                    <Caption fontWeight={'bold'} color={colors.dark} fontSize={16} >
+                      Mapa:
+                    </Caption>
+                    <MapView
+                      onPress={() => Linking.openURL(`https://www.google.com/maps/@${dados_gerais.latitude},${dados_gerais.longitude},25z`)}
+                      className='w-full h-40 mt-2'
+                      initialRegion={{
+                        latitude: parseFloat(dados_gerais.latitude),
+                        longitude: parseFloat(dados_gerais.longitude),
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                      }}
+                    >
+                      <Marker
+                        coordinate={{
+                          latitude: parseFloat(dados_gerais.latitude),
+                          longitude: parseFloat(dados_gerais.longitude),
+                        }}
+
+                        draggable
+                        pinColor={'#5D35F1'}
+                        anchor={{ x: 0.69, y: 1 }}
+                        centerOffset={{ x: -18, y: -60 }}
+                      />
+                    </MapView>
+                  </>
+                }
               </ScrollView>
             </View>
           </View>
