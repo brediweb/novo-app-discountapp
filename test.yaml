@@ -1,0 +1,28 @@
+appId: "br.bredi.discountapp"
+---
+
+# 1 - CADASTRO ANUNCIANTE
+- tapOn: "Quero anunciar"
+- tapOn: "Anúncio, tab, 2 of 3"
+- tapOn: "Criar conta"
+- tapOn:
+        id: input-cnpj
+- inputText: "28180431000104"
+- assertNotVisible:
+        element: 'loading'
+- tapOn:
+        id: input-nome-fantasia
+- inputText: "Teste auto fantasia"
+- tapOn:
+        id: input-nome-empresarial
+- inputText: "Teste auto empresarial"
+- scrollUntilVisible:
+      element:
+      id: "input-cep"
+- tapOn:
+        id: input-nome-email
+- inputRandomEmail
+- tapOn:
+        id: input-nome-email
+- inputRandomNumber:
+        length: 10

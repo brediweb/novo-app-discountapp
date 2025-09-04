@@ -24,6 +24,7 @@ interface PropsInput {
   edicao?: boolean;
   required?: boolean;
   clearInput?: any;
+  testID?: string
 }
 
 const InputOutlined: React.FC<PropsInput> = ({
@@ -45,6 +46,7 @@ const InputOutlined: React.FC<PropsInput> = ({
   onBlur,
   onFocus,
   edicao = true,
+  testID,
 }) => {
   const [visible, setVisible] = useState(false);
 
@@ -77,6 +79,7 @@ const InputOutlined: React.FC<PropsInput> = ({
         editable={edicao}
         mode="outlined"
         autoCapitalize={uppercase}
+        testID={testID}
         ref={refInput}
         onChangeText={onChange} // Apenas use onChangeText
         maxLength={maxLength ?? 9999}

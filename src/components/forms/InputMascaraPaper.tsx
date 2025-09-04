@@ -17,6 +17,7 @@ interface PropsIputaMascara {
   onSubmitEditing?: any
   returnKeyType?: any
   error?: boolean
+  testID?: string
   required?: boolean
 }
 
@@ -36,7 +37,8 @@ export default function InputMascaraPaper(
     onSubmitEditing,
     returnKeyType,
     error,
-    required
+    required,
+    testID
   }: PropsIputaMascara) {
 
   return (
@@ -47,6 +49,7 @@ export default function InputMascaraPaper(
         value={value}
         error={error}
         mode='outlined'
+        testID={testID}
         onBlur={onBlur}
         returnKeyType={returnKeyType ?? 'default'}
         onSubmitEditing={onSubmitEditing}

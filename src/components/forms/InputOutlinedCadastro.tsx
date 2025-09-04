@@ -19,6 +19,7 @@ interface PropsInput {
   returnKeyType?: string
   secureTextEntry?: boolean
   onSubmitEditing?: () => void
+  testID?: string
   onChange?: (text: string) => void
   uppercase?: 'none' | 'sentences' | 'words' | 'characters'
 }
@@ -41,6 +42,7 @@ export default function InputOutlinedCadastro({
   secureTextEntry,
   onSubmitEditing,
   uppercase = 'none',
+  testID,
   returnKeyType = 'default',
 }: PropsInput) {
   const [visible, setVisible] = useState(false)
@@ -57,6 +59,7 @@ export default function InputOutlinedCadastro({
         ref={refInput}
         mode="outlined"
         onBlur={onBlur}
+        testID={testID}
         onFocus={onFocus}
         editable={edicao}
         onChangeText={onChange} // Apenas use onChangeText
