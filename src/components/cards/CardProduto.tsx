@@ -129,6 +129,8 @@ export default function CardProduto(
     return (names[0][0] + names[names.length - 1][0]).toUpperCase();
   };
 
+  console.log(listaHorarios);
+
 
   async function postFavorito() {
     setLoading(true)
@@ -204,6 +206,9 @@ export default function CardProduto(
     }
     setLoading(false)
   }
+
+  console.log(dadosUser);
+
 
   async function getVerifica() {
     const intervalId = setInterval(async () => {

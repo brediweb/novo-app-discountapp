@@ -74,7 +74,6 @@ export default function ClientePagamentoPixScreen() {
       const newJson = JSON.parse(jsonValue)
       const newJsonPerfil = JSON.parse(jsonPerfil)
       const responseJuridico = await api.get(`/perfil/pessoa-juridica/${newJsonPerfil.id}`) as any
-      // console.log('responseJuridico: ', responseJuridico.data.results.cpf_represetante);
 
       try {
         const formData = {
@@ -89,19 +88,16 @@ export default function ClientePagamentoPixScreen() {
           cpf: responseJuridico.data.results.cpf_represetante,
           nome: responseJuridico.data.results.nome_represetante,
         }
-        console.log('formData: ', formData);
-
         const headers = {
           Authorization: `Bearer ${newJson.token}`,
         }
         const response = await api.post(`/pagamento/avulso/pix`, formData, { headers })
         setTimeOut(false)
         setSeconds(300)
-        setDadosPix(response.data.message.transacao)
-        setCodigoPix(response.data.message.transacao.codigo_pix)
-        console.log('response dados Pix Avulso: ', response.data.message.transacao)
+        setDadosPix(response.data.results.transacao)
+        setCodigoPix(response.data.results.transacao.codigo_pix)
       } catch (error: any) {
-        console.log('ERRO dados Pix Avulso: ', error?.response?.data)
+        console.error('ERRO dados Pix Avulso: ', error)
       }
       setLoading(false)
     }

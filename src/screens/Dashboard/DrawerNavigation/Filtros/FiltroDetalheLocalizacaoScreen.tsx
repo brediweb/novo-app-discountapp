@@ -68,7 +68,7 @@ export default function FiltroDetalheLocalizacaoScreen({ route }: { route?: any 
             </View>
 
             <View className='ml-4'>
-              <Caption fontSize={14} color={'#296FF5'}>Link do Endereço</Caption>
+              <Caption fontSize={14} color={'#296FF5'}>Traçar rota do endereço Endereço</Caption>
             </View>
             <View className='mt-2'>
               <Caption fontSize={14} color={'#1C1B1F'}>CNPJ: {listaOfertas?.cnpj}</Caption>

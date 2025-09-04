@@ -114,8 +114,8 @@ android {
         applicationId 'br.bredi.discountapp'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 152
-        versionName "1.1.12"
+        versionCode 154
+        versionName "1.1.14"
     }
     signingConfigs {
         debug {

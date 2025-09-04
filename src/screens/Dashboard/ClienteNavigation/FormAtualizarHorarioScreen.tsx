@@ -207,9 +207,6 @@ export default function FormAtualizarHorarioScreen() {
     }
   }, [isFocused])
 
-  console.log(fechadoSegunda);
-
-
   return (
     <MainLayoutAutenticadoSemScroll loadign={loading} marginTop={72} marginHorizontal={0}>
       <ScrollView contentContainerStyle={styles.container}>

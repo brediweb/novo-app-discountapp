@@ -203,7 +203,7 @@ export default function ClientePerfilInformacoesScreen() {
             value={cpf}
             keyboardType={'number-pad'}
           />
-          {categoriaPerfil &&
+          {/* {categoriaPerfil &&
             categoriaPerfil.map((item: any, index: any) => (
               <InputDisabled
                 key={index}
@@ -212,7 +212,7 @@ export default function ClientePerfilInformacoesScreen() {
                 value={item.categorias}
                 keyboardType={'default'}
               />
-            ))}
+            ))} */}
 
           <View className="w-full mt-8">
             <FilledButton title="Salvar" onPress={onSubmit} />

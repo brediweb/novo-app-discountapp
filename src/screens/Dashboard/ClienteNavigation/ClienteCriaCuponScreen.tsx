@@ -83,7 +83,7 @@ export default function ClienteCriaCuponScreen() {
 
   async function getPerfil() {
     try {
-      const response = await api.get(`perfil/pessoa-juridica/${dadosUser.id}`);
+      const response = await api.get(`/perfil/pessoa-juridica/${dadosUser.id}`);
       setPlanActive(response.data.results.plano_ativo);
       setCategorias(response.data.results.perfil_id);
     } catch (error) {
