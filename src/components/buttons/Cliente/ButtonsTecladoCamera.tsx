@@ -148,15 +148,14 @@ export default function ButtonsTecladoCamera() {
                     <Image className='mt-4' source={require('../../../../assets/img/cliente/coidog-auxiliar.png')} />
                   </View>
 
-                  <View className='mt-6'>
+                  <View className='mt-4'>
                     <FilledButton
-
                       title='Válidar outro código'
                       onPress={voltaModal}
                     />
                   </View>
                 </View>
-                : <View className='mt-12'>
+                : <View className=''>
                   <H3 align={'center'}>Informe as informações necessárias:</H3>
 
                   <InputOutlined
@@ -183,9 +182,8 @@ export default function ButtonsTecladoCamera() {
                   </View>
                 </View>
               }
-              <View className='mt-4'>
+              <View>
                 <FilledButton
-
                   title='Voltar para o início'
                   backgroundColor={'transparent'}
                   color={colors.secondary50}

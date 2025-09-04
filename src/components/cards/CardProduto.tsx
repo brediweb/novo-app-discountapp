@@ -89,6 +89,7 @@ export default function CardProduto(
   const [modalInfosAnunciante, setModalInfosAnunciante] = useState(false)
   const [modalVisibleDetalhes, setModalVisibleDetalhes] = useState(false)
   const [listaHorarios, setListaHorarios] = useState<HorariosProps>({})
+  const [cupomUsado, setCupomUsado] = useState(false)
 
   const handleOpenModal = () => {
     setModalVisible(true)
@@ -191,14 +192,18 @@ export default function CardProduto(
         const response = await api.post(`/gera-cupom`, {
           idOferta: id_oferta
         }, { headers })
+        console.log(response.data);
 
         handleOpenModal()
       } catch (error: any) {
+        if (error.response.data.message === 'Você já utilizou esse cupom.') {
+          setCupomUsado(true)
+        }
         console.error('ERROR POST Gera Cupom: ', error.response.data.message)
-        Toast.show({
-          type: 'error',
-          text1: error.response.data.message ?? 'Ocorreu um erro, tente novamente!',
-        })
+        // Toast.show({
+        //   type: 'error',
+        //   text1: error.response.data.message ?? 'Ocorreu um erro, tente novamente!',
+        // })
       }
     }
     setLoading(false)
