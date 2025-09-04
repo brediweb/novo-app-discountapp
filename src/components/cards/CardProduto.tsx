@@ -204,36 +204,39 @@ export default function CardProduto(
     setLoading(false)
   }
 
-  async function getVerifica() {
-    const intervalId = setInterval(async () => {
+  // Hook para verificar cupom e encerrar o loop corretamente
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null;
+
+    async function getVerifica() {
       try {
-        const jsonValue = await AsyncStorage.getItem('infos-user')
+        const jsonValue = await AsyncStorage.getItem('infos-user');
         if (jsonValue) {
-          const newJson = JSON.parse(jsonValue)
-          setDadosUser(newJson)
+          const newJson = JSON.parse(jsonValue);
+          setDadosUser(newJson);
           const headers = {
             Authorization: `Bearer ${newJson.token}`,
-          }
-          const response = await api.get(`/meus-cupoms/verificar?idOferta=${id_oferta}`, { headers })
+          };
+          const response = await api.get(`/meus-cupoms/verificar?idOferta=${id_oferta}`, { headers });
           if (response.data.results.verificado) {
-            clearInterval(intervalId)
-            setModalVisible(false)
-            setModalSucesso(true)
-          } else {
-            console.warn('nada encontrado');
+            if (intervalId) clearInterval(intervalId);
+            setModalVisible(false);
+            setModalSucesso(true);
           }
         }
       } catch (error: any) {
-        console.error('Error GET Verificar:', error.response.data);
+        console.error('Error GET Verificar:', error?.response?.data);
       }
-    }, 4000); // 5000 milliseconds = 5 seconds
+    }
 
+    if (modalVisible) {
+      intervalId = setInterval(getVerifica, 4000);
+    }
 
     return () => {
-      // Certifique-se de limpar o intervalo quando o componente é desmontado
-      clearInterval(intervalId);
-    }
-  }
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [modalVisible, id_oferta]);
 
   function formatarTelefone(telefone: string = ''): string {
     // Remove tudo que não for número
@@ -278,17 +281,10 @@ export default function CardProduto(
   };
 
   useEffect(() => {
-    getHorarios()
     if (modalVisible) {
-      getVerifica()
+      getHorarios()
     }
   }, [isFocused])
-
-  useEffect(() => {
-    if (modalVisible) {
-      getVerifica()
-    }
-  }, [modalVisible])
 
   return (
 
