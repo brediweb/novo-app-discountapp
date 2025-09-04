@@ -1031,6 +1031,8 @@ export default function ClienteCriaCuponScreen() {
             style={{
               borderRadius: 9999,
             }}
+            locale='pt-BR'
+            neutralButtonLabel={'teste'}
             onConfirm={handleConfirm}
             onCancel={hideDatePicker}
             isVisible={isDatePickerVisible}
