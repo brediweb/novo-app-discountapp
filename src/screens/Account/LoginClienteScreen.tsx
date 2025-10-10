@@ -61,6 +61,8 @@ export default function LoginClienteScreen() {
 
       if (!response.data.error) {
         const storageEmail = await AsyncStorage.setItem('user-email', email)
+        const storagePassword = await AsyncStorage.setItem('user-senha', password)
+        const storageTipoUser = await AsyncStorage.setItem('tipo-user', 'Cliente')
         submitStorageLogin(response.data.results)
         setTipoUser('Cliente')
         Toast.show({

@@ -61,6 +61,8 @@ export default function LoginAnuncianteScreen() {
 
       if (!response.data.error) {
         const storageEmail = await AsyncStorage.setItem('user-email', email)
+        const storagePassword = await AsyncStorage.setItem('user-senha', password)
+        const storageTipoUser = await AsyncStorage.setItem('tipo-user', 'Anunciante')
         submitStorageLogin(response.data.results)
         setTipoUser('Anunciante')
         Toast.show({

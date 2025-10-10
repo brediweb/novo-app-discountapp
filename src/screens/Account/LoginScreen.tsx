@@ -18,9 +18,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   requestForegroundPermissionsAsync,
 } from 'expo-location';
+import Toast from 'react-native-toast-message';
+import { OneSignal } from 'react-native-onesignal';
+import { api } from 'src/service/api';
+import Loading from '@components/Loading';
 
 export default function LoginScreen() {
   const { navigate } = useNavigate();
+  const [loading, setLoading] = useState(true);
   const { setTipoUser, setUsuarioLogado } = useGlobal();
   const versionName = DeviceInfo.getVersion();
   const [modalVisible, setModalVisible] = useState(false);
@@ -47,13 +52,111 @@ export default function LoginScreen() {
     navigate('SemAuthDrawerNavigation');
   }
 
+  const submitStorageLogin = async (value: any) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem('infos-user', jsonValue)
+    } catch (error: any) {
+      console.error(error)
+    }
+  }
+
+
+  async function loginAutoAnunciante(storageEmail: string | null, storagePassword: string | null) {
+    const formdata = {
+      email: storageEmail,
+      password: storagePassword,
+      role: "Anunciante",
+    }
+    console.log(formdata);
+
+    if (!storageEmail || !storagePassword) {
+      setLoading(false)
+      return
+    }
+
+    setLoading(true)
+    OneSignal.User.addEmail(storageEmail?.toString() ?? '')
+    try {
+      const response = await api.post(`/login`, formdata)
+
+      if (!response.data.error) {
+        submitStorageLogin(response.data.results)
+        setTipoUser('Anunciante')
+        Toast.show({
+          type: 'success',
+          text1: 'Login realizado com sucesso!',
+        })
+        setUsuarioLogado(true)
+        navigate('HomeDrawerNavigation')
+      }
+    } catch (error: any) {
+      console.error('ERROR Login auto: ', error)
+    }
+
+    setLoading(false)
+  }
+
+  async function loginAutoCliente(storageEmail: string | null, storagePassword: string | null) {
+    setLoading(true)
+    try {
+      const response = await api.post(`/login`, {
+        email: storageEmail,
+        role: "Cliente",
+        password: storagePassword,
+      })
+      OneSignal.User.addEmail(storageEmail?.toString() ?? '')
+
+      if (!response.data.error) {
+        submitStorageLogin(response.data.results)
+        setTipoUser('Cliente')
+        Toast.show({
+          type: 'success',
+          text1: 'Login realizado com sucesso',
+        })
+        setUsuarioLogado(true)
+        navigate('HomeDrawerNavigation')
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: response.data.message ?? 'Ocorreu um erro, tente novamente!',
+        })
+      }
+    } catch (error: any) {
+      Toast.show({
+        type: 'error',
+        text1: error.response.data.message ?? 'Ocorreu um erro, tente novamente!',
+      })
+      console.log(error.response.data)
+    }
+    setLoading(false)
+  }
+
   const getInfosUser = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('infos-user') as any
-      if (JSON.parse(jsonValue)) {
-        setUsuarioLogado(true);
-        navigate('HomeDrawerNavigation');
+      const storageEmail = await AsyncStorage.getItem('user-email')
+      const storagePassword = await AsyncStorage.getItem('user-senha')
+      const storageTipoUser = await AsyncStorage.getItem('tipo-user')
+
+      if (storageTipoUser && storageTipoUser === 'Anunciante') {
+        setTimeout(() => {
+          loginAutoAnunciante(storageEmail, storagePassword)
+        }, 5000);
+        return
+      } else if (storageTipoUser && storageTipoUser !== 'Anunciante') {
+        setTimeout(() => {
+          loginAutoCliente(storageEmail, storagePassword)
+        }, 5000);
+        return
+      } else {
+        setLoading(false)
       }
+
+      // if (JSON.parse(jsonValue)) {
+      //   setUsuarioLogado(true);
+      //   navigate('HomeDrawerNavigation');
+      // }
     } catch (error) {
       console.error(error);
     }
@@ -87,6 +190,9 @@ export default function LoginScreen() {
 
   return (
     <MainLayout scroll={true}>
+      {loading &&
+        <Loading />
+      }
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <ModalTemplate
           width={'90%'}

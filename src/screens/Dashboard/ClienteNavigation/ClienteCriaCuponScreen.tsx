@@ -38,6 +38,8 @@ import {
 } from 'react-native';
 import { useGlobal } from '../../../context/GlobalContextProvider';
 import { useIsFocused } from '@react-navigation/native';
+import H2 from '@components/typography/H2';
+import H1 from '@components/typography/H1';
 
 export default function ClienteCriaCuponScreen() {
   const { navigate } = useNavigate();

@@ -273,8 +273,9 @@ export default function CardProduto(
 
   async function getHorarios() {
     try {
-      const response = await api.get(`/horarios-funcionamento?user_id=${id_anunciante}`)
+      const response = await api.get(`/horarios-funcionamento?user_id=849`);
       setListaHorarios(response.data.results.horarios)
+      console.log(id_oferta);
     } catch (error: any) {
       console.error('ERROR GET Horarios: ', error.response.data)
     }
@@ -290,6 +291,10 @@ export default function CardProduto(
       getHorarios()
     }
   }, [isFocused])
+
+  useEffect(() => {
+    getHorarios()
+  }, [])
 
   return (
 
@@ -443,13 +448,13 @@ export default function CardProduto(
                     </Caption>
                     <TouchableOpacity onPress={() => abrirNoMaps(dados_gerais.endereco)} className='w-full flex-row justify-between rounded-md bg-[#2F009C] flex items-center h-10 px-2 mt-2'>
                       <Text className='text-white font-bold text-base'>
-                        Abrir mapa
+                        Traçar rota
                       </Text>
                       <Image source={require(`../../../assets/img/icons/icon-mapa.png`)} className='w-7 h-auto' resizeMode='contain' />
                     </TouchableOpacity>
                   </>
                 }
-                {listaHorarios?.segunda?.horario_abertura || listaHorarios?.segunda?.fechado &&
+                {listaHorarios &&
                   <View className='w-full mt-2'>
                     <Caption color={colors.dark} fontWeight={'bold'} margintop={0} fontSize={16} >
                       Horários:
@@ -626,10 +631,12 @@ export default function CardProduto(
         <TouchableOpacity onPress={() => setModalVisibleDetalhes(true)} className='px-3 py-[10px]'>
           <Text className='text-sm font-medium text-center' style={{ color: colors.secondary60 }}>Detalhes</Text>
         </TouchableOpacity>
-        {usuarioLogado ?
+        {!dados_gerais.cupom_utilizado && usuarioLogado &&
           <FilledButton onPress={geraCupom} title='Gerar Cupom' backgroundColor={colors.secondary60} color={colors.white} />
-          :
-          <FilledButton onPress={() => setModalSemAuth(true)} title='Gerar Cupom' backgroundColor={colors.secondary60} color={colors.white} />
+        }
+        {dados_gerais.cupom_utilizado &&
+          <FilledButton onPress={() => { }} title='Cupom usado' backgroundColor={colors.gray} color={colors.white} />
+
         }
       </View>
     </>

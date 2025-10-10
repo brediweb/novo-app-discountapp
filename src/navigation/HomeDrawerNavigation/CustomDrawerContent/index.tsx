@@ -15,8 +15,9 @@ export function CustomDrawerContent(props: any) {
   const { tipoUser, setUsuarioLogado } = useGlobal()
   const [modalCarteirinha, setModalCarteirinha] = useState(false)
 
-  function handleLogout() {
-    AsyncStorage.setItem('infos-user', '')
+  async function handleLogout() {
+    AsyncStorage.clear()
+    await AsyncStorage.setItem('tutorial', 'true')
     setUsuarioLogado(false)
     dispatch(
       CommonActions.reset({
