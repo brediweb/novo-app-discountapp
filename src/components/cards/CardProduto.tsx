@@ -90,6 +90,7 @@ export default function CardProduto(
   const [modalVisibleDetalhes, setModalVisibleDetalhes] = useState(false)
   const [listaHorarios, setListaHorarios] = useState<HorariosProps>({})
   const [cupomUsado, setCupomUsado] = useState(false)
+  const [depoimentos, setDepoimentos] = useState<any[]>([])
 
   const handleOpenModal = () => {
     setModalVisible(true)
@@ -273,12 +274,72 @@ export default function CardProduto(
 
   async function getHorarios() {
     try {
-      const response = await api.get(`/horarios-funcionamento?user_id=849`);
-      setListaHorarios(response.data.results.horarios)
-      console.log(id_oferta);
+      const response = await api.get(`/horarios-funcionamento?user_id=${id_anunciante}`);
+      // A API retorna horarios como um array, então pegamos o primeiro elemento
+      if (response.data.results?.horarios && Array.isArray(response.data.results.horarios) && response.data.results.horarios.length > 0) {
+        setListaHorarios(response.data.results.horarios[0])
+      } else if (response.data.results?.horarios && !Array.isArray(response.data.results.horarios)) {
+        // Caso não seja array, usa diretamente
+        setListaHorarios(response.data.results.horarios)
+      }
     } catch (error: any) {
-      console.error('ERROR GET Horarios: ', error.response.data)
+      console.error('ERROR GET Horarios: ', error.response?.data || error)
     }
+  }
+
+  async function getDepoimentos() {
+    try {
+      const jsonValue = await AsyncStorage.getItem('infos-user');
+      if (jsonValue) {
+        const newJson = JSON.parse(jsonValue);
+        setDadosUser(newJson);
+        const headers = {
+          Authorization: `Bearer ${newJson.token}`,
+        };
+        const response = await api.get(`/landing-page/depoimentos`, { headers });
+        if (response.data.results?.depoimentos && Array.isArray(response.data.results.depoimentos)) {
+          setDepoimentos(response.data.results.depoimentos);
+        }
+      }
+    } catch (error: any) {
+      console.error('ERROR GET Depoimentos: ', error.response?.data || error)
+    }
+  }
+
+
+  const isDiaFechado = (dia: any): boolean => {
+    // Se não existe o objeto do dia, considera fechado
+    if (!dia) return true;
+
+    // Se fechado é true, está fechado
+    if (dia.fechado === true) return true;
+
+    // Se todos os horários estão vazios ou são apenas '-', considera fechado
+    const horarioAbertura = dia.horario_abertura?.trim() || '';
+    const horarioFechamento = dia.horario_fechamento?.trim() || '';
+    const horarioAberturaAlmoco = dia.horario_abertura_almoco?.trim() || '';
+    const horarioFechamentoAlmoco = dia.horario_fechamento_almoco?.trim() || '';
+
+    const todosVazios =
+      (!horarioAbertura || horarioAbertura === '-') &&
+      (!horarioFechamento || horarioFechamento === '-') &&
+      (!horarioAberturaAlmoco || horarioAberturaAlmoco === '-') &&
+      (!horarioFechamentoAlmoco || horarioFechamentoAlmoco === '-');
+
+    return todosVazios;
+  }
+
+  const formatarHorario = (dia: any): string => {
+    if (isDiaFechado(dia)) {
+      return 'Fechado';
+    }
+
+    const horarioAbertura = dia?.horario_abertura || '-';
+    const horarioFechamento = dia?.horario_fechamento || '-';
+    const horarioAberturaAlmoco = dia?.horario_abertura_almoco || '-';
+    const horarioFechamentoAlmoco = dia?.horario_fechamento_almoco || '-';
+
+    return `${horarioAbertura} às ${horarioFechamento} / ${horarioAberturaAlmoco} às ${horarioFechamentoAlmoco}`;
   }
 
   const abrirNoMaps = (endereco: string) => {
@@ -287,13 +348,8 @@ export default function CardProduto(
   };
 
   useEffect(() => {
-    if (modalVisible) {
-      getHorarios()
-    }
-  }, [isFocused])
-
-  useEffect(() => {
-    getHorarios()
+    // getHorarios()
+    getDepoimentos()
   }, [])
 
   return (
@@ -409,20 +465,21 @@ export default function CardProduto(
                     Voltar
                   </Text>
                 </TouchableOpacity>
-                <View className='flex-row items-center'>
-                  <View className='flex flex-row items-center'>
-                    <Text style={{ fontWeight: 'bold', color: colors.dark, fontSize: 16, marginTop: 0 }}>
-                      Média de Avaliação:{' '}
-                      <Text style={{ fontWeight: 'normal' }}>
-                        {media_avaliacao && media_avaliacao !== '0' && media_avaliacao.length > 0 ? media_avaliacao : 'Novo anunciante!'}
+                {/* {depoimentos && depoimentos.length > 0 &&
+                  <>
+                    <TouchableOpacity
+                      onPress={() => {
+                        setModalInfosAnunciante(false);
+                        navigate('ListaDepoimentosScreen');
+                      }}
+                      className='w-full flex-row justify-between items-center rounded-md h-12'
+                    >
+                      <Text className='font-bold text-base'>
+                        Ver Depoimentos ({depoimentos.length})
                       </Text>
-                    </Text>
-                    {media_avaliacao !== '0' &&
-                      <Image source={require('../../../assets/img/icons/star.png')} style={{ width: 16, height: 16, marginLeft: 4 }} />
-                    }
-                  </View>
-                </View>
-                <View className='w-full h-4' />
+                    </TouchableOpacity>
+                  </>
+                } */}
                 <Caption color={colors.dark} fontWeight={'bold'} fontSize={16} >
                   Nome da Empresa:{' '}
                   <Caption color={colors.dark} fontSize={16} margintop={0} >
@@ -461,25 +518,25 @@ export default function CardProduto(
                     </Caption>
                     <View>
                       <Caption color={colors.dark} fontSize={12} >
-                        Segunda-feira: {listaHorarios?.segunda?.fechado ? 'Fechado' : `${listaHorarios?.segunda?.horario_abertura ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento ?? '-'} / ${listaHorarios?.segunda?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.segunda?.horario_fechamento_almoco ?? '-'}`}
+                        Segunda-feira: {formatarHorario(listaHorarios?.segunda)}
                       </Caption>
                       <Caption color={colors.dark} fontSize={12} >
-                        Terça-feira: {listaHorarios?.terca?.fechado ? 'Fechado' : `${listaHorarios?.terca?.horario_abertura ?? '-'} às ${listaHorarios?.terca?.horario_fechamento ?? '-'} / ${listaHorarios?.terca?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.terca?.horario_fechamento_almoco ?? '-'}`}
+                        Terça-feira: {formatarHorario(listaHorarios?.terca)}
                       </Caption>
                       <Caption color={colors.dark} fontSize={12} >
-                        Quarta-feira: {listaHorarios?.quarta?.fechado ? 'Fechado' : `${listaHorarios?.quarta?.horario_abertura ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento ?? '-'} / ${listaHorarios?.quarta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quarta?.horario_fechamento_almoco ?? '-'}`}
+                        Quarta-feira: {formatarHorario(listaHorarios?.quarta)}
                       </Caption>
                       <Caption color={colors.dark} fontSize={12} >
-                        Quinta-feira: {listaHorarios?.quinta?.fechado ? 'Fechado' : `${listaHorarios?.quinta?.horario_abertura ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento ?? '-'} / ${listaHorarios?.quinta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.quinta?.horario_fechamento_almoco ?? '-'}`}
+                        Quinta-feira: {formatarHorario(listaHorarios?.quinta)}
                       </Caption>
                       <Caption color={colors.dark} fontSize={12} >
-                        Sexta-feira: {listaHorarios?.sexta?.fechado ? 'Fechado' : `${listaHorarios?.sexta?.horario_abertura ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento ?? '-'} / ${listaHorarios?.sexta?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sexta?.horario_fechamento_almoco ?? '-'}`}
+                        Sexta-feira: {formatarHorario(listaHorarios?.sexta)}
                       </Caption>
                       <Caption color={colors.dark} fontSize={12} >
-                        Sábado: {listaHorarios?.sabado?.fechado ? 'Fechado' : `${listaHorarios?.sabado?.horario_abertura ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento ?? '-'} / ${listaHorarios?.sabado?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.sabado?.horario_fechamento_almoco ?? '-'}`}
+                        Sábado: {formatarHorario(listaHorarios?.sabado)}
                       </Caption>
                       <Caption color={colors.dark} fontSize={12} >
-                        Domingo: {listaHorarios?.domingo?.fechado ? 'Fechado' : `${listaHorarios?.domingo?.horario_abertura ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento ?? '-'} / ${listaHorarios?.domingo?.horario_abertura_almoco ?? '-'} às ${listaHorarios?.domingo?.horario_fechamento_almoco ?? '-'}`}
+                        Domingo: {formatarHorario(listaHorarios?.domingo)}
                       </Caption>
                     </View>
                   </View>

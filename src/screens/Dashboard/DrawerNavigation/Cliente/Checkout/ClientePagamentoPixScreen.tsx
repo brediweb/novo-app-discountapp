@@ -206,8 +206,9 @@ export default function ClientePagamentoPixScreen() {
                     mt={20}
                     height={172}
                     label=''
+                    editable={false}
                     keyboardType={''}
-                    value={"00020101021226820014br.gov.bcb.pix2560pix.stone.com.br/pix/v2/30952e15-9c5e-4333-9c10-be73e997d686520400005303986540520.005802BR5910Discontapp6014RIO DE JANEIRO62290525d8c3d85be99d754becf55ad25630471F8"}
+                    value={codigoPix}
                     onChange={() => { }}
                   />
                   <TouchableOpacity onPress={copyToClipboard} className='absolute top-[40px] right-2 z-50'>

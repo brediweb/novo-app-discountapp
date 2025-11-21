@@ -90,17 +90,30 @@ export default function ClientePagamentoEndereco() {
       setCidade(response.data.city)
       setUf(response.data.state)
       setEstadoSelecionado(response.data.state)
-
     } catch (error: any) {
-      console.log('Error GET CEP (Cartão):', error)
+      console.log('Error GET CEP V2:', error)
       // Tentativa caso a primeira API V2 falhar
-      const response = await axios.get(`https://brasilapi.com.br/api/cep/v1/${novoCep}`)
-      setLogradouro(response.data.street)
-      setCidade(response.data.city)
-      setUf(response.data.state)
-      setEstadoSelecionado(response.data.state)
+      try {
+        const response = await axios.get(`https://brasilapi.com.br/api/cep/v1/${novoCep}`)
+        setLogradouro(response.data.street)
+        setCidade(response.data.city)
+        setUf(response.data.state)
+        setEstadoSelecionado(response.data.state)
+      } catch (errorV1: any) {
+        console.log('Error GET CEP V1:', errorV1)
+        Toast.show({
+          type: 'error',
+          text1: 'CEP não encontrado',
+          text2: 'Por favor, verifique o CEP informado',
+        })
+        setLogradouro('')
+        setCidade('')
+        setUf('')
+        setEstadoSelecionado('')
+      }
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   const handleSubmit = () => {

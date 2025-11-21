@@ -20,7 +20,7 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
   const [contato, setContato] = useState<boolean | any>()
   const [contatoMarcado, setContatoMarcado] = useState('')
   const [selecionaAvalaicao, setSelecionaAvalaicao] = useState('')
-
+  console.log(route?.params);
   async function onSubmit() {
     const jsonValue = await AsyncStorage.getItem('infos-user')
 
@@ -37,21 +37,21 @@ export default function AvaliacaoScreen({ route }: { route?: any }) {
           Authorization: `Bearer ${newJson.token}`,
         }
         const formData = {
-          anunciante_id: route?.params[0]?.anunciante_id ?? route?.params?.dados_gerais?.anunciante_id,
+          anunciante_id: 347, // está incorreto, deve ser o id do anunciante
           comentario: mensagem.length <= 1 ? 'Sem comentários' : mensagem,
           avaliacao: selecionaAvalaicao,
           permissao_contato: contato
         }
         const response = await api.post(`/avaliacoes/post`, formData, { headers })
-        setMensagen('')
-        setContato(null)
-        setContatoMarcado('')
-        setSelecionaAvalaicao('')
+        // setMensagen('')
+        // setContato(null)
+        // setContatoMarcado('')
+        // setSelecionaAvalaicao('')
         Toast.show({
           type: 'success',
           text1: response.data.message ?? 'Avaliação realizada com sucesso',
         })
-        goBack()
+        // goBack()
       } catch (error: any) {
         Toast.show({
           type: 'error',

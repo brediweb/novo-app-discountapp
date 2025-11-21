@@ -17,6 +17,7 @@ import DocumentosScreen from '../../screens/Dashboard/DrawerNavigation/Documento
 import FiltrosScreen from '../../screens/Dashboard/DrawerNavigation/Filtros/FiltrosScreen'
 import FaqDetalhesScreen from '../../screens/Dashboard/DrawerNavigation/FaqDetalhesScreen'
 import ListaAvaliacaoScreen from '../../screens/Dashboard/DrawerNavigation/ListaAvaliacaoScreen'
+import ListaDepoimentosScreen from '../../screens/Dashboard/DrawerNavigation/ListaDepoimentosScreen'
 import OfertaDetalhesGeraCupomScreen from '../../screens/Dashboard/OfertaDetalhesGeraCupomScreen'
 import ClienteAtualizaLocal from '../../screens/Dashboard/ClienteNavigation/ClienteAtualizaLocal'
 import FiltroCidadeScreen from '../../screens/Dashboard/DrawerNavigation/Filtros/FiltroCidadeScreen'
@@ -100,6 +101,7 @@ export default function HomeDrawerNavigation() {
       <Drawer.Screen options={{ headerTitle: 'Discontoken' }} name="DisconTokenScreen" component={DiscontokenScreen} />
       <Drawer.Screen options={{ headerTitle: 'Avaliações' }} name="AvaliacaoScreen" component={AvaliacaoScreen} />
       <Drawer.Screen options={{ headerTitle: 'Avaliações' }} name="ListaAvaliacaoScreen" component={ListaAvaliacaoScreen} />
+      <Drawer.Screen options={{ headerTitle: 'Depoimentos' }} name="ListaDepoimentosScreen" component={ListaDepoimentosScreen} />
       <Drawer.Screen options={{ headerTitle: 'Configurações' }} name="ConfiguracoesScreen" component={ConfiguracoesScreen} />
       <Drawer.Screen options={{ headerTitle: 'Configurações' }} name="AlterarSenhaScreen" component={AlterarSenhaScreen} />
       <Drawer.Screen options={{ headerTitle: 'Documentos' }} name="DocumentosScreen" component={DocumentosScreen} />
