@@ -1,0 +1,1252 @@
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/031c6c1456b0689a996535e904ff2880/results.bin b/node_modules/expo-barcode-scanner/android/build/.transforms/031c6c1456b0689a996535e904ff2880/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/.transforms/031c6c1456b0689a996535e904ff2880/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/031c6c1456b0689a996535e904ff2880/transformed/classes/classes_dex/classes.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/031c6c1456b0689a996535e904ff2880/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..8d2f7a5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/031c6c1456b0689a996535e904ff2880/transformed/classes/classes_dex/classes.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/results.bin b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/results.bin
+new file mode 100644
+index 0000000..7ed749e
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/results.bin
+@@ -0,0 +1 @@
++o/bundleLibRuntimeToDirDebug
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannedEvent.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannedEvent.dex
+new file mode 100644
+index 0000000..8dedd0d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannedEvent.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$Companion.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$Companion.dex
+new file mode 100644
+index 0000000..1b1c550
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$Companion.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.dex
+new file mode 100644
+index 0000000..3481d8d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.dex
+new file mode 100644
+index 0000000..b334a7a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.dex
+new file mode 100644
+index 0000000..ab36190
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.dex
+new file mode 100644
+index 0000000..08d1e16
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.dex
+new file mode 100644
+index 0000000..6280be1
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.dex
+new file mode 100644
+index 0000000..b06c2d4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.dex
+new file mode 100644
+index 0000000..5f87a1d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.dex
+new file mode 100644
+index 0000000..c576059
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.dex
+new file mode 100644
+index 0000000..ecc9781
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.dex
+new file mode 100644
+index 0000000..9c69ea6
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.dex
+new file mode 100644
+index 0000000..9ebba7a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.dex
+new file mode 100644
+index 0000000..e25d5ab
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.dex
+new file mode 100644
+index 0000000..17d7725
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.dex
+new file mode 100644
+index 0000000..0fcc306
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.dex
+new file mode 100644
+index 0000000..0ba5cf1
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.dex
+new file mode 100644
+index 0000000..9a212a9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.dex
+new file mode 100644
+index 0000000..5f94d21
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule.dex
+new file mode 100644
+index 0000000..e1e1ae7
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerModule.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerPackage.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerPackage.dex
+new file mode 100644
+index 0000000..84446e1
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerPackage.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerProvider.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerProvider.dex
+new file mode 100644
+index 0000000..3243ff4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerProvider.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.dex
+new file mode 100644
+index 0000000..195d08a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerView.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerView.dex
+new file mode 100644
+index 0000000..024be69
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerView.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.dex
+new file mode 100644
+index 0000000..423c242
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.dex
+new file mode 100644
+index 0000000..6edca2c
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.dex
+new file mode 100644
+index 0000000..5a3fba9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.dex
+new file mode 100644
+index 0000000..5cc6c91
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder.dex
+new file mode 100644
+index 0000000..1752400
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BarCodeScannerViewFinder.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BuildConfig.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BuildConfig.dex
+new file mode 100644
+index 0000000..4f84170
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/BuildConfig.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.dex
+new file mode 100644
+index 0000000..9a9c2d7
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.dex
+new file mode 100644
+index 0000000..3027dda
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner.dex
+new file mode 100644
+index 0000000..094c7b4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ExpoBarCodeScanner.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ImageRetrievalException.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ImageRetrievalException.dex
+new file mode 100644
+index 0000000..e07c7b9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/ImageRetrievalException.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.dex
+new file mode 100644
+index 0000000..b8418bf
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.dex
+new file mode 100644
+index 0000000..2ae957a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.dex
+new file mode 100644
+index 0000000..299af89
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.dex
+new file mode 100644
+index 0000000..660fdd2
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.dex
+new file mode 100644
+index 0000000..6b1fde4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.dex
+new file mode 100644
+index 0000000..7ee75a7
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.dex
+new file mode 100644
+index 0000000..6fa66f2
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.dex
+new file mode 100644
+index 0000000..93e2deb
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.dex
+new file mode 100644
+index 0000000..32bb7fe
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.dex
+new file mode 100644
+index 0000000..86cba1b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.dex
+new file mode 100644
+index 0000000..f3624b5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/ImageDimensions.dex b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/ImageDimensions.dex
+new file mode 100644
+index 0000000..6fefab0
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/expo/modules/barcodescanner/utils/ImageDimensions.dex differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin
+new file mode 100644
+index 0000000..601f245
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/.transforms/6671b3c458eb9fbfbce91f66395d7513/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/generated/source/buildConfig/debug/expo/modules/barcodescanner/BuildConfig.java b/node_modules/expo-barcode-scanner/android/build/generated/source/buildConfig/debug/expo/modules/barcodescanner/BuildConfig.java
+new file mode 100644
+index 0000000..37ff75d
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/generated/source/buildConfig/debug/expo/modules/barcodescanner/BuildConfig.java
+@@ -0,0 +1,10 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package expo.modules.barcodescanner;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String LIBRARY_PACKAGE_NAME = "expo.modules.barcodescanner";
++  public static final String BUILD_TYPE = "debug";
++}
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml b/node_modules/expo-barcode-scanner/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..f0081c0
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="expo.modules.barcodescanner" >
++
++    <uses-sdk android:minSdkVersion="24" />
++
++    <uses-permission android:name="android.permission.CAMERA" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json b/node_modules/expo-barcode-scanner/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+new file mode 100644
+index 0000000..3f799e3
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "expo.modules.barcodescanner",
++  "variantName": "debug",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties b/node_modules/expo-barcode-scanner/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+new file mode 100644
+index 0000000..1211b1e
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+@@ -0,0 +1,6 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
++coreLibraryDesugaringEnabled=false
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json b/node_modules/expo-barcode-scanner/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/expo-barcode-scanner/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
+new file mode 100644
+index 0000000..f6c54c8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/expo-barcode-scanner/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
+new file mode 100644
+index 0000000..e4dc3bd
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt b/node_modules/expo-barcode-scanner/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+new file mode 100644
+index 0000000..c137635
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Fri Nov 21 18:11:38 BRT 2025
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+new file mode 100644
+index 0000000..598cbee
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugAssets/merger.xml b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugAssets/merger.xml
+new file mode 100644
+index 0000000..7b9152f
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugAssets/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/assets"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/debug/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/build/intermediates/shader_assets/debug/compileDebugShaders/out"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..cb03ca6
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/debug/jniLibs"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugShaders/merger.xml b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+new file mode 100644
+index 0000000..ab500ea
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/debug/shaders"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/expo-barcode-scanner_debug.kotlin_module b/node_modules/expo-barcode-scanner/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/expo-barcode-scanner_debug.kotlin_module
+new file mode 100644
+index 0000000..37b8416
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/expo-barcode-scanner_debug.kotlin_module differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/expo/modules/barcodescanner/BuildConfig.class b/node_modules/expo-barcode-scanner/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/expo/modules/barcodescanner/BuildConfig.class
+new file mode 100644
+index 0000000..0562027
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/expo/modules/barcodescanner/BuildConfig.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt b/node_modules/expo-barcode-scanner/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+new file mode 100644
+index 0000000..78ac5b8
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+@@ -0,0 +1,2 @@
++R_DEF: Internal format may change without notice
++local
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt b/node_modules/expo-barcode-scanner/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+new file mode 100644
+index 0000000..9ddc800
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+@@ -0,0 +1,11 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    package="expo.modules.barcodescanner" >
++4
++5    <uses-sdk android:minSdkVersion="24" />
++6
++7    <uses-permission android:name="android.permission.CAMERA" />
++7-->/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:2:3-63
++7-->/Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:2:20-60
++8
++9</manifest>
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/expo-barcode-scanner/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+new file mode 100644
+index 0000000..f0081c0
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="expo.modules.barcodescanner" >
++
++    <uses-sdk android:minSdkVersion="24" />
++
++    <uses-permission android:name="android.permission.CAMERA" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json b/node_modules/expo-barcode-scanner/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt b/node_modules/expo-barcode-scanner/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+new file mode 100644
+index 0000000..08f4ebe
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+@@ -0,0 +1 @@
++0 Warning/Error
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/expo-barcode-scanner_debug.kotlin_module b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/expo-barcode-scanner_debug.kotlin_module
+new file mode 100644
+index 0000000..37b8416
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/expo-barcode-scanner_debug.kotlin_module differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannedEvent.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannedEvent.class
+new file mode 100644
+index 0000000..f853254
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannedEvent.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$Companion.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$Companion.class
+new file mode 100644
+index 0000000..6c90a11
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.class
+new file mode 100644
+index 0000000..a1c7a2f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.class
+new file mode 100644
+index 0000000..2bc2c82
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.class
+new file mode 100644
+index 0000000..5eedfc3
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.class
+new file mode 100644
+index 0000000..1971334
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.class
+new file mode 100644
+index 0000000..f8177e5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.class
+new file mode 100644
+index 0000000..8bcb323
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.class
+new file mode 100644
+index 0000000..fec0a5b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.class
+new file mode 100644
+index 0000000..5657870
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.class
+new file mode 100644
+index 0000000..e59225e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.class
+new file mode 100644
+index 0000000..9fe0330
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.class
+new file mode 100644
+index 0000000..996e341
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.class
+new file mode 100644
+index 0000000..570af09
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.class
+new file mode 100644
+index 0000000..88e6715
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.class
+new file mode 100644
+index 0000000..d36cef9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.class
+new file mode 100644
+index 0000000..5e4a98b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.class
+new file mode 100644
+index 0000000..f0f1b43
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.class
+new file mode 100644
+index 0000000..d0c2408
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule.class
+new file mode 100644
+index 0000000..8e4274a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerModule.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerPackage.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerPackage.class
+new file mode 100644
+index 0000000..3086e62
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerPackage.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerProvider.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerProvider.class
+new file mode 100644
+index 0000000..c8565c6
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerProvider.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.class
+new file mode 100644
+index 0000000..d8f2c28
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerView.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerView.class
+new file mode 100644
+index 0000000..853877f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerView.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.class
+new file mode 100644
+index 0000000..f071557
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.class
+new file mode 100644
+index 0000000..77088aa
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.class
+new file mode 100644
+index 0000000..6be553e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.class
+new file mode 100644
+index 0000000..8549dd4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder.class
+new file mode 100644
+index 0000000..2c278d9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BarCodeScannerViewFinder.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BuildConfig.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BuildConfig.class
+new file mode 100644
+index 0000000..0562027
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/BuildConfig.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.class
+new file mode 100644
+index 0000000..93c36a5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.class
+new file mode 100644
+index 0000000..d118a8f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner.class
+new file mode 100644
+index 0000000..ff7fd25
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ExpoBarCodeScanner.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ImageRetrievalException.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ImageRetrievalException.class
+new file mode 100644
+index 0000000..594dd6f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/ImageRetrievalException.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.class
+new file mode 100644
+index 0000000..8cdce25
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.class
+new file mode 100644
+index 0000000..640e3e9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.class
+new file mode 100644
+index 0000000..be5585d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.class
+new file mode 100644
+index 0000000..58a79c5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.class
+new file mode 100644
+index 0000000..8897795
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.class
+new file mode 100644
+index 0000000..b713433
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.class
+new file mode 100644
+index 0000000..2cb971c
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.class
+new file mode 100644
+index 0000000..6a0de02
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.class
+new file mode 100644
+index 0000000..1edfbe9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.class
+new file mode 100644
+index 0000000..844f6c8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.class
+new file mode 100644
+index 0000000..937f428
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/ImageDimensions.class b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/ImageDimensions.class
+new file mode 100644
+index 0000000..daaa43a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/expo/modules/barcodescanner/utils/ImageDimensions.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar
+new file mode 100644
+index 0000000..9fb2aa7
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/expo-barcode-scanner/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+new file mode 100644
+index 0000000..1894dfe
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+@@ -0,0 +1 @@
++expo.modules.barcodescanner
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab
+new file mode 100644
+index 0000000..5da2a0d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream
+new file mode 100644
+index 0000000..5596e13
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len
+new file mode 100644
+index 0000000..5665337
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len
+new file mode 100644
+index 0000000..6f677df
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at
+new file mode 100644
+index 0000000..95167f4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i
+new file mode 100644
+index 0000000..9d68faa
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab
+new file mode 100644
+index 0000000..86c9a4a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream
+new file mode 100644
+index 0000000..3be537b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len
+new file mode 100644
+index 0000000..05a66ea
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len
+new file mode 100644
+index 0000000..385642d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at
+new file mode 100644
+index 0000000..70686e6
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i
+new file mode 100644
+index 0000000..c028147
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
+new file mode 100644
+index 0000000..dbb3537
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..3be537b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..05a66ea
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
+new file mode 100644
+index 0000000..385642d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..7e529ce
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+new file mode 100644
+index 0000000..c028147
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab
+new file mode 100644
+index 0000000..bdf584a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream
+new file mode 100644
+index 0000000..0b81bb8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream.len
+new file mode 100644
+index 0000000..2409504
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.len
+new file mode 100644
+index 0000000..2a17e6e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at
+new file mode 100644
+index 0000000..adc7849
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i
+new file mode 100644
+index 0000000..1bdbc0d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/constants.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab
+new file mode 100644
+index 0000000..bdf584a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.keystream
+new file mode 100644
+index 0000000..8e95faa
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.keystream.len
+new file mode 100644
+index 0000000..812d25b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.len
+new file mode 100644
+index 0000000..2a17e6e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.values.at
+new file mode 100644
+index 0000000..29de897
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab_i
+new file mode 100644
+index 0000000..c8f2122
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/inline-functions.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+new file mode 100644
+index 0000000..7038b14
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..aab14f4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..bb15fe5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
+new file mode 100644
+index 0000000..60e54ab
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..a983780
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+new file mode 100644
+index 0000000..4a8340c
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab
+new file mode 100644
+index 0000000..7a1dd3d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream
+new file mode 100644
+index 0000000..0d98134
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len
+new file mode 100644
+index 0000000..d8119db
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len
+new file mode 100644
+index 0000000..01bdaa1
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at
+new file mode 100644
+index 0000000..6fcb00a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i
+new file mode 100644
+index 0000000..d7ee2ec
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/package-parts.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab
+new file mode 100644
+index 0000000..d1bb684
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream
+new file mode 100644
+index 0000000..3fb6ada
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+new file mode 100644
+index 0000000..dd78390
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len
+new file mode 100644
+index 0000000..8fe89d8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at
+new file mode 100644
+index 0000000..c42368a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i
+new file mode 100644
+index 0000000..27e53b8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab
+new file mode 100644
+index 0000000..045664a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+new file mode 100644
+index 0000000..5596e13
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+new file mode 100644
+index 0000000..5665337
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+new file mode 100644
+index 0000000..6f677df
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+new file mode 100644
+index 0000000..cc48d15
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+new file mode 100644
+index 0000000..9d68faa
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab
+new file mode 100644
+index 0000000..909881d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+new file mode 100644
+index 0000000..9fe797f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+new file mode 100644
+index 0000000..0141f82
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len
+new file mode 100644
+index 0000000..a363176
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+new file mode 100644
+index 0000000..8ab86f7
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i
+new file mode 100644
+index 0000000..95cae28
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab
+new file mode 100644
+index 0000000..7474429
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+new file mode 100644
+index 0000000..c21c3cc
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+new file mode 100644
+index 0000000..0e0e0e8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len
+new file mode 100644
+index 0000000..eb0b8a0
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+new file mode 100644
+index 0000000..395d6ea
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i
+new file mode 100644
+index 0000000..5bc57ad
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+new file mode 100644
+index 0000000..1708601
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+@@ -0,0 +1,2 @@
++13
++0
+\ No newline at end of file
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab
+new file mode 100644
+index 0000000..1f306a6
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream
+new file mode 100644
+index 0000000..a27c445
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len
+new file mode 100644
+index 0000000..5665337
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len
+new file mode 100644
+index 0000000..6f677df
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at
+new file mode 100644
+index 0000000..563a8cc
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i
+new file mode 100644
+index 0000000..e30758c
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab
+new file mode 100644
+index 0000000..43e265f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream
+new file mode 100644
+index 0000000..c5d7dcc
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len
+new file mode 100644
+index 0000000..21cf4e2
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len
+new file mode 100644
+index 0000000..6f677df
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at
+new file mode 100644
+index 0000000..393184b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i
+new file mode 100644
+index 0000000..d2eee88
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab
+new file mode 100644
+index 0000000..3f9be69
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream
+new file mode 100644
+index 0000000..1a3d1f4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len
+new file mode 100644
+index 0000000..d326121
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len
+new file mode 100644
+index 0000000..57965c5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at
+new file mode 100644
+index 0000000..d45a066
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i
+new file mode 100644
+index 0000000..d2f7300
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin
+new file mode 100644
+index 0000000..ce9993a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin
+new file mode 100644
+index 0000000..cfb8119
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin
+new file mode 100644
+index 0000000..478e58e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/expo-barcode-scanner/android/build/outputs/logs/manifest-merger-debug-report.txt
+new file mode 100644
+index 0000000..b3edbb9
+--- /dev/null
++++ b/node_modules/expo-barcode-scanner/android/build/outputs/logs/manifest-merger-debug-report.txt
+@@ -0,0 +1,20 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:1:1-3:12
++INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:1:1-3:12
++	package
++		INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml
++	xmlns:android
++		ADDED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:1:11-69
++uses-permission#android.permission.CAMERA
++ADDED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:2:3-63
++	android:name
++		ADDED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml:2:20-60
++uses-sdk
++INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml
++INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/michelavila/Documents/novo-app-discountapp/node_modules/expo-barcode-scanner/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/expo-barcode-scanner/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..41c8ba7
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/META-INF/expo-barcode-scanner_debug.kotlin_module b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/META-INF/expo-barcode-scanner_debug.kotlin_module
+new file mode 100644
+index 0000000..37b8416
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/META-INF/expo-barcode-scanner_debug.kotlin_module differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannedEvent.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannedEvent.class
+new file mode 100644
+index 0000000..f853254
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannedEvent.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$Companion.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$Companion.class
+new file mode 100644
+index 0000000..6c90a11
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.class
+new file mode 100644
+index 0000000..a1c7a2f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1$onSuccess$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.class
+new file mode 100644
+index 0000000..2bc2c82
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$3$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.class
+new file mode 100644
+index 0000000..5eedfc3
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.class
+new file mode 100644
+index 0000000..1971334
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$1$5$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.class
+new file mode 100644
+index 0000000..f8177e5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.class
+new file mode 100644
+index 0000000..8bcb323
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.class
+new file mode 100644
+index 0000000..fec0a5b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$3.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.class
+new file mode 100644
+index 0000000..5657870
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$4.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.class
+new file mode 100644
+index 0000000..e59225e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$5.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.class
+new file mode 100644
+index 0000000..9fe0330
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunction$6.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.class
+new file mode 100644
+index 0000000..996e341
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.class
+new file mode 100644
+index 0000000..570af09
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.class
+new file mode 100644
+index 0000000..88e6715
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$AsyncFunctionWithPromise$3.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.class
+new file mode 100644
+index 0000000..d36cef9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$OnDestroy$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.class
+new file mode 100644
+index 0000000..5e4a98b
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$$inlined$View$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.class
+new file mode 100644
+index 0000000..f0f1b43
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.class
+new file mode 100644
+index 0000000..d0c2408
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule$definition$lambda$5$lambda$4$$inlined$Prop$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule.class
+new file mode 100644
+index 0000000..8e4274a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerModule.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerPackage.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerPackage.class
+new file mode 100644
+index 0000000..3086e62
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerPackage.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerProvider.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerProvider.class
+new file mode 100644
+index 0000000..c8565c6
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerProvider.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.class
+new file mode 100644
+index 0000000..d8f2c28
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerView$orientationListener$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerView.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerView.class
+new file mode 100644
+index 0000000..853877f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerView.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.class
+new file mode 100644
+index 0000000..f071557
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.class
+new file mode 100644
+index 0000000..77088aa
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.class
+new file mode 100644
+index 0000000..6be553e
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.class
+new file mode 100644
+index 0000000..8549dd4
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder$scanForBarcodes$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder.class
+new file mode 100644
+index 0000000..2c278d9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/BarCodeScannerViewFinder.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.class
+new file mode 100644
+index 0000000..93c36a5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner$CameraInfoWrapper.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.class
+new file mode 100644
+index 0000000..d118a8f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner.class
+new file mode 100644
+index 0000000..ff7fd25
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ExpoBarCodeScanner.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ImageRetrievalException.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ImageRetrievalException.class
+new file mode 100644
+index 0000000..594dd6f
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/ImageRetrievalException.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.class
+new file mode 100644
+index 0000000..8cdce25
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.class
+new file mode 100644
+index 0000000..640e3e9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$Companion.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.class
+new file mode 100644
+index 0000000..be5585d
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner$scanBlocking$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.class
+new file mode 100644
+index 0000000..58a79c5
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.class
+new file mode 100644
+index 0000000..8897795
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$1.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.class
+new file mode 100644
+index 0000000..b713433
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$2.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.class
+new file mode 100644
+index 0000000..2cb971c
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$await$2$3.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.class
+new file mode 100644
+index 0000000..6a0de02
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt$sam$com_google_android_gms_tasks_OnSuccessListener$0.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.class
+new file mode 100644
+index 0000000..1edfbe9
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/scanners/MLKitBarCodeScannerKt.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.class
+new file mode 100644
+index 0000000..844f6c8
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/BarCodeScannerListMappersKt.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.class
+new file mode 100644
+index 0000000..937f428
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/ImageDimensions.class b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/ImageDimensions.class
+new file mode 100644
+index 0000000..daaa43a
+Binary files /dev/null and b/node_modules/expo-barcode-scanner/android/build/tmp/kotlin-classes/debug/expo/modules/barcodescanner/utils/ImageDimensions.class differ
+diff --git a/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt b/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt
+index 62f8d34..362fe53 100644
+--- a/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt
++++ b/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt
+@@ -29,5 +29,4 @@ abstract class ExpoBarCodeScanner internal constructor(protected var mContext: C
+     }
+     return newBarCodeTypesObject.filterIsInstance<Number>().map { it.toInt() }
+   }
+-  abstract val isAvailable: Boolean
+ }
+diff --git a/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt b/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt
+index 16ac4c8..1126e63 100644
+--- a/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt
++++ b/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt
+@@ -21,8 +21,7 @@ class MLKitBarCodeScanner(context: Context) : ExpoBarCodeScanner(context) {
+       .build()
+   private var barcodeScanner = BarcodeScanning.getClient(barcodeScannerOptions)
+ 
+-  override val isAvailable: Boolean
+-    get() = true
++  override fun isAvailable(): Boolean = true
+ 
+   override fun scan(imageData: ByteArray, width: Int, height: Int, rotation: Int) = try {
+     val inputImage = InputImage.fromByteArray(imageData, width, height, rotation, InputImage.IMAGE_FORMAT_NV21)

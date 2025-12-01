@@ -48,7 +48,19 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   web: {
     favicon: './assets/favicon.png',
   },
-  plugins: ['expo-font'],
+  plugins: [
+    'expo-font',
+    [
+      'expo-build-properties',
+      {
+        android: {
+          compileSdkVersion: 35,
+          targetSdkVersion: 35,
+          buildToolsVersion: '35.0.0',
+        },
+      },
+    ],
+  ],
   extra: {
     eas: {
       projectId: "27b767cc-a1b5-428f-b4e8-a5e7d35be0c3"
