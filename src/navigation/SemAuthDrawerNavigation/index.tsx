@@ -16,6 +16,7 @@ export default function SemAuthDrawerNavigation() {
 
   return (
     <Drawer.Navigator
+      useLegacyImplementation={false}
       drawerContent={(props) => <SemAuthCustomDrawerContent {...props} />}
       screenOptions={({ route }) => ({
         header: (props) => <SemAuthHeaderTab {...props} />

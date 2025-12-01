@@ -75,6 +75,7 @@ export default function HomeDrawerNavigation() {
 
   return (
     <Drawer.Navigator
+      useLegacyImplementation={false}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={({ route }) => ({
         header: (props) => <HeaderTab {...props} />

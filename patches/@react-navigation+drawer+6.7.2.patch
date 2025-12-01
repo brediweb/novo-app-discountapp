@@ -1,0 +1,54 @@
+diff --git a/node_modules/@react-navigation/drawer/lib/commonjs/views/modern/Drawer.js b/node_modules/@react-navigation/drawer/lib/commonjs/views/modern/Drawer.js
+index 54263d6..e004e35 100644
+--- a/node_modules/@react-navigation/drawer/lib/commonjs/views/modern/Drawer.js
++++ b/node_modules/@react-navigation/drawer/lib/commonjs/views/modern/Drawer.js
+@@ -7,6 +7,7 @@ exports.default = Drawer;
+ var React = _interopRequireWildcard(require("react"));
+ var _reactNative = require("react-native");
+ var _reactNativeReanimated = _interopRequireWildcard(require("react-native-reanimated"));
++var _reactNativeWorklets = require("react-native-worklets");
+ var _DrawerProgressContext = _interopRequireDefault(require("../../utils/DrawerProgressContext"));
+ var _GestureHandler = require("../GestureHandler");
+ var _Overlay = _interopRequireDefault(require("./Overlay"));
+@@ -151,7 +152,7 @@ function Drawer(_ref) {
+     open,
+     isUserInitiated: false
+   }), [open, toggleDrawer]);
+-  const onGestureEvent = (0, _reactNativeReanimated.useAnimatedGestureHandler)({
++  const onGestureEvent = (0, _reactNativeWorklets.useAnimatedGestureHandler)({
+     onStart: (event, ctx) => {
+       ctx.hasCalledOnStart = false;
+       ctx.startX = translationX.value;
+diff --git a/node_modules/@react-navigation/drawer/lib/module/views/modern/Drawer.js b/node_modules/@react-navigation/drawer/lib/module/views/modern/Drawer.js
+index 3aa1baa..9e2943f 100644
+--- a/node_modules/@react-navigation/drawer/lib/module/views/modern/Drawer.js
++++ b/node_modules/@react-navigation/drawer/lib/module/views/modern/Drawer.js
+@@ -1,7 +1,8 @@
+ function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+ import * as React from 'react';
+ import { I18nManager, InteractionManager, Keyboard, Platform, StatusBar, StyleSheet, View } from 'react-native';
+-import Animated, { interpolate, runOnJS, useAnimatedGestureHandler, useAnimatedStyle, useDerivedValue, useSharedValue, withSpring } from 'react-native-reanimated';
++import Animated, { interpolate, runOnJS, useAnimatedStyle, useDerivedValue, useSharedValue, withSpring } from 'react-native-reanimated';
++import { useAnimatedGestureHandler } from 'react-native-worklets';
+ import DrawerProgressContext from '../../utils/DrawerProgressContext';
+ import { GestureState, PanGestureHandler } from '../GestureHandler';
+ import Overlay from './Overlay';
+diff --git a/node_modules/@react-navigation/drawer/src/views/modern/Drawer.tsx b/node_modules/@react-navigation/drawer/src/views/modern/Drawer.tsx
+index 57af20c..2ff100e 100644
+--- a/node_modules/@react-navigation/drawer/src/views/modern/Drawer.tsx
++++ b/node_modules/@react-navigation/drawer/src/views/modern/Drawer.tsx
+@@ -11,12 +11,13 @@ import {
+ import Animated, {
+   interpolate,
+   runOnJS,
+-  useAnimatedGestureHandler,
+   useAnimatedStyle,
+   useDerivedValue,
+   useSharedValue,
+   withSpring,
+ } from 'react-native-reanimated';
++// @ts-ignore - Compatibility shim for Reanimated v4
++import { useAnimatedGestureHandler } from '../../../../../../src/utils/reanimatedCompat';
+ 
+ import type { DrawerProps } from '../../types';
+ import DrawerProgressContext from '../../utils/DrawerProgressContext';

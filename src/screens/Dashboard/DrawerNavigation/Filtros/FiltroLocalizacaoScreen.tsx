@@ -1,5 +1,5 @@
 import { api } from '../../../../service/api'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useIsFocused } from '@react-navigation/native'
 import { useNavigate } from '../../../../hooks/useNavigate'
 import MapView, { Callout, Marker } from 'react-native-maps'
@@ -16,8 +16,9 @@ export default function FiltroLocalizacaoScreen() {
   const { navigate } = useNavigate()
   const [regiao, setRegiao] = useState<any>(null)
   const [listaOfertas, setListaOfertas] = useState<any>([])
-  const [permissaoLocal, setPermissaoLocal] = useState<any>(false)
+  const [permissaoLocal, setPermissaoLocal] = useState<boolean>(false)
   const [listaAnunciantes, setListaAnunciantes] = useState<any>([])
+  const [localizacaoErro, setLocalizacaoErro] = useState<string | null>(null)
 
   async function getAnunciantes() {
     const jsonValue = await AsyncStorage.getItem('infos-user')
@@ -53,35 +54,72 @@ export default function FiltroLocalizacaoScreen() {
     }
   }
 
-  function getLocalizacao() {
-    Geolocation.getCurrentPosition(info => {
-      setRegiao({
-        latitude: info.coords.latitude,
-        longitude: info.coords.longitude,
-      })
-    })
-  }
-
-  async function getPermissionIOS() {
-    try {
-      const { granted } = await requestForegroundPermissionsAsync()
-    } catch (error: any) {
-      console.log('ERRO', error);
+  const solicitarPermissao = useCallback(async () => {
+    if (Platform.OS === 'ios') {
+      try {
+        const { granted } = await requestForegroundPermissionsAsync()
+        return granted
+      } catch (error: any) {
+        console.log('Erro ao solicitar permissão iOS', error)
+        return false
+      }
     }
-  }
+
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      )
+      return granted === PermissionsAndroid.RESULTS.GRANTED
+    } catch (error) {
+      console.log('Erro ao solicitar permissão Android', error)
+      return false
+    }
+  }, [])
+
+  const getLocalizacao = useCallback(async () => {
+    const temPermissao = await solicitarPermissao()
+    setPermissaoLocal(temPermissao)
+
+    if (!temPermissao) {
+      setLocalizacaoErro('Precisamos da sua permissão para localizar os estabelecimentos próximos.')
+      return
+    }
+
+    Geolocation.getCurrentPosition(
+      info => {
+        setLocalizacaoErro(null)
+        setRegiao({
+          latitude: info.coords.latitude,
+          longitude: info.coords.longitude,
+        })
+      },
+      (error) => {
+        console.log('Erro ao obter localização', error)
+        if (error.code === 3) {
+          setLocalizacaoErro('Não conseguimos obter sua localização a tempo. Tente novamente em uma área com melhor sinal.')
+        } else {
+          setLocalizacaoErro('Não foi possível obter sua localização. Verifique se o serviço está habilitado.')
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 10000,
+        forceRequestLocation: true,
+        showLocationDialog: true,
+      }
+    )
+  }, [solicitarPermissao])
 
   useEffect(() => {
     getLocalizacao()
-    if (Platform.OS === 'ios') {
-      getPermissionIOS()
-    }
-  }, [])
+  }, [getLocalizacao])
 
   useEffect(() => {
     getOfertas()
     getAnunciantes()
     getLocalizacao()
-  }, [isFocused])
+  }, [getLocalizacao, isFocused])
 
   return (
     <View style={styles.container}>
@@ -154,9 +192,9 @@ export default function FiltroLocalizacaoScreen() {
           ))}
         </MapView>
       }
-      {permissaoLocal === false &&
+      {localizacaoErro &&
         <View className='mx-4 mt-12'>
-          <H3 align={'center'} color={colors.error30}>Para visualizar o mapa, é preciso conceder acesso à sua localização. Por favor, vá para as configurações do dispositivo e habilite o acesso à localização.</H3>
+          <H3 align={'center'} color={colors.error30}>{localizacaoErro}</H3>
         </View>
       }
     </View>

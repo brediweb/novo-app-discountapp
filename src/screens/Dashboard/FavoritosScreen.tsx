@@ -13,7 +13,6 @@ import { useGlobal } from '../../context/GlobalContextProvider'
 import ButtonSecondary from '../../components/buttons/ButtonSecondary'
 import ButtonPrimary from '../../components/buttons/ButtonPrimary'
 import FilledButton from '../../components/buttons/FilledButton'
-import { color } from 'react-native-reanimated'
 import { colors } from '../../styles/colors'
 
 export default function FavoritosScreen() {
