@@ -76,7 +76,6 @@ export default function CardProduto(
     vantagem_porcentagem,
   }: PropsProduto) {
 
-
   const isFocused = useIsFocused()
   const { navigate } = useNavigate()
   const { usuarioLogado } = useGlobal()
@@ -274,8 +273,8 @@ export default function CardProduto(
 
   async function getHorarios() {
     try {
-      const response = await api.get(`/horarios-funcionamento?user_id=${id_anunciante}`);
-      // A API retorna horarios como um array, então pegamos o primeiro elemento
+      const response = await api.get(`/horarios-funcionamento?user_id=${dados_gerais.user_id}`);
+      // A API retorna horarios como um array, então pegamos o primeiro elemento     
       if (response.data.results?.horarios && Array.isArray(response.data.results.horarios) && response.data.results.horarios.length > 0) {
         setListaHorarios(response.data.results.horarios[0])
       } else if (response.data.results?.horarios && !Array.isArray(response.data.results.horarios)) {
@@ -283,7 +282,22 @@ export default function CardProduto(
         setListaHorarios(response.data.results.horarios)
       }
     } catch (error: any) {
-      console.error('ERROR GET Horarios: ', error.response?.data || error)
+      try {
+        const response = await api.get(`/horarios-funcionamento?user_id=${id_anunciante}`);
+        // A API retorna horarios como um array, então pegamos o primeiro elemento     
+        console.log(nome_empresa, 'id_anunciante', response.data);
+
+        if (response.data.results?.horarios && Array.isArray(response.data.results.horarios) && response.data.results.horarios.length > 0) {
+          setListaHorarios(response.data.results.horarios[0])
+        } else if (response.data.results?.horarios && !Array.isArray(response.data.results.horarios)) {
+          // Caso não seja array, usa diretamente
+          setListaHorarios(response.data.results.horarios)
+
+        }
+      } catch (error: any) {
+        console.error('ERROR GET Horarios: ', error.response?.data || error)
+      }
+      console.error('ERROR GET Horarios 2: ', nome_empresa, error.response?.data || error)
     }
   }
 
@@ -334,12 +348,12 @@ export default function CardProduto(
       return 'Fechado';
     }
 
-    const horarioAbertura = dia?.horario_abertura || '-';
-    const horarioFechamento = dia?.horario_fechamento || '-';
-    const horarioAberturaAlmoco = dia?.horario_abertura_almoco || '-';
-    const horarioFechamentoAlmoco = dia?.horario_fechamento_almoco || '-';
+    const horarioAbertura = dia?.horario_abertura || '';
+    const horarioFechamento = dia?.horario_fechamento || '';
+    const horarioAberturaAlmoco = `${dia?.horario_abertura_almoco ? `${dia?.horario_abertura_almoco} -` : ''}` || '';
+    const horarioFechamentoAlmoco = `${dia?.horario_fechamento_almoco ? `- ${dia?.horario_fechamento_almoco}` : ''}` || '';
 
-    return `${horarioAbertura} às ${horarioFechamento} / ${horarioAberturaAlmoco} às ${horarioFechamentoAlmoco}`;
+    return `${horarioAbertura} ${horarioFechamentoAlmoco} até ${horarioAberturaAlmoco} ${horarioFechamento}`;
   }
 
   const abrirNoMaps = (endereco: string) => {
@@ -348,7 +362,7 @@ export default function CardProduto(
   };
 
   useEffect(() => {
-    // getHorarios()
+    getHorarios()
     getDepoimentos()
   }, [])
 
@@ -556,14 +570,21 @@ export default function CardProduto(
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                       }}
+                      showsUserLocation={false}
+                      showsMyLocationButton={false}
+                      loadingEnabled={false}
+                      toolbarEnabled={false}
+                      onMapReady={() => { }}
+                      onError={(error) => {
+                        console.log('MapView Error:', error);
+                      }}
                     >
                       <Marker
                         coordinate={{
                           latitude: parseFloat(dados_gerais.latitude),
                           longitude: parseFloat(dados_gerais.longitude),
                         }}
-
-                        draggable
+                        draggable={false}
                         pinColor={'#5D35F1'}
                         anchor={{ x: 0.69, y: 1 }}
                         centerOffset={{ x: -18, y: -60 }}

@@ -5,9 +5,9 @@ import { useNavigate } from '@hooks/useNavigate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { View, Text, Alert, Switch, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, Alert, Switch, StyleSheet, ScrollView, TouchableOpacity, Platform } from 'react-native';
 import Toast from 'react-native-toast-message';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { useGlobal } from 'src/context/GlobalContextProvider';
 import { api } from 'src/service/api';
 import { colors } from 'src/styles/colors';
@@ -42,8 +42,19 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
   // Controle do DateTimePicker
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [selectedField, setSelectedField] = useState<{ dia: string; campo: string } | null>(null);
+  const [selectedTime, setSelectedTime] = useState<Date>(new Date());
 
   const showDatePicker = (dia: string, campo: string) => {
+    // Se já existe um horário selecionado, usar ele, caso contrário usar a hora atual
+    const existingTime = horarios[dia]?.[campo as keyof typeof horarios[string]];
+    if (existingTime) {
+      const [hours, minutes] = existingTime.split(':').map(Number);
+      const date = new Date();
+      date.setHours(hours, minutes, 0, 0);
+      setSelectedTime(date);
+    } else {
+      setSelectedTime(new Date());
+    }
     setSelectedField({ dia, campo });
     setDatePickerVisibility(true);
   };
@@ -53,9 +64,29 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
     setSelectedField(null);
   };
 
-  const handleConfirm = (date: Date) => {
+  const handleTimeChange = (event: any, date?: Date) => {
+    if (Platform.OS === 'android') {
+      if (event.type === 'set' && date && selectedField) {
+        const timeString = date.toLocaleTimeString('pt-BR', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+          timeZone: 'America/Sao_Paulo',
+        });
+        handleHorarioChange(selectedField.dia, selectedField.campo, timeString);
+      }
+      hideDatePicker();
+    } else if (Platform.OS === 'ios') {
+      // No iOS, atualiza o estado enquanto o usuário seleciona
+      if (date) {
+        setSelectedTime(date);
+      }
+    }
+  };
+
+  const handleConfirmIOS = () => {
     if (selectedField) {
-      const timeString = date.toLocaleTimeString('pt-BR', {
+      const timeString = selectedTime.toLocaleTimeString('pt-BR', {
         hour: '2-digit',
         minute: '2-digit',
         hour12: false,
@@ -248,14 +279,32 @@ export default function FormDefinirHorarioScreen({ route }: { route: any }) {
         </View>
       </ScrollView>
 
-      <DateTimePickerModal
-        mode="time"
-        isVisible={isDatePickerVisible}
-        onCancel={hideDatePicker}
-        onConfirm={handleConfirm}
-        locale="pt-BR"
-        timeZoneName="America/Sao_Paulo"
-      />
+      {isDatePickerVisible && (
+        <>
+          <DateTimePicker
+            value={selectedTime}
+            mode="time"
+            is24Hour={true}
+            display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+            onChange={handleTimeChange}
+            locale="pt-BR"
+            style={Platform.OS === 'ios' ? styles.iosPicker : undefined}
+          />
+          {Platform.OS === 'ios' && (
+            <View style={styles.iosPickerContainer}>
+              <TouchableOpacity style={styles.iosPickerButton} onPress={hideDatePicker}>
+                <Text style={styles.iosPickerButtonText}>Cancelar</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.iosPickerButton}
+                onPress={handleConfirmIOS}
+              >
+                <Text style={[styles.iosPickerButtonText, styles.iosPickerButtonTextConfirm]}>Confirmar</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </>
+      )}
     </MainLayoutAutenticadoSemScroll >
   );
 }
@@ -278,5 +327,30 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 8,
     backgroundColor: '#fff',
+  },
+  iosPicker: {
+    width: '100%',
+    height: 200,
+  },
+  iosPickerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#f7f7f7',
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+  },
+  iosPickerButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  iosPickerButtonText: {
+    fontSize: 16,
+    color: '#666',
+  },
+  iosPickerButtonTextConfirm: {
+    color: colors.secondary40 || '#007AFF',
+    fontWeight: '600',
   },
 });

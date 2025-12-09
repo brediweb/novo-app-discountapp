@@ -16,7 +16,7 @@ import RadioButton from '../../../components/forms/RadioButton';
 import Paragrafo from '../../../components/typography/Paragrafo';
 import FilledButton from '../../../components/buttons/FilledButton';
 import InputOutlined from '../../../components/forms/InputOutlined';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import HeaderPrimary from '../../../components/header/HeaderPrimary';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RemoveCaracteres from '../../../components/forms/RemoveCaracteres';
@@ -35,6 +35,7 @@ import {
   PermissionsAndroid,
   Linking,
   Alert,
+  Platform,
 } from 'react-native';
 import { useGlobal } from '../../../context/GlobalContextProvider';
 import { useIsFocused } from '@react-navigation/native';
@@ -66,6 +67,7 @@ export default function ClienteCriaCuponScreen() {
   const [dataLimiteCriacao, setDataLimiteCriacao] = useState('');
   const [imagemSelecionada, setImagemSelecionada] = useState<any>('');
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [planActive, setPlanActive] = useState(false);
 
   const [errorTitulo, setErrorTitulo] = useState(false);
@@ -129,6 +131,12 @@ export default function ClienteCriaCuponScreen() {
 
   const showDatePicker = () => {
     getDataLimite();
+    // Se já existe uma data selecionada, usar ela, caso contrário usar a data atual
+    if (dataSelecionada && dataSelecionada.length > 4) {
+      setSelectedDate(new Date(dataSelecionada));
+    } else {
+      setSelectedDate(new Date());
+    }
     setDatePickerVisibility(true);
   };
 
@@ -136,8 +144,22 @@ export default function ClienteCriaCuponScreen() {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = (date: any) => {
-    setDataSelecionada(date);
+  const handleDateChange = (event: any, date?: Date) => {
+    if (Platform.OS === 'android') {
+      setDatePickerVisibility(false);
+      if (event.type === 'set' && date) {
+        setDataSelecionada(date.toISOString());
+      }
+    } else if (Platform.OS === 'ios') {
+      // No iOS, atualiza o estado enquanto o usuário seleciona
+      if (date) {
+        setSelectedDate(date);
+      }
+    }
+  };
+
+  const handleConfirmIOS = () => {
+    setDataSelecionada(selectedDate.toISOString());
     hideDatePicker();
   };
 
@@ -190,9 +212,9 @@ export default function ClienteCriaCuponScreen() {
   }
 
   // Função para verificar permissões e abrir o ImagePicker
-  /* async function pickSingle({ cropit, circular = false, mediaType }: any) {
+  async function pickSingle({ cropit, circular = false, mediaType }: any) {
     const hasPermissions = await requestPermissions(); // Verifica permissões antes de abrir o picker
-    
+
     if (hasPermissions) {
       // Se as permissões foram concedidas, abre o ImagePicker
       try {
@@ -212,24 +234,6 @@ export default function ClienteCriaCuponScreen() {
       }
     } else {
       console.error('Permissões não concedidas, não foi possível abrir o ImagePicker');
-    }
-  } */
-
-  async function pickSingle({ cropit, circular = false, mediaType }: any) {
-    try {
-      const image = await ImagePicker.openPicker({
-        width: 300,
-        height: 200,
-        multiple: false,
-        maxFiles: 1,
-        minFiles: 1,
-        compressImageQuality: 1,
-        cropping: true,
-      });
-      setImagemSelecionada(image.path);
-      setImagemEnvio(image);
-    } catch (imageError) {
-      console.error('Erro ao abrir o ImagePicker:', imageError); // Se houver erro ao abrir o picker
     }
   }
 
@@ -621,7 +625,7 @@ export default function ClienteCriaCuponScreen() {
       formdata.append('data_validade', `${dataFormatada}`);
       formdata.append('descricao_oferta', `${resumoOferta}`);
       formdata.append('descricao_completa', `${descricao}`);
-      formdata.append('valor', resultItemNumber);
+      formdata.append('valor', `${resultItemNumber}`);
       formdata.append('codigo_cupom', `${codigoCupom}`);
       formdata.append('imagem_cupom', novaImage as any);
       formdata.append('quantidade_cupons', `${qtdCupons}`);
@@ -1016,29 +1020,53 @@ export default function ClienteCriaCuponScreen() {
             label="Título da oferta"
             keyboardType={'default'}
           />
-          {/* <InputMascaraPaper
+          <InputMascaraPaper
             mt={12}
             label="Filial"
             value={filial}
             onChangeText={setFilial}
             keyboardType={'default'}
-          /> */}
-          <DateTimePickerModal
-            mode="date"
-            maximumDate={
-              dataLimiteCriacao ? new Date(dataLimiteCriacao) : new Date()
-            }
-            minimumDate={new Date()}
-            textColor="#49454F"
-            style={{
-              borderRadius: 9999,
-            }}
-            locale='pt-BR'
-            neutralButtonLabel={'teste'}
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-            isVisible={isDatePickerVisible}
           />
+          {isDatePickerVisible && (
+            <>
+              <DateTimePicker
+                value={selectedDate}
+                mode="date"
+                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                minimumDate={new Date()}
+                maximumDate={dataLimiteCriacao ? new Date(dataLimiteCriacao) : undefined}
+                onChange={handleDateChange}
+                locale="pt-BR"
+                style={Platform.OS === 'ios' ? { width: '100%', height: 200 } : undefined}
+              />
+              {Platform.OS === 'ios' && (
+                <View style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  paddingHorizontal: 16,
+                  paddingVertical: 12,
+                  backgroundColor: '#f7f7f7',
+                  borderTopWidth: 1,
+                  borderTopColor: '#ccc',
+                }}>
+                  <TouchableOpacity
+                    onPress={hideDatePicker}
+                    style={{ paddingVertical: 8, paddingHorizontal: 16 }}
+                  >
+                    <Text style={{ fontSize: 16, color: '#666' }}>Cancelar</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={handleConfirmIOS}
+                    style={{ paddingVertical: 8, paddingHorizontal: 16 }}
+                  >
+                    <Text style={{ fontSize: 16, color: colors.secondary40 || '#007AFF', fontWeight: '600' }}>
+                      Confirmar
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </>
+          )}
           {errorDataValidade ? (
             <TouchableOpacity
               onPress={showDatePicker}
