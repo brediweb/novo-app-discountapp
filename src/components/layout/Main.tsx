@@ -12,7 +12,6 @@ import IcoAlertaSecondary from '../../svg/IcoAlertaSecondary'
 import { useGlobal } from '../../context/GlobalContextProvider'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { Alert, Image, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native'
-import Loading from '../Loading'
 
 export default function Main({ children }: { children: any }) {
   const [token, setToken] = useState('')

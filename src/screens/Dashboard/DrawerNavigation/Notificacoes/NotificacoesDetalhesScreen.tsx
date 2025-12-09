@@ -51,7 +51,7 @@ export default function NotificacoesDetalhesScreen(props: any) {
         const response = await api.get(`/notificacoes/${idNotificacao}`, { headers })
         setListaNotificacao(response.data.results)
       } catch (error: any) {
-        console.log('ERRO GET Detalhe Notificação: ', error)
+        console.error('ERRO GET Detalhe Notificação: ', error)
       }
     }
     postVisualiza()
