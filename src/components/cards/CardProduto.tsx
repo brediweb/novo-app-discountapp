@@ -310,7 +310,7 @@ export default function CardProduto(
         const headers = {
           Authorization: `Bearer ${newJson.token}`,
         };
-        const response = await api.get(`/landing-page/depoimentos`, { headers });
+        const response = await api.get(`/avaliacoes/${id_anunciante}`, { headers });
         if (response.data.results?.depoimentos && Array.isArray(response.data.results.depoimentos)) {
           setDepoimentos(response.data.results.depoimentos);
         }

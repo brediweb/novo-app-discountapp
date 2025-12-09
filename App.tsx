@@ -3,7 +3,6 @@ import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import {
   Platform,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   View
@@ -38,7 +37,7 @@ import {
 } from '@expo-google-fonts/poppins';
 import { Roboto_500Medium } from '@expo-google-fonts/roboto';
 import { OneSignal } from 'react-native-onesignal';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
